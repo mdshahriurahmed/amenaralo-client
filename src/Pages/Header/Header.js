@@ -44,7 +44,9 @@ const Header = () => {
         <div className='main_nav  px-16 pt-3 pb-4 bg-secondary shadow-lg'>
             <div className='top-nav flex justify-between items-center'>
                 <div className='site-logo '>
-                    <img className='w-60' src={logo} alt="site logo" />
+                    <Link to="/" onClick={() => setOpen(false)}>
+                        <img className='w-60' src={logo} alt="site logo" />
+                    </Link>
                 </div>
                 <div className='menu-items '>
                     <ul className='text-end '>
