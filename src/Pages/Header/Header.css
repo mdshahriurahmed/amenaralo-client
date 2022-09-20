@@ -1,0 +1,8 @@
+/*----------- font for the header-------------*/
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500&display=swap');
+
+.main_nav {
+    font-family: 'Saira Condensed';
+    font-weight: 500;
+
+}
