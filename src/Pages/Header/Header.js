@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Header.css"
 import { Link } from 'react-router-dom';
-import logo from "../../Media/logo.png"
+import logo from "../../Media/l.png"
 
 const Header = () => {
     // ------ Used this to open and close side navbar for mobile view ------------
@@ -41,12 +41,12 @@ const Header = () => {
     </>
 
     return (
-        <div className='main_nav  px-16 py-3 bg-secondary shadow-lg'>
+        <div className='main_nav  px-16 pt-3 pb-4 bg-secondary shadow-lg'>
             <div className='top-nav flex justify-between items-center'>
                 <div className='site-logo '>
-                    <img className='w-44' src={logo} alt="site logo" />
+                    <img className='w-60' src={logo} alt="site logo" />
                 </div>
-                <div className='menu-items py-3'>
+                <div className='menu-items '>
                     <ul className='text-end '>
                         {menuItems}
                     </ul>
