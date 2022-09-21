@@ -1,15 +1,18 @@
+import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './Pages/Footer/Footer';
 import Header from './Pages/Header/Header';
-import Home from './Pages/Home/Home';
+const Home = React.lazy(() => import('./Pages/Home/Home'));
 
 function App() {
   return (
     <div className="App min-h-screen">
       <Header></Header>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/' element={<Suspense fallback={<div>Loading...</div>}>
+          <Home />
+        </Suspense>}></Route>
       </Routes>
 
       <Footer></Footer>

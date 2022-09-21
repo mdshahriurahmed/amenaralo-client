@@ -1,9 +1,12 @@
-import React from 'react';
-import Banner from "./Banner/Banner"
+import React, { Suspense } from 'react';
+const Banner = React.lazy(() => import("./Banner/Banner"));
 const Home = () => {
     return (
         <div className='mt-16 z-0 '>
-            <Banner></Banner>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Banner />
+            </Suspense>
+
         </div>
     );
 };
