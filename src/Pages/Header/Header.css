@@ -4,5 +4,49 @@
 .main_nav {
     font-family: 'Saira Condensed';
     font-weight: 500;
+    z-index: 5;
+}
 
+.hamberger {
+    display: none;
+}
+
+.sidebarOpen {
+    display: none;
+}
+
+
+
+.sidebarClose {
+    display: none;
+}
+
+
+
+@media screen and (max-width:1020px) {
+    .menu-items {
+        display: none;
+    }
+
+    .hamberger {
+        display: block;
+    }
+
+    .sidebarOpen {
+        display: block;
+        position: fixed;
+        animation: mymove1 forwards;
+        animation-duration: 1s;
+    }
+
+
+    @keyframes mymove1 {
+        from {
+            left: -300px;
+        }
+
+        to {
+            left: 0px;
+        }
+    }
 }
