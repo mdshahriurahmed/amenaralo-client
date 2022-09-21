@@ -75,14 +75,14 @@ const Header = () => {
 
     return (
         <div className='main_nav fixed top-0 w-full'>
-            <div className='  md:px-16 px-6 pt-3 pb-4 bg-secondary shadow-lg'>
+            <div className='  md:px-16 px-6 pt-2 pb-2.5 bg-secondary shadow-lg'>
                 <div className='top-nav flex justify-between items-center'>
                     <div className='site-logo '>
                         <Link to="/" onClick={() => {
                             setOpen(false)
                             setActivemenu("/")
                         }}>
-                            <img className='w-60' src={logo} alt="site logo" />
+                            <img className='w-56' src={logo} alt="site logo" />
                         </Link>
                     </div>
                     <div className='flex items-center'>
