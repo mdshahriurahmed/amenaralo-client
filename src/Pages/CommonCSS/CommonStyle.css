@@ -1,0 +1,17 @@
+/* ------------this font is for only headers----------- */
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap');
+
+/* This css class is for all headers */
+.common_head {
+    font-family: 'Philosopher';
+    font-weight: 700;
+    font-size: 50px;
+}
+
+@media screen and (max-width:500px) {
+    .common_head {
+
+        font-size: 30px;
+    }
+
+}

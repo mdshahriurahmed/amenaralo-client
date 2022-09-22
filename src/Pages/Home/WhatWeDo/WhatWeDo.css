@@ -1,0 +1,33 @@
+.edu_img_width {
+    width: 45%;
+}
+
+.edu-content-width {
+    width: 55%;
+}
+
+.flexible-edu {
+    display: flex;
+}
+
+.edu-text-padding {
+    padding-left: 30px;
+}
+
+@media screen and (max-width:935px) {
+    .flexible-edu {
+        flex-direction: column;
+    }
+
+    .edu_img_width {
+        width: 100%;
+    }
+
+    .edu-content-width {
+        width: 100%;
+    }
+
+    .edu-text-padding {
+        padding-left: 0;
+    }
+}

@@ -1,11 +1,25 @@
-.slider_image {
-    height: 600px;
-}
-
 .swiper-button-prev {
     color: #FF6600;
 }
 
 .swiper-button-next {
     color: #FF6600;
+
+
+}
+
+.swiper-pagination-bullet-active {
+
+    background-color: #FF6600;
+}
+
+@media screen and (max-width:500px) {
+    .swiper-button-prev {
+        display: none;
+    }
+
+    .swiper-button-next {
+        display: none;
+    }
+
 }
