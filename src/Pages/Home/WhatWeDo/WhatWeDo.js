@@ -14,6 +14,7 @@ const WhatWeDo = () => {
                     <div className='edu-text-padding edu-content-width flex flex-col md:justify-center'>
                         <h1 className="text-4xl font-bold md:text-start">Education</h1>
                         <p className="py-6 md:text-start">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+
                         <div> <button className="btn btn-sm rounded:sm btn-primary md:flex md:justify-start">Get Started</button></div>
                     </div>
                 </div>

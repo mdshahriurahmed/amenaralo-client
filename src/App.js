@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './Pages/Footer/Footer';
 import Header from './Pages/Header/Header';
+import Loader from './Pages/Loader/Loader';
 import Loading from './Pages/Loading/Loading';
 const Home = React.lazy(() => import('./Pages/Home/Home'));
 
@@ -25,7 +26,7 @@ function App() {
           <>
             <Header></Header>
             <Routes>
-              <Route path='/' element={<Suspense fallback={<div>Loading...</div>}>
+              <Route path='/' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <Home />
               </Suspense>}></Route>
             </Routes>
