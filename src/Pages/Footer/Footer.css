@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500&display=swap');
+
+footer h3 {
+    font-family: 'Philosopher';
+}
+
+footer p {
+    font-family: 'Saira Condensed';
+    color: rgb(95, 95, 95);
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.flexible_footer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.common_divs {
+    padding-top: 58px;
+}
+
+.our_foundation a {
+    font-family: 'Saira Condensed';
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(95, 95, 95);
+}
+
+.our_foundation a:hover {
+    color: #ff6600;
+}
+
+.social_flex_footer {
+    display: flex;
+    margin-top: 15px;
+}
+
+.social_icon_footer {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+}
+
+#copyright {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social_flex_footer img:hover {
+    filter: grayscale(100%) brightness(60%) sepia(100%) hue-rotate(-50deg) saturate(1000%) contrast(2);
+}
+
+@media screen and (max-width: 900px) {
+    .flexible_footer {
+
+        grid-template-columns: auto auto auto;
+
+    }
+
+    .get_in_touch {
+        padding-top: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .flexible_footer {
+        text-align: start;
+    }
+
+}
+
+@media screen and (max-width: 730px) {
+    .flexible_footer {
+
+        grid-template-columns: auto auto;
+
+    }
+
+    .policies {
+        padding-top: 20px;
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+    .flexible_footer {
+
+        grid-template-columns: auto;
+        justify-content: center;
+
+    }
+
+    .common_divs {
+        padding-top: 20px;
+    }
+
+    .flexible_footer {
+        text-align: center;
+    }
+
+
+}
