@@ -99,7 +99,7 @@ const Header = () => {
                 </div>
 
             </div>
-            <div className={`h-screen shadow-lg w-60  py-6  ${open ? "sidebarOpen" : "sidebarClose"} `} >
+            <div className={`h-screen bg-secondary shadow-lg w-60  py-6  ${open ? "sidebarOpen" : "sidebarClose"} `} >
                 <ul className='text-start flex flex-col'>
                     {menuItems1}
                 </ul>
