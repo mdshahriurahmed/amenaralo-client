@@ -26,7 +26,7 @@ const Footer = () => {
 
                 </div>
                 <div className='common_divs our_foundation '>
-                    <h3 className='font-bold text-3xl '>Our Foundation</h3>
+                    <h3 className='font-bold text-3xl '>Explore</h3>
                     <Link to='/' >Home</Link> <br />
                     <Link to='/about_us' >ABOUT US</Link> <br />
                     <Link to='/team'>WHAT WE DO</Link> <br />

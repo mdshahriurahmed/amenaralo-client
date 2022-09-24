@@ -5,13 +5,16 @@
 .common_head {
     font-family: 'Philosopher';
     font-weight: 700;
-    font-size: 50px;
+    font-size: 45px;
+    text-transform: uppercase;
+    line-height: 55px;
 }
 
 @media screen and (max-width:500px) {
     .common_head {
 
-        font-size: 30px;
+        font-size: 27px;
+        line-height: 35px;
     }
 
 }
