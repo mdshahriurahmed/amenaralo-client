@@ -33,7 +33,7 @@ export default function App() {
 
                 <SwiperSlide>
                     <div>
-                        <img src={slide1} alt="" />
+                        <img src={slide1} alt="" className="w-full" />
                         <div className="absolute top-0 h-full w-full flex flex-col justify-center items-center contents-center hero-overlay bg-opacity-60">
                             <div className="lg:px-28 md:px-28 px-10">
                                 <h3 className="text-primary lg:text-6xl md:text-5xl text-3xl  font-bold md:mb-5 mb-2">Hello there</h3>
@@ -44,7 +44,7 @@ export default function App() {
                     </div></SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <img src={slide1} alt="" />
+                        <img src={slide1} alt="" className="w-full" />
                         <div className="absolute top-0 h-full w-full flex flex-col justify-center items-center contents-center hero-overlay bg-opacity-60">
                             <div className="lg:px-28 md:px-28 px-10">
                                 <h3 className="text-primary lg:text-6xl md:text-5xl text-3xl  font-bold md:mb-5 mb-2">Hello there</h3>
@@ -55,7 +55,7 @@ export default function App() {
                     </div></SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <img src={slide1} alt="" />
+                        <img src={slide1} alt="" className="w-full" />
                         <div className="absolute top-0 h-full w-full flex flex-col justify-center items-center contents-center hero-overlay bg-opacity-60">
                             <div className="lg:px-28 md:px-28 px-10">
                                 <h3 className="text-primary lg:text-6xl md:text-5xl text-3xl  font-bold md:mb-5 mb-2">Hello there</h3>
@@ -66,7 +66,7 @@ export default function App() {
                     </div></SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <img src={slide1} alt="" />
+                        <img src={slide1} alt="" className="w-full" />
                         <div className="absolute top-0 h-full w-full flex flex-col justify-center items-center contents-center hero-overlay bg-opacity-60">
                             <div className="lg:px-28 md:px-28 px-10">
                                 <h3 className="text-primary lg:text-6xl md:text-5xl text-3xl  font-bold md:mb-5 mb-2">Hello there</h3>
