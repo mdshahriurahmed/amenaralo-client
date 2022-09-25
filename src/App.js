@@ -6,10 +6,10 @@ import Header from './Pages/Header/Header';
 import Loader from './Pages/Loader/Loader';
 import Loading from './Pages/Loading/Loading';
 const Home = React.lazy(() => import('./Pages/Home/Home'));
+const AboutUs = React.lazy(() => import('./Pages/AboutUs/AboutUs'));
 
 function App() {
   let [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     setLoading(true);
@@ -28,7 +28,15 @@ function App() {
             <Routes>
               <Route path='/' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <Home />
-              </Suspense>}></Route>
+              </Suspense>}>
+
+              </Route>
+
+              <Route path='/about' element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <AboutUs></AboutUs>
+              </Suspense>}>
+
+              </Route>
             </Routes>
             <Footer></Footer>
           </>

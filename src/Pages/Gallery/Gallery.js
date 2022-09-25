@@ -14,72 +14,94 @@ const Gallery = () => {
         <div className='mt-8 md:mt-20   md:px-16 px-6'>
             <h1 className='common_head  mb-4'>Gallery </h1>
 
-            <div className='gallery_grid'>
-                <div className='h-56 w-72  gl m-6 shadow-lg'>
-                    <img src={gall} alt="" className='h-48 w-full ' />
-                    <div className='h-8 bg-secondary flex items-center justify-between px-3'>
-                        <div><p className='text-start'>Lorem text example</p></div>
-                        {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                        <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                    </div>
-                </div>
-                <div className='h-56 w-72  gl m-6 shadow-lg'>
-                    <img src={gall1} alt="" className='h-48 w-full ' />
-                    <div className='h-8 bg-secondary flex items-center justify-between px-3'>
-                        <div><p className='text-start'>Lorem text example</p></div>
-                        {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                        <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                    </div>
-                </div>
-                <div className='h-56 w-72  gl m-6 shadow-lg'>
-                    <img src={gall2} alt="" className='h-48 w-full ' />
-                    <div className='h-8 bg-secondary flex items-center justify-between px-3'>
-                        <div><p className='text-start'>Lorem text example</p></div>
-                        {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                        <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                    </div>
-                </div>
-                <div className='h-56 w-72  gl m-6 shadow-lg'>
-                    <img src={gall3} alt="" className='h-48 w-full ' />
-                    <div className='h-8 bg-secondary flex items-center justify-between px-3'>
-                        <div><p className='text-start'>Lorem text example</p></div>
-                        {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                        <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                    </div>
-                </div>
-                <div className='h-56 w-72  gl m-6 shadow-lg'>
-                    <img src={gall4} alt="" className='h-48 w-full ' />
-                    <div className='h-8 bg-secondary flex items-center justify-between px-3'>
-                        <div><p className='text-start'>Lorem text example</p></div>
-                        {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                        <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                    </div>
-                </div>
-                <div className='h-56 w-72  gl m-6 shadow-lg'>
-                    <img src={gall2} alt="" className='h-48 w-full ' />
-                    <div className='h-8 bg-secondary flex items-center justify-between px-3'>
-                        <div><p className='text-start'>Lorem text example</p></div>
-                        {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                        <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                    </div>
-                </div>
-                <div className='h-56 w-72  gl m-6 shadow-lg'>
-                    <img src={gall4} alt="" className='h-48 w-full ' />
-                    <div className='h-8 bg-secondary flex items-center justify-between px-3'>
-                        <div><p className='text-start'>Lorem text example</p></div>
-                        {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                        <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                    </div>
-                </div>
-                <div className='h-56 w-72  gl m-6 shadow-lg'>
-                    <img src={gall1} alt="" className='h-48 w-full ' />
-                    <div className='h-8 bg-secondary flex items-center justify-between px-3'>
-                        <div><p className='text-start'>Lorem text example</p></div>
-                        {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                        <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                    </div>
-                </div>
 
+            <div className='gallery_grid'>
+                <label for="my-modal-3" className='cursor-pointer' >
+                    <div className='h-56 w-72  gl m-6 shadow-lg'>
+                        <img src={gall} alt="" className='h-48 w-full ' />
+                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
+                            <div><p className='text-start'>Lorem text example</p></div>
+                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
+                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="my-modal-3" className='cursor-pointer' >
+                    <div className='h-56 w-72  gl m-6 shadow-lg'>
+                        <img src={gall1} alt="" className='h-48 w-full ' />
+                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
+                            <div><p className='text-start'>Lorem text example</p></div>
+                            <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="my-modal-3" className='cursor-pointer' >
+                    <div className='h-56 w-72  gl m-6 shadow-lg'>
+                        <img src={gall2} alt="" className='h-48 w-full ' />
+                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
+                            <div><p className='text-start'>Lorem text example</p></div>
+                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
+                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="my-modal-3" className='cursor-pointer' >
+                    <div className='h-56 w-72  gl m-6 shadow-lg'>
+                        <img src={gall3} alt="" className='h-48 w-full ' />
+                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
+                            <div><p className='text-start'>Lorem text example</p></div>
+                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
+                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="my-modal-3" className='cursor-pointer' >
+                    <div className='h-56 w-72  gl m-6 shadow-lg'>
+                        <img src={gall4} alt="" className='h-48 w-full ' />
+                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
+                            <div><p className='text-start'>Lorem text example</p></div>
+                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
+                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="my-modal-3" className='cursor-pointer' >
+                    <div className='h-56 w-72  gl m-6 shadow-lg'>
+                        <img src={gall2} alt="" className='h-48 w-full ' />
+                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
+                            <div><p className='text-start'>Lorem text example</p></div>
+                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
+                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="my-modal-3" className='cursor-pointer' >
+                    <div className='h-56 w-72  gl m-6 shadow-lg'>
+                        <img src={gall4} alt="" className='h-48 w-full ' />
+                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
+                            <div><p className='text-start'>Lorem text example</p></div>
+                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
+                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="my-modal-3" className='cursor-pointer' >
+                    <div className='h-56 w-72  gl m-6 shadow-lg'>
+                        <img src={gall1} alt="" className='h-48 w-full ' />
+                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
+                            <div><p className='text-start'>Lorem text example</p></div>
+                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
+                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
+                        </div>
+                    </div>
+                </label>
 
             </div>
             <input type="checkbox" id="my-modal-3" class="modal-toggle" />

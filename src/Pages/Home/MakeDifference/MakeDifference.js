@@ -1,8 +1,6 @@
 import React from 'react';
 import "./MakeDifference.css"
 import "../../CommonCSS/CommonStyle.css"
-import video1 from "../../../video/video.mp4"
-import ReactPlayer from 'react-player'
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 const MakeDifference = () => {

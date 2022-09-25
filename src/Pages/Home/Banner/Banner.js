@@ -37,8 +37,8 @@ export default function App() {
                         <div className="absolute top-0 h-full w-full flex flex-col justify-center items-center contents-center hero-overlay bg-opacity-60">
                             <div className="lg:px-28 md:px-28 px-10">
                                 <h3 className="text-primary lg:text-6xl md:text-5xl text-3xl  font-bold md:mb-5 mb-2">Hello there</h3>
-                                <p className="text-secondary mb-2 md:mb-5 md:text-lg text-sm">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                                <button className="bg-primary hover:bg-accent px-3 py-2 rounded-md "><p className="font-medium text-secondary">Get Started</p></button>
+                                <p className="text-base-100 mb-2 md:mb-5 md:text-lg text-sm">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                                <button className="bg-primary hover:bg-accent px-3 py-2 rounded-md "><p className="font-medium text-base-100">Get Started</p></button>
                             </div>
                         </div>
                     </div></SwiperSlide>
@@ -48,8 +48,8 @@ export default function App() {
                         <div className="absolute top-0 h-full w-full flex flex-col justify-center items-center contents-center hero-overlay bg-opacity-60">
                             <div className="lg:px-28 md:px-28 px-10">
                                 <h3 className="text-primary lg:text-6xl md:text-5xl text-3xl  font-bold md:mb-5 mb-2">Hello there</h3>
-                                <p className="text-secondary mb-2 md:mb-5 md:text-lg  text-sm">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                                <button className="bg-primary hover:bg-accent px-3 py-2 rounded-md "><p className="font-medium text-secondary">Get Started</p></button>
+                                <p className="text-base-100 mb-2 md:mb-5 md:text-lg  text-sm">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                                <button className="bg-primary hover:bg-accent px-3 py-2 rounded-md "><p className="font-medium text-base-100">Get Started</p></button>
                             </div>
                         </div>
                     </div></SwiperSlide>
@@ -59,8 +59,8 @@ export default function App() {
                         <div className="absolute top-0 h-full w-full flex flex-col justify-center items-center contents-center hero-overlay bg-opacity-60">
                             <div className="lg:px-28 md:px-28 px-10">
                                 <h3 className="text-primary lg:text-6xl md:text-5xl text-3xl  font-bold md:mb-5 mb-2">Hello there</h3>
-                                <p className="text-secondary mb-2 md:mb-5 md:text-lg  text-sm">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                                <button className="bg-primary hover:bg-accent px-3 py-2 rounded-md "><p className="font-medium text-secondary">Get Started</p></button>
+                                <p className="text-base-100 mb-2 md:mb-5 md:text-lg  text-sm">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                                <button className="bg-primary hover:bg-accent px-3 py-2 rounded-md "><p className="font-medium text-base-100">Get Started</p></button>
                             </div>
                         </div>
                     </div></SwiperSlide>
@@ -70,8 +70,8 @@ export default function App() {
                         <div className="absolute top-0 h-full w-full flex flex-col justify-center items-center contents-center hero-overlay bg-opacity-60">
                             <div className="lg:px-28 md:px-28 px-10">
                                 <h3 className="text-primary lg:text-6xl md:text-5xl text-3xl  font-bold md:mb-5 mb-2">Hello there</h3>
-                                <p className="text-secondary mb-2 md:mb-5 md:text-lg  text-sm">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                                <button className="bg-primary hover:bg-accent px-3 py-2 rounded-md "><p className="font-medium text-secondary">Get Started</p></button>
+                                <p className="text-base-100 mb-2 md:mb-5 md:text-lg  text-sm">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                                <button className="bg-primary hover:bg-accent px-3 py-2 rounded-md "><p className="font-medium text-base-100">Get Started</p></button>
                             </div>
                         </div>
                     </div></SwiperSlide>

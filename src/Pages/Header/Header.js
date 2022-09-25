@@ -13,28 +13,28 @@ const Header = () => {
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("about")
-        }} to='/about_us'
-            className={`${activemenu === "about" ? "bg-primary text-white px-3 rounded" : "bg-secondary"}`}   >
+        }} to='/about'
+            className={`${activemenu === "about" ? "bg-primary text-white px-3 rounded" : "bg-base-100"}`}   >
             ABOUT US</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("what_we_do")
         }} to='/team'
-            className={`${activemenu === "what_we_do" ? "bg-primary text-white px-3 rounded" : "bg-secondary"} ml-5`} >WHAT WE DO</Link>
+            className={`${activemenu === "what_we_do" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`} >WHAT WE DO</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("progress")
         }} to='/pipeline'
-            className={`${activemenu === "progress" ? "bg-primary text-white px-3 rounded" : "bg-secondary"} ml-5`}>PROGRES ANALYSIS</Link>
+            className={`${activemenu === "progress" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`}>PROGRES ANALYSIS</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("media")
         }} to='/career'
-            className={`${activemenu === "media" ? "bg-primary text-white px-3 rounded" : "bg-secondary"} ml-5`} >MEDIA &amp; STORIES</Link>
+            className={`${activemenu === "media" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`} >MEDIA &amp; STORIES</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("contact")
-        }} to='/contact' className={`${activemenu === "contact" ? "bg-primary text-white px-3 rounded" : "bg-secondary"} ml-5`}>CONTACT</Link>
+        }} to='/contact' className={`${activemenu === "contact" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`}>CONTACT</Link>
         <Link onClick={() => {
             setOpen(false)
         }} to='/contact' className="ml-5 ">| <span className='ml-5 text-primary'>LOGIN</span></Link>
@@ -45,28 +45,28 @@ const Header = () => {
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("about")
-        }} to='/about_us'
-            className={`${activemenu === "about" ? "bg-primary text-white  " : "bg-secondary"} md:px-16 px-6 py-1`}   >
+        }} to='/about'
+            className={`${activemenu === "about" ? "bg-primary text-white  " : "bg-base-100"} md:px-16 px-6 py-1`}   >
             ABOUT US</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("what_we_do")
         }} to='/team'
-            className={`${activemenu === "what_we_do" ? "bg-primary text-white  " : "bg-secondary"} md:px-16 px-6 py-1`} >WHAT WE DO</Link>
+            className={`${activemenu === "what_we_do" ? "bg-primary text-white  " : "bg-base-100"} md:px-16 px-6 py-1`} >WHAT WE DO</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("progress")
         }} to='/pipeline'
-            className={`${activemenu === "progress" ? "bg-primary text-white " : "bg-secondary"} md:px-16 px-6 py-1`}>PROGRES ANALYSIS</Link>
+            className={`${activemenu === "progress" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`}>PROGRES ANALYSIS</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("media")
         }} to='/career'
-            className={`${activemenu === "media" ? "bg-primary text-white " : "bg-secondary"} md:px-16 px-6 py-1`} >MEDIA &amp; STORIES</Link>
+            className={`${activemenu === "media" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`} >MEDIA &amp; STORIES</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("contact")
-        }} to='/contact' className={`${activemenu === "contact" ? "bg-primary text-white " : "bg-secondary"} md:px-16 px-6 py-1`}>CONTACT</Link>
+        }} to='/contact' className={`${activemenu === "contact" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`}>CONTACT</Link>
         <Link onClick={() => {
             setOpen(false)
         }} to='/contact' className='md:px-16 px-6 py-1 text-primary'>LOGIN</Link>
@@ -75,7 +75,7 @@ const Header = () => {
 
     return (
         <div className='main_nav fixed top-0 w-full'>
-            <div className='  md:px-16 px-6 pt-2 pb-2.5 bg-secondary shadow-lg'>
+            <div className='  md:px-16 px-6 pt-2 pb-2.5 bg-base-100 shadow-lg'>
                 <div className='top-nav flex justify-between items-center'>
                     <div className='site-logo '>
                         <Link to="/" onClick={() => {
@@ -99,7 +99,7 @@ const Header = () => {
                 </div>
 
             </div>
-            <div className={`h-screen bg-secondary shadow-lg w-60  py-6  ${open ? "sidebarOpen" : "sidebarClose"} `} >
+            <div className={`h-screen bg-base-100 shadow-lg w-60  py-6  ${open ? "sidebarOpen" : "sidebarClose"} `} >
                 <ul className='text-start flex flex-col'>
                     {menuItems1}
                 </ul>

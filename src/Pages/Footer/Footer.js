@@ -12,11 +12,11 @@ const Footer = () => {
     const d = new Date();
     let year = d.getFullYear();
     return (
-        <footer className='bg-secondary border-t border-primary md:px-16 px-6 pt-6 mt-60'>
+        <footer className='bg-base-100 border-t border-primary md:px-16 px-6 pt-6 mt-60'>
             <div className='flexible_footer md:text-start'>
                 <div >
                     <img className='w-60 -ml-2' src={logo} alt="" />
-                    <h3 className='font-bold text-3xl '>Office</h3>
+                    <h3 className='font-bold text-3xl text-secondary'>Office</h3>
 
                     <p >Central Road, Dhaka <br />
                         Mobile: +880 1711520429 (BD)<br />
@@ -26,7 +26,7 @@ const Footer = () => {
 
                 </div>
                 <div className='common_divs our_foundation '>
-                    <h3 className='font-bold text-3xl '>Explore</h3>
+                    <h3 className='font-bold text-3xl text-secondary'>Explore</h3>
                     <Link to='/' >Home</Link> <br />
                     <Link to='/about_us' >ABOUT US</Link> <br />
                     <Link to='/team'>WHAT WE DO</Link> <br />
@@ -37,7 +37,7 @@ const Footer = () => {
                 </div>
 
                 <div className='common_divs our_foundation policies'>
-                    <h3 className='font-bold text-3xl '>Policies</h3>
+                    <h3 className='font-bold text-3xl text-secondary'>Policies</h3>
                     <Link to='/'>Cookie policy
                     </Link> <br />
                     <Link to='/'>Diversity, Equity and <br /> Inclusion policy
@@ -48,7 +48,7 @@ const Footer = () => {
 
                 </div>
                 <div className='common_divs our_foundation get_in_touch'>
-                    <h3 className='font-bold text-3xl '>Get In Touch</h3>
+                    <h3 className='font-bold text-3xl text-secondary'>Get In Touch</h3>
                     <Link to='/career'>Career</Link> <br />
                     <Link to='/contact'>Contact</Link> <br />
                     <a href="https://privateemail.com/" target='_blank' rel='noreferrer'>Web Mail</a> <br />
@@ -61,8 +61,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div >
-                <p id='copyright'>© AVIX PHARMACEUTICALS LIMITED {year}</p>
+            <div className='md:-mx-16 -mx-6  border-t border-primary'>
+                <p className=' py-5'>© Amenar ALo Foundation {year} | Developed by Avix Pharmaceuticals Limited</p>
             </div>
         </footer>
     );
