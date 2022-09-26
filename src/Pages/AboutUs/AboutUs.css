@@ -3,7 +3,7 @@
 
 .banner-content-about {
     height: 500px;
-    background-image: url(https://i.ibb.co/qJVFBtw/1.png);
+    background-image: url(https://i.ibb.co/xYWmKv2/children-day-16549327424x3-1-1-1-1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -42,6 +42,24 @@
 }
 
 
+.goal_img_width {
+    width: 45%;
+}
+
+.goal-content-width {
+    width: 55%;
+}
+
+.flexible-goal {
+    display: flex;
+}
+
+.goal-text-padding {
+    padding-right: 30px;
+}
+
+
+
 @media screen and (max-width:1023px) {
     .banner-content-about {
         height: 300px;
@@ -71,5 +89,22 @@
 
     .ceo-text-padding1 {
         padding-left: 0;
+    }
+
+    .flexible-goal {
+        flex-direction: column-reverse;
+    }
+
+    .goal_img_width {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .goal-content-width {
+        width: 100%;
+    }
+
+    .goal-text-padding {
+        padding-right: 0;
     }
 }
