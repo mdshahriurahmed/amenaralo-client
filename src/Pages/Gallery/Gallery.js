@@ -7,111 +7,49 @@ import gall2 from "../../Media/c2.jpg"
 import gall3 from "../../Media/c3.jpg"
 import gall4 from "../../Media/c4.jpg"
 import { ViewfinderCircleIcon } from '@heroicons/react/24/solid';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import Gmodal from '../GalleryModal/Gmodal';
 
 
 const Gallery = () => {
+
+    const [gimage, setGimage] = useState(null);
+    const [gallery, setGallery] = useState([]);
+    useEffect(() => {
+        fetch('https://fast-dawn-11728.herokuapp.com/gallery')
+            .then(res => res.json())
+            .then(data => setGallery(data))
+    }, [])
     return (
         <div className='mt-8 md:mt-20   md:px-16 px-6'>
             <h1 className='common_head  mb-4'>Gallery </h1>
 
 
             <div className='gallery_grid'>
-                <label for="my-modal-3" className='cursor-pointer' >
-                    <div className='h-56 w-72  gl m-6 shadow-lg'>
-                        <img src={gall} alt="" className='h-48 w-full ' />
-                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
-                            <div><p className='text-start'>Lorem text example</p></div>
-                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="my-modal-3" className='cursor-pointer' >
-                    <div className='h-56 w-72  gl m-6 shadow-lg'>
-                        <img src={gall1} alt="" className='h-48 w-full ' />
-                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
-                            <div><p className='text-start'>Lorem text example</p></div>
-                            <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="my-modal-3" className='cursor-pointer' >
-                    <div className='h-56 w-72  gl m-6 shadow-lg'>
-                        <img src={gall2} alt="" className='h-48 w-full ' />
-                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
-                            <div><p className='text-start'>Lorem text example</p></div>
-                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="my-modal-3" className='cursor-pointer' >
-                    <div className='h-56 w-72  gl m-6 shadow-lg'>
-                        <img src={gall3} alt="" className='h-48 w-full ' />
-                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
-                            <div><p className='text-start'>Lorem text example</p></div>
-                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="my-modal-3" className='cursor-pointer' >
-                    <div className='h-56 w-72  gl m-6 shadow-lg'>
-                        <img src={gall4} alt="" className='h-48 w-full ' />
-                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
-                            <div><p className='text-start'>Lorem text example</p></div>
-                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="my-modal-3" className='cursor-pointer' >
-                    <div className='h-56 w-72  gl m-6 shadow-lg'>
-                        <img src={gall2} alt="" className='h-48 w-full ' />
-                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
-                            <div><p className='text-start'>Lorem text example</p></div>
-                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="my-modal-3" className='cursor-pointer' >
-                    <div className='h-56 w-72  gl m-6 shadow-lg'>
-                        <img src={gall4} alt="" className='h-48 w-full ' />
-                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
-                            <div><p className='text-start'>Lorem text example</p></div>
-                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="my-modal-3" className='cursor-pointer' >
-                    <div className='h-56 w-72  gl m-6 shadow-lg'>
-                        <img src={gall1} alt="" className='h-48 w-full ' />
-                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
-                            <div><p className='text-start'>Lorem text example</p></div>
-                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
-                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
-                        </div>
-                    </div>
-                </label>
+                {
+                    gallery.map(image => {
+                        return (
+                            <div>
+                                <label for="my-modal-3" className='cursor-pointer' onClick={() => setGimage(image)}>
+                                    <div className='h-56 w-72  gl m-6 shadow-lg'>
+                                        <img src={image.img} alt="" className='h-48 w-full ' />
+                                        <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
+                                            <div><p className='text-start'>Hello</p></div>
+                                            {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}
+                                            <label for="my-modal-3" > <ViewfinderCircleIcon className='text-end text-primary w-6 cursor-pointer'></ViewfinderCircleIcon></label>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        )
+                    })
+                }
 
             </div>
-            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="text-lg font-bold">Congratulations random Internet user!</h3>
-                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free! You've been selected for a chance to get one year of subscription to use Wikipedia for free!You've been selected for a chance to get one year of subscription to use Wikipedia for free!You've been selected for a chance to get one year of subscription to use Wikipedia for free! You've been selected for a chance to get one year of subscription to use Wikipedia for free!You've been selected for a chance to get one year of subscription to use Wikipedia for free!You've been selected for a chance to get one year of subscription to use Wikipedia for free!You've been selected for a chance to get one year of subscription to use Wikipedia for free!You've been selected for a chance to get one year of subscription to use Wikipedia for free!You've been selected for a chance to get one year of subscription to use Wikipedia for free! </p>
-                </div>
-            </div>
+            {gimage && <Gmodal
+                gimage={gimage}></Gmodal>}
+
 
         </div>
     );
