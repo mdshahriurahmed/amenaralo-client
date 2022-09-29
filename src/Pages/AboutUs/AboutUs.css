@@ -8,11 +8,6 @@
     background-repeat: no-repeat;
 }
 
-.banner-content-about h1 {
-    font-family: 'Philosopher';
-    -webkit-text-stroke: 1px #f79351;
-    text-shadow: 2px 2px 8px black;
-}
 
 .flexible-ceo-video {
     display: flex;

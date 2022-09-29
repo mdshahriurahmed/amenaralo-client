@@ -7,6 +7,7 @@ import Loader from './Pages/Loader/Loader';
 import Loading from './Pages/Loading/Loading';
 const Home = React.lazy(() => import('./Pages/Home/Home'));
 const AboutUs = React.lazy(() => import('./Pages/AboutUs/AboutUs'));
+const WhatWeDoMain = React.lazy(() => import('./Pages/WhatWeDoMain/WhatWeDoMain'));
 
 function App() {
   let [loading, setLoading] = useState(true);
@@ -34,6 +35,11 @@ function App() {
 
               <Route path='/about' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <AboutUs></AboutUs>
+              </Suspense>}>
+
+              </Route>
+              <Route path='/what_we_do' element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <WhatWeDoMain></WhatWeDoMain>
               </Suspense>}>
 
               </Route>

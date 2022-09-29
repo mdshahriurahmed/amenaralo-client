@@ -1,0 +1,112 @@
+.banner-content-we {
+    height: 500px;
+    background-image: url(https://i.ibb.co/3svyT2w/Renew-0-1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.flex_problem {
+    display: flex;
+    align-items: center;
+}
+
+.p_width1 {
+    width: 30%;
+}
+
+.p_width2 {
+    width: 70%;
+}
+
+.c_flex {
+    display: flex;
+}
+
+.h_width {
+    width: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.h_width ul {
+    text-align: start;
+    list-style: circle;
+
+}
+
+.h_width li::marker {
+
+    color: #ff6600;
+
+}
+
+.flexible-prob {
+    display: flex;
+}
+
+.prob_img_width {
+    width: 45%;
+}
+
+.prob-content-width {
+    width: 55%;
+}
+
+.prob-text-padding {
+    padding-left: 30px;
+}
+
+
+
+
+@media screen and (max-width:1023px) {
+    .banner-content-we {
+        height: 300px;
+
+    }
+
+}
+
+@media screen and (max-width:935px) {
+    .flexible-prob {
+        flex-direction: column;
+    }
+
+    .prob_img_width {
+        width: 100%;
+    }
+
+    .prob-content-width {
+        width: 100%;
+    }
+
+    .prob-text-padding {
+        padding-left: 0;
+    }
+
+    .flex_problem {
+        flex-direction: column-reverse;
+    }
+
+    .p_width1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .p_width2 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media screen and (max-width:500px) {
+    .c_flex {
+        flex-direction: column;
+    }
+
+    .h_width {
+        width: 100%;
+    }
+}

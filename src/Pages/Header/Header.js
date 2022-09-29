@@ -19,7 +19,7 @@ const Header = () => {
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("what_we_do")
-        }} to='/team'
+        }} to='/what_we_do'
             className={`${activemenu === "what_we_do" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`} >WHAT WE DO</Link>
         <Link onClick={() => {
             setOpen(false)
@@ -51,7 +51,7 @@ const Header = () => {
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("what_we_do")
-        }} to='/team'
+        }} to='/what_we_do'
             className={`${activemenu === "what_we_do" ? "bg-primary text-white  " : "bg-base-100"} md:px-16 px-6 py-1`} >WHAT WE DO</Link>
         <Link onClick={() => {
             setOpen(false)
