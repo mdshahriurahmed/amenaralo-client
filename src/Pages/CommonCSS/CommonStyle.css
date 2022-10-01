@@ -17,6 +17,15 @@
 }
 
 
+.second_head {
+
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 10px;
+
+}
+
+
 @media screen and (max-width:500px) {
     .common_head {
 
@@ -24,4 +33,16 @@
         line-height: 35px;
     }
 
+}
+
+@media screen and (max-width:535px) {
+    .second_head {
+
+
+        font-size: 17px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+
+
+    }
 }

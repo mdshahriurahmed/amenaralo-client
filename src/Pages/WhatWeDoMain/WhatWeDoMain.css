@@ -10,6 +10,11 @@
     align-items: center;
 }
 
+.flex_help {
+    display: flex;
+    align-items: center;
+}
+
 .p_width1 {
     width: 30%;
 }
@@ -56,7 +61,11 @@
     padding-left: 30px;
 }
 
-
+.art-bg {
+    background-image: url(https://i.ibb.co/FhrR68P/b-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 
 @media screen and (max-width:1023px) {
@@ -86,6 +95,11 @@
 
     .flex_problem {
         flex-direction: column-reverse;
+    }
+
+    .flex_help {
+        flex-direction: column;
+        margin-top: 20px;
     }
 
     .p_width1 {

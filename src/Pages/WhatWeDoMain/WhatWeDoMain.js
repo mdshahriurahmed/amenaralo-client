@@ -2,6 +2,7 @@ import React from 'react';
 import "./WhatWeDoMain.css"
 import "../CommonCSS/CommonStyle.css"
 import art from "../../Media/child-working.png"
+import child_school from "../../Media/child-school.png"
 
 
 const WhatWeDoMain = () => {
@@ -31,34 +32,68 @@ const WhatWeDoMain = () => {
                     </div>
                 </div>
             </div>
+            <div className='art-bg mt-8 lg:mt-24 md:mt-16 w-full'>
+                <div className='  md:px-16 px-6 pb-10'>
 
-            <div className='mt-8 lg:mt-24 md:mt-16  md:px-16 px-6'>
+                    <div className='flex_problem'>
+                        <div className='p_width1'>
+                            <img src={art} alt="" />
+                        </div>
+                        <div className='p_width2'>
+                            <h1 className='common_head  mb-4 md:mb-8'>How serious the problem</h1>
+                            <div className='c_flex'>
+                                <div className='h_width'>
+                                    <h3 className='second_head'>WORLDWIDE</h3>
+                                    <ul>
+                                        <li>124m children/young people have not started school or dropped out</li>
+                                        <li>Over a quarter of a billion children are out of school</li>
+                                        <li>420m children will not learn the most basic skills.</li>
+                                    </ul>
+                                </div>
+                                <div className='h_width '>
+                                    <h3 className='second_head'>IN BANGLADESH</h3>
+                                    <ul>
+                                        <li>124m children/young people have not started school or dropped out</li>
+                                        <li>Over a quarter of a billion children are out of school</li>
+                                        <li>420m children will not learn the most basic skills.</li>
+                                    </ul>
+                                </div>
+                            </div >
+                        </div>
+                    </div>
 
-                <div className='flex_problem'>
-                    <div className='p_width1'>
-                        <img src={art} alt="" />
-                    </div>
-                    <div className='p_width2'>
-                        <h1 className='common_head  mb-4 md:mb-8'>How serious the problem</h1>
-                        <div className='c_flex'>
-                            <div className='h_width'>
-                                <ul>
-                                    <li>124m children/young people have not started school or dropped out</li>
-                                    <li>Over a quarter of a billion children are out of school</li>
-                                    <li>420m children will not learn the most basic skills.</li>
-                                </ul>
-                            </div>
-                            <div className='h_width '>
-                                <ul>
-                                    <li>124m children/young people have not started school or dropped out</li>
-                                    <li>Over a quarter of a billion children are out of school</li>
-                                    <li>420m children will not learn the most basic skills.</li>
-                                </ul>
-                            </div>
-                        </div >
-                    </div>
                 </div>
 
+                <div className='  md:px-16 px-6 pb-10'>
+                    <div className='flex_help'>
+
+                        <div className='p_width2'>
+                            <h1 className='common_head  mb-4 md:mb-8'>How we are helping?</h1>
+                            <h3 className='md:text-2xl text-base font-bold md:-mt-5 -mt-3'>Here's a few of the things we're doing:</h3>
+                            <div className='c_flex mt-1 md:mt-3'>
+                                <div className='h_width'>
+
+                                    <ul>
+                                        <li>124m children/young people have not started school or dropped out</li>
+                                        <li>Over a quarter of a billion children are out of school</li>
+                                        <li>420m children will not learn the most basic skills.</li>
+                                    </ul>
+                                </div>
+                                <div className='h_width '>
+
+                                    <ul>
+                                        <li>124m children/young people have not started school or dropped out</li>
+                                        <li>Over a quarter of a billion children are out of school</li>
+                                        <li>420m children will not learn the most basic skills.</li>
+                                    </ul>
+                                </div>
+                            </div >
+                        </div>
+                        <div className='p_width1'>
+                            <img src={child_school} alt="" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
