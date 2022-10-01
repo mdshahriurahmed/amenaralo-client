@@ -1,0 +1,15 @@
+.banner-content-media {
+    height: 500px;
+    background-image: url(https://i.ibb.co/m6GcZfs/ngo-1366x630.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+@media screen and (max-width:1023px) {
+    .banner-content-media {
+        height: 300px;
+
+    }
+
+}

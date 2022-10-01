@@ -4,6 +4,7 @@ import WhatWeDo from "../Home/WhatWeDo/WhatWeDo"
 import Helped from "../Home/Helped/Helped"
 import MakeDifference from "../Home/MakeDifference/MakeDifference";
 import Gallery from "../Gallery/Gallery"
+import GoToTop from '../GoToTop/GoToTop';
 
 const Home = () => {
     return (
@@ -35,7 +36,7 @@ const Home = () => {
             <Gallery></Gallery>
 
             {/* ---------How we work to make a difference Section end here --------*/}
-
+            <GoToTop></GoToTop>
         </div>
     );
 };

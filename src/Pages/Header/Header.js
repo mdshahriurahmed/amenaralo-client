@@ -29,7 +29,7 @@ const Header = () => {
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("media")
-        }} to='/career'
+        }} to='/media_and_stories'
             className={`${activemenu === "media" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`} >MEDIA &amp; STORIES</Link>
         <Link onClick={() => {
             setOpen(false)

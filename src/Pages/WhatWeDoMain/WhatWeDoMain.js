@@ -4,6 +4,7 @@ import "../CommonCSS/CommonStyle.css"
 import art from "../../Media/child-working.png"
 import child_school from "../../Media/child-school.png"
 import Gallery from '../Gallery/Gallery';
+import GoToTop from '../GoToTop/GoToTop';
 
 
 const WhatWeDoMain = () => {
@@ -111,6 +112,7 @@ const WhatWeDoMain = () => {
             </div>
 
             <Gallery></Gallery>
+            <GoToTop></GoToTop>
         </div>
     );
 };

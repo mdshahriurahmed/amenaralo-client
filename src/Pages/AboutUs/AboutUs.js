@@ -6,6 +6,7 @@ import "../CommonCSS/CommonStyle.css"
 import cgoal from '../../Media/ce.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandsHoldingChild, faHandHoldingHeart, faPeopleLine } from '@fortawesome/free-solid-svg-icons';
+import GoToTop from "../GoToTop/GoToTop"
 const AboutUs = () => {
 
     return (
@@ -84,6 +85,7 @@ const AboutUs = () => {
 
                 </div>
             </div>
+            <GoToTop></GoToTop>
         </div>
     );
 };
