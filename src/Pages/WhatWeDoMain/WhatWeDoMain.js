@@ -3,6 +3,7 @@ import "./WhatWeDoMain.css"
 import "../CommonCSS/CommonStyle.css"
 import art from "../../Media/child-working.png"
 import child_school from "../../Media/child-school.png"
+import Gallery from '../Gallery/Gallery';
 
 
 const WhatWeDoMain = () => {
@@ -95,6 +96,21 @@ const WhatWeDoMain = () => {
                     </div>
                 </div>
             </div>
+            <div className='mt-8 md:mt-28  md:px-16 px-6'>
+                <div className='flexible-prob'>
+                    <div className='prob_img_width'>
+                        <img src="https://i.ibb.co/vYNvD05/s-going-boy.jpg" alt="tonmoy_image" className=' w-full rounded-lg' />
+                    </div>
+                    <div className='prob-text-padding prob-content-width flex flex-col md:justify-center'>
+                        <h1 className="text-4xl font-bold md:text-start">How We're Helping Tonmoy</h1>
+                        <p className="py-6 text-justify">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi. Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi. In deleniti eaque aut repudiandae et a id nisi.Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <Gallery></Gallery>
         </div>
     );
 };
