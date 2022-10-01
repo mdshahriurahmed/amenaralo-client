@@ -3,6 +3,8 @@ import "./Header.css"
 import { Link } from 'react-router-dom';
 import logo from "../../Media/l.png"
 import { Bars3Icon } from '@heroicons/react/24/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     // ------ Used this to open and close side navbar for mobile view ------------
@@ -92,7 +94,8 @@ const Header = () => {
                             </ul>
                         </div>
                         <div className='hamberger cursor-pointer'>
-                            <Bars3Icon className='w-8 text-primary' onClick={() => setOpen(!open)}></Bars3Icon>
+                            <FontAwesomeIcon className='w-8 text-primary text-2xl' onClick={() => setOpen(!open)} icon={faBars} />
+
                         </div>
                     </div>
 
