@@ -2,18 +2,22 @@ import React from 'react';
 import "./MediaCard.css"
 import c1 from "../../Media/c4.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faCircleChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faCircleChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
-const MediaCard = () => {
+const MediaCard = (props) => {
+    const navigate = useNavigate();
+    const { _id, img, s_title, p_date } = props.single_media
     return (
         <div className='media_card_main  shadow-lg '>
-            <img src={c1} alt="" width={300} height={200} />
+            <img src={img} alt="" width={300} height={200} />
             <div className='card_content'>
-                <p className='text-accent text-start font-regular'>Post Date: <span className='text-primary'>1/10/2022</span></p>
-                <h3 className='text-justify font-bold '>Children's project visiting in Dinajpur</h3>
+                <p className='text-accent text-start font-regular text-sm mb-1'>Post Date: <span className='text-primary'>{p_date}</span></p>
+                <h3 className='text-justify font-bold '>{s_title
+                }</h3>
             </div>
             <div className='card_button text-end font-medium text-primary'>
-                <button >Explore More <span>  <FontAwesomeIcon className=' mt-1' icon={faCircleChevronRight} /></span></button>
+                <button onClick={() => navigate(`/media_details/${_id}`)}>Explore More <span>  <FontAwesomeIcon className=' mt-1' icon={faCircleChevronRight} /></span></button>
             </div>
         </div>
 

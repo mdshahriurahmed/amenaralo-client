@@ -12,7 +12,7 @@ const Footer = () => {
     const d = new Date();
     let year = d.getFullYear();
     return (
-        <footer className='bg-base-100 border-t border-primary md:px-16 px-6 pt-6 mt-60'>
+        <footer className='bg-base-100 border-t border-primary md:px-16 px-6 pt-6 '>
             <div className='flexible_footer md:text-start'>
                 <div >
                     <img className='w-60 -ml-2' src={logo} alt="" />

@@ -1,0 +1,76 @@
+.details_main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: url(https://i.ibb.co/WtCVCTv/bgm-01-01.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: 2;
+
+}
+
+.details {
+    width: 1440px;
+    min-height: 100vh;
+    background-color: white;
+
+}
+
+.second_head1 {
+
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+}
+
+@media screen and (max-width:1600px) {
+    .details {
+        width: 1200px;
+    }
+
+}
+
+@media screen and (max-width:1450px) {
+    .details {
+        width: 1050px;
+    }
+
+}
+
+@media screen and (max-width:1300px) {
+    .details {
+        width: 900px;
+    }
+
+}
+
+@media screen and (max-width:700px) {
+
+
+    .second_head1 {
+
+
+        font-size: 30px;
+        margin-bottom: 20px;
+        line-height: 40px;
+
+    }
+
+}
+
+@media screen and (max-width:700px) {
+
+
+    .second_head1 {
+
+
+        font-size: 25px;
+        margin-bottom: 20px;
+        line-height: 35px;
+
+    }
+
+}

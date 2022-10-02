@@ -10,7 +10,7 @@ import GoToTop from "../GoToTop/GoToTop"
 const AboutUs = () => {
 
     return (
-        <div className='mt-12'>
+        <div className='mt-16 mb-32'>
             <div className=' banner-content-about w-full banner-content-all'>
                 <div className='hero-overlay bg-opacity-60 w-full h-full flex flex-col items-center justify-center md:px-28 px-8 '>
                     <h1 className='text-primary lg:text-7xl md:text-5xl text-4xl mb-2'> <b>About Us</b> </h1>

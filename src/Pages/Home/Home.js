@@ -8,7 +8,7 @@ import GoToTop from '../GoToTop/GoToTop';
 
 const Home = () => {
     return (
-        <div className='mt-16 z-0 '>
+        <div className='mt-16 z-0  mb-32'>
             {/* ---------Slider starts from here --------*/}
 
             <Banner></Banner>

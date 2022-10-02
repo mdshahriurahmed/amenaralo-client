@@ -1,0 +1,33 @@
+.media_grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media screen and (max-width:1440px) {
+    .media_grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width:1090px) {
+    .media_grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+
+    }
+}
+
+@media screen and (max-width:700px) {
+    .media_grid {
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+        gap: 20px;
+    }
+}

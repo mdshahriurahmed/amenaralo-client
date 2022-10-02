@@ -9,7 +9,7 @@ import GoToTop from '../GoToTop/GoToTop';
 
 const WhatWeDoMain = () => {
     return (
-        <div className='mt-12'>
+        <div className='mt-16 mb-32'>
             <div className=' banner-content-we w-full banner-content-all'>
                 <div className='hero-overlay bg-opacity-60 w-full h-full flex flex-col items-center justify-center md:px-28 px-8 '>
                     <h1 className='text-primary lg:text-7xl md:text-5xl text-4xl mb-2'> <b>What We Do</b> </h1>

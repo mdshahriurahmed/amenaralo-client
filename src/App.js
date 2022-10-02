@@ -6,6 +6,7 @@ import Header from './Pages/Header/Header';
 import Loader from './Pages/Loader/Loader';
 import Loading from './Pages/Loading/Loading';
 
+const MediaDetails = React.lazy(() => import('./Pages/MediaAndStories/MediaDetails'));
 const Home = React.lazy(() => import('./Pages/Home/Home'));
 const AboutUs = React.lazy(() => import('./Pages/AboutUs/AboutUs'));
 const WhatWeDoMain = React.lazy(() => import('./Pages/WhatWeDoMain/WhatWeDoMain'));
@@ -46,6 +47,11 @@ function App() {
               </Route>
               <Route path='/media_and_stories' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <MediaAndStories></MediaAndStories>
+              </Suspense>}>
+              </Route>
+
+              <Route path='/media_details/:_id' element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <MediaDetails></MediaDetails>
               </Suspense>}>
               </Route>
 

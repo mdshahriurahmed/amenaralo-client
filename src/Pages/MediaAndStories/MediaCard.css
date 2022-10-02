@@ -3,6 +3,7 @@
     height: 320px;
     border-radius: 6px;
     overflow: hidden;
+    margin: 6px;
 }
 
 .card_content {
