@@ -4,6 +4,7 @@ import "../CommonCSS/CommonStyle.css"
 import Media from './Media';
 import Gallery from '../Gallery/Gallery';
 import GoToTop from '../GoToTop/GoToTop';
+import Story from './Story';
 
 
 const MediaAndStories = () => {
@@ -19,6 +20,7 @@ const MediaAndStories = () => {
 
             </div>
             <Media></Media>
+            <Story></Story>
             <Gallery></Gallery>
             <GoToTop></GoToTop>
         </div>

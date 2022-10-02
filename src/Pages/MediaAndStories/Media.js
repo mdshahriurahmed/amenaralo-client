@@ -7,6 +7,7 @@ const Media = () => {
 
     let [loading, setLoading] = useState(true);
     const [media, setMedia] = useState([]);
+    const r_address = 'media_details'
     useEffect(() => {
         fetch('https://fast-dawn-11728.herokuapp.com/media')
             .then(res => res.json())
@@ -28,7 +29,8 @@ const Media = () => {
                                     return (
                                         <MediaCard
                                             key={single_media._id}
-                                            single_media={single_media}>
+                                            single_media={single_media}
+                                            r_address={r_address}>
 
                                         </MediaCard>
                                     )

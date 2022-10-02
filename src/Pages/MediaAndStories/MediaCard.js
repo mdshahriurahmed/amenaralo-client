@@ -17,7 +17,7 @@ const MediaCard = (props) => {
                 }</h3>
             </div>
             <div className='card_button text-end font-medium text-primary'>
-                <button onClick={() => navigate(`/media_details/${_id}`)}>Explore More <span>  <FontAwesomeIcon className=' mt-1' icon={faCircleChevronRight} /></span></button>
+                <button onClick={() => navigate(`/${props.r_address}/${_id}`)}>Explore More <span>  <FontAwesomeIcon className=' mt-1' icon={faCircleChevronRight} /></span></button>
             </div>
         </div>
 
