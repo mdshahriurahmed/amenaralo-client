@@ -5,7 +5,7 @@ import Footer from './Pages/Footer/Footer';
 import Header from './Pages/Header/Header';
 import Loader from './Pages/Loader/Loader';
 import Loading from './Pages/Loading/Loading';
-
+const StoryDetails = React.lazy(() => import('./Pages/MediaAndStories/StoryDetails'));
 const MediaDetails = React.lazy(() => import('./Pages/MediaAndStories/MediaDetails'));
 const Home = React.lazy(() => import('./Pages/Home/Home'));
 const AboutUs = React.lazy(() => import('./Pages/AboutUs/AboutUs'));
@@ -52,6 +52,11 @@ function App() {
 
               <Route path='/media_details/:_id' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <MediaDetails></MediaDetails>
+              </Suspense>}>
+              </Route>
+
+              <Route path='/story_details/:_id' element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <StoryDetails></StoryDetails>
               </Suspense>}>
               </Route>
 

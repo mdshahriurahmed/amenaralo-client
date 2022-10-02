@@ -6,10 +6,10 @@ import "./Media.css"
 const Story = () => {
 
     let [loading, setLoading] = useState(true);
-    const [media, setMedia] = useState([]);
-    const r_address = 'media_details'
+    const [story, setMedia] = useState([]);
+    const r_address = 'story_details'
     useEffect(() => {
-        fetch('https://fast-dawn-11728.herokuapp.com/media')
+        fetch('https://fast-dawn-11728.herokuapp.com/story')
             .then(res => res.json())
             .then(data => setMedia(data))
         setLoading(false)
@@ -25,7 +25,7 @@ const Story = () => {
                         </div> :
                         <div className='media_grid'>
                             {
-                                media.map(single_media => {
+                                story.map(single_media => {
                                     return (
                                         <MediaCard
                                             key={single_media._id}
