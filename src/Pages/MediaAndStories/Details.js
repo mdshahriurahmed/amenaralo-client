@@ -1,4 +1,5 @@
 import React from 'react';
+import GoToTop from '../GoToTop/GoToTop';
 import "./Details.css"
 
 
@@ -23,6 +24,7 @@ const Details = (props) => {
                 }
 
             </div>
+            <GoToTop></GoToTop>
         </div>
     );
 };
