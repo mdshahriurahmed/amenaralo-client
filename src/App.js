@@ -1,6 +1,8 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import Footer from './Pages/Footer/Footer';
 import Header from './Pages/Header/Header';
 import Loader from './Pages/Loader/Loader';
@@ -11,6 +13,7 @@ const Home = React.lazy(() => import('./Pages/Home/Home'));
 const AboutUs = React.lazy(() => import('./Pages/AboutUs/AboutUs'));
 const WhatWeDoMain = React.lazy(() => import('./Pages/WhatWeDoMain/WhatWeDoMain'));
 const MediaAndStories = React.lazy(() => import('./Pages/MediaAndStories/MediaAndStories'));
+const Contact = React.lazy(() => import('./Pages/Contact/Contact'));
 
 function App() {
   let [loading, setLoading] = useState(true);
@@ -39,8 +42,13 @@ function App() {
               <Route path='/about' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <AboutUs></AboutUs>
               </Suspense>}>
-
               </Route>
+
+              <Route path='/contact' element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <Contact></Contact>
+              </Suspense>}>
+              </Route>
+
               <Route path='/what_we_do' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <WhatWeDoMain></WhatWeDoMain>
               </Suspense>}>
@@ -62,6 +70,7 @@ function App() {
 
             </Routes>
             <Footer></Footer>
+            <ToastContainer></ToastContainer>
           </>
       }
     </div>
