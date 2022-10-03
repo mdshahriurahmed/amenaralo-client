@@ -40,7 +40,7 @@ const Gallery = () => {
                                     <div>
                                         <label for="my-modal-3" className='cursor-pointer' onClick={() => setGimage(image)}>
                                             <div className='h-56 w-72  gl m-6 shadow-lg'>
-                                                <img src={image.img} alt="" className='h-48 w-full ' />
+                                                <img src={image.img} type="image/webp" alt="" className='h-48 w-full ' />
                                                 <div className='h-8 bg-base-100 flex items-center justify-between px-3'>
                                                     <div><p className='text-start'>Hello</p></div>
                                                     {/* <div > <ViewfinderCircleIcon className='text-end text-primary w-6'></ViewfinderCircleIcon></div> */}

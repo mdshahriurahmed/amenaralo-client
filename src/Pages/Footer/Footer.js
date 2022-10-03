@@ -15,7 +15,7 @@ const Footer = () => {
         <footer className='bg-base-100 border-t border-primary md:px-16 px-6 pt-6 '>
             <div className='flexible_footer md:text-start'>
                 <div >
-                    <img className='w-60 -ml-2' src={logo} alt="" />
+                    <img className='w-60 -ml-2' src={logo} alt="" type="image/webp" />
                     <h3 className='font-bold text-3xl text-secondary'>Office</h3>
 
                     <p >Central Road, Dhaka <br />

@@ -7,6 +7,7 @@ import cgoal from '../../Media/ce.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandsHoldingChild, faHandHoldingHeart, faPeopleLine } from '@fortawesome/free-solid-svg-icons';
 import GoToTop from "../GoToTop/GoToTop"
+import Story from '../MediaAndStories/Story';
 const AboutUs = () => {
 
     return (
@@ -22,7 +23,7 @@ const AboutUs = () => {
             </div>
 
             <div className='relative  w-full  inspriation'>
-                <img src={bg} className='w-full h-full' alt="" />
+                <img src={bg} type="image/webp" className='w-full h-full' alt="" />
                 <div className='absolute top-0 ins-text w-full '>
 
                     <div className='md:px-16 px-6 flex flex-col justify-center h-full pb-12'>
@@ -63,7 +64,7 @@ const AboutUs = () => {
 
                     </div>
                     <div className='goal_img_width'>
-                        <img src={cgoal} alt="education_image" className=' w-full rounded-lg' />
+                        <img src={cgoal} alt="education_image" type="image/webp" className=' w-full rounded-lg' />
                     </div>
                 </div>
             </div>
@@ -85,6 +86,7 @@ const AboutUs = () => {
 
                 </div>
             </div>
+            <Story></Story>
             <GoToTop></GoToTop>
         </div>
     );

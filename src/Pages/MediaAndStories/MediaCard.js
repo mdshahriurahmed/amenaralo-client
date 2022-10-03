@@ -10,7 +10,7 @@ const MediaCard = (props) => {
     const { _id, img, s_title, p_date } = props.single_media
     return (
         <div className='media_card_main  shadow-lg '>
-            <img src={img} alt="" width={300} height={200} />
+            <img src={img} alt="" type="image/webp" width={300} height={200} />
             <div className='card_content'>
                 <p className='text-accent text-start font-regular text-sm mb-1'>Post Date: <span className='text-primary'>{p_date}</span></p>
                 <h3 className='text-justify font-bold '>{s_title
