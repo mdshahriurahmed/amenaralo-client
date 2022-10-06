@@ -2,15 +2,22 @@ import React, { useState } from 'react';
 import "./Header.css"
 import { Link } from 'react-router-dom';
 import logo from "../../Media/l.png"
-import { Bars3Icon } from '@heroicons/react/24/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
+
 
 const Header = () => {
     // ------ Used this to open and close side navbar for mobile view ------------
     const [open, setOpen] = useState(false);
     const [activemenu, setActivemenu] = useState("");
+    const [user] = useAuthState(auth);
 
+    const logout = () => {
+        signOut(auth);
+    };
     const menuItems = <>
         <Link onClick={() => {
             setOpen(false)
@@ -37,9 +44,17 @@ const Header = () => {
             setOpen(false)
             setActivemenu("contact")
         }} to='/contact' className={`${activemenu === "contact" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`}>CONTACT</Link>
-        <Link onClick={() => {
-            setOpen(false)
-        }} to='/contact' className="ml-5 ">| <span className='ml-5 text-primary'>LOGIN</span></Link>
+
+        {
+            user ?
+                <span onClick={() => {
+                    setOpen(false)
+                    logout()
+                }} to='/login' className="ml-5 cursor-pointer">| <span className='ml-5 text-primary'>LOG OUT</span></span> :
+                <Link onClick={() => {
+                    setOpen(false)
+                }} to='/login' className="ml-5 ">| <span className='ml-5 text-primary'>LOGIN</span></Link>
+        }
 
     </>
 
@@ -71,7 +86,7 @@ const Header = () => {
         }} to='/contact' className={`${activemenu === "contact" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`}>CONTACT</Link>
         <Link onClick={() => {
             setOpen(false)
-        }} to='/contact' className='md:px-16 px-6 py-1 text-primary'>LOGIN</Link>
+        }} to='/login' className='md:px-16 px-6 py-1 text-primary'>LOGIN</Link>
 
     </>
 

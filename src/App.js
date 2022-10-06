@@ -7,6 +7,11 @@ import Footer from './Pages/Footer/Footer';
 import Header from './Pages/Header/Header';
 import Loader from './Pages/Loader/Loader';
 import Loading from './Pages/Loading/Loading';
+import RequireAuth from './Pages/Login/RequireAuth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
+const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
+const Login = React.lazy(() => import('./Pages/Login/Login'));
 const StoryDetails = React.lazy(() => import('./Pages/MediaAndStories/StoryDetails'));
 const MediaDetails = React.lazy(() => import('./Pages/MediaAndStories/MediaDetails'));
 const Home = React.lazy(() => import('./Pages/Home/Home'));
@@ -24,6 +29,8 @@ function App() {
       setLoading(false)
     }, 1500)
   }, [])
+
+  const [user] = useAuthState(auth);
   return (
     <div className="App min-h-screen">
       {
@@ -67,9 +74,22 @@ function App() {
                 <StoryDetails></StoryDetails>
               </Suspense>}>
               </Route>
+              <Route path='/login' element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <Login></Login>
+              </Suspense>}>
+              </Route>
 
+              <Route path='/dashboard' element={
+                <RequireAuth>
+                  <Suspense fallback={<div><Loader></Loader></div>}>
+                    <Dashboard></Dashboard>
+                  </Suspense>
+                </RequireAuth>
+              }>
+              </Route>
             </Routes>
-            <Footer></Footer>
+            {user ? <></> : <Footer></Footer>}
+
             <ToastContainer></ToastContainer>
           </>
       }
