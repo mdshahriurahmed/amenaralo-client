@@ -10,6 +10,7 @@ import Loading from './Pages/Loading/Loading';
 import RequireAuth from './Pages/Login/RequireAuth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
+const ForgetPass = React.lazy(() => import('./Pages/Login/ForgetPass'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
 const Login = React.lazy(() => import('./Pages/Login/Login'));
 const StoryDetails = React.lazy(() => import('./Pages/MediaAndStories/StoryDetails'));
@@ -74,8 +75,14 @@ function App() {
                 <StoryDetails></StoryDetails>
               </Suspense>}>
               </Route>
+
               <Route path='/login' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <Login></Login>
+              </Suspense>}>
+              </Route>
+
+              <Route path="/forget-password" element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <ForgetPass></ForgetPass>
               </Suspense>}>
               </Route>
 

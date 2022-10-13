@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Login.css"
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Loading/Loading';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
 
+    const [view, setView] = useState(false);
     const [
         signInWithEmailAndPassword,
         user,
@@ -74,7 +77,7 @@ const Login = () => {
                                     <span className="label-text">Password</span>
 
                                 </label>
-                                <input type="password" placeholder="Enter Your Password" className="input input-bordered w-full max-w-xs"
+                                <input type={`${view ? "text" : "password"}`} placeholder="Enter Your Password" className="input input-bordered w-full max-w-xs"
                                     {...register("password",
                                         {
                                             required: {
@@ -87,15 +90,21 @@ const Login = () => {
                                             }
                                         })}
                                 />
+                                <div className='ml-72 -mt-9 mr-5 mb-3 cursor-pointer ' onClick={() =>
+                                    setView(!view)
+                                }>
+                                    <FontAwesomeIcon className={`${view ? "text-primary" : "text-accent"} text-base`} icon={faEye} />
+                                </div>
                                 <label className="label">
                                     {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                     {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 </label>
                             </div>
                             {sError}
-                            <input type="submit" className='btn btn-block btn-primary mt-3' value="LOGIN" />
+                            <input type="submit" className='btn btn-block btn-primary mt-3 mb-4' value="LOGIN" />
 
                         </form>
+                        <Link to="/forget-password" className='text-primary '>Forget Password?</Link>
                     </div>
                 </div>
             </div>
