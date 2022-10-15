@@ -44,6 +44,14 @@ const Header = () => {
             setOpen(false)
             setActivemenu("contact")
         }} to='/contact' className={`${activemenu === "contact" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`}>CONTACT</Link>
+        {
+            user ? <Link onClick={() => {
+                setOpen(false)
+                setActivemenu("dashboard")
+            }} to='/dashboard'
+                className={`${activemenu === "dashboard" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`} >DASHBOARD</Link> : <></>
+
+        }
 
         {
             user ?
@@ -80,13 +88,31 @@ const Header = () => {
             setActivemenu("media")
         }} to='/media_and_stories'
             className={`${activemenu === "media" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`} >MEDIA &amp; STORIES</Link>
+
+        {
+            user ? <Link onClick={() => {
+                setOpen(false)
+                setActivemenu("dashboard")
+            }} to='/dashboard'
+                className={`${activemenu === "dashboard" ? "bg-primary text-white" : "bg-base-100"} md:px-16 px-6 py-1`} >DASHBOARD</Link> : <></>
+
+        }
+
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("contact")
         }} to='/contact' className={`${activemenu === "contact" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`}>CONTACT</Link>
-        <Link onClick={() => {
-            setOpen(false)
-        }} to='/login' className='md:px-16 px-6 py-1 text-primary'>LOGIN</Link>
+
+        {
+            user ?
+                <span onClick={() => {
+                    setOpen(false)
+                    logout()
+                }} to='/login' className='md:px-16 px-6 py-1 text-primary'>LOG OUT </span> :
+                <Link onClick={() => {
+                    setOpen(false)
+                }} to='/login' className='md:px-16 px-6 py-1 text-primary'>LOGIN</Link>
+        }
 
     </>
 
@@ -94,6 +120,11 @@ const Header = () => {
         <div className='main_nav fixed top-0 w-full'>
             <div className='  md:px-16 px-6 pt-2 pb-2.5 bg-base-100 shadow-lg'>
                 <div className='top-nav flex justify-between items-center'>
+                    <label htmlFor="my-drawer-2" className='hamberger cursor-pointer'>
+                        <FontAwesomeIcon className='w-8 text-primary text-2xl' icon={faBars} />
+
+                    </label>
+
                     <div className='site-logo '>
                         <Link to="/" onClick={() => {
                             setOpen(false)
@@ -117,11 +148,12 @@ const Header = () => {
                 </div>
 
             </div>
-            <div className={`h-screen bg-base-100 shadow-lg w-60  py-6  ${open ? "sidebarOpen" : "sidebarClose"} `} >
+            <div className={`h-screen bg-base-100 shadow-lg w-72  py-6  ${open ? "sidebarOpen" : "sidebarClose"} `} >
                 <ul className='text-start flex flex-col'>
                     {menuItems1}
                 </ul>
             </div>
+
         </div>
 
     );

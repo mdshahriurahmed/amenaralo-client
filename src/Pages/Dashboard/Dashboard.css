@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500&display=swap');
+
+.d-drawer {
+    position: relative;
+}
+
+.user_name {
+    line-height: 18px;
+    font-family: 'Saira Condensed';
+    font-weight: 500;
+    font-size: 21px;
+}
+
+.d-menu li {
+    font-family: 'Saira Condensed';
+    font-weight: 500;
+}
+
+.menu :where(li)> :where(*:not(ul)) {
+    gap: 0.75rem;
+    padding-top: 0.40rem;
+    padding-bottom: 0.40rem;
+
+
+}

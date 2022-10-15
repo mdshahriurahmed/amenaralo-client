@@ -10,6 +10,7 @@ import Loading from './Pages/Loading/Loading';
 import RequireAuth from './Pages/Login/RequireAuth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
+import Welcome from './Pages/Dashboard/Welcome';
 const ForgetPass = React.lazy(() => import('./Pages/Login/ForgetPass'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
 const Login = React.lazy(() => import('./Pages/Login/Login'));
@@ -93,6 +94,9 @@ function App() {
                   </Suspense>
                 </RequireAuth>
               }>
+                <Route index element={<Welcome></Welcome>}>
+
+                </Route>
               </Route>
             </Routes>
             {user ? <></> : <Footer></Footer>}

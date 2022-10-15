@@ -1,9 +1,54 @@
+import { faCircleUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import "./Dashboard.css"
+
 
 const Dashboard = () => {
+    const [user] = useAuthState(auth);
     return (
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique ipsam accusantium, fugit delectus velit autem mollitia. Exercitationem maxime mollitia nihil tempora voluptate impedit veniam. Reprehenderit similique natus saepe minima magni possimus hic delectus? Iste repellendus quae quisquam similique eveniet, quasi itaque molestias ullam quod eligendi ratione molestiae, magni saepe? Aliquid, reprehenderit fuga tempore nesciunt obcaecati nisi facilis ad inventore facere repudiandae adipisci sunt? Voluptatibus sapiente vero a excepturi expedita vel soluta ut deleniti natus fugiat delectus, voluptates ipsam totam debitis fugit consequatur iste, eveniet autem eligendi numquam reiciendis pariatur exercitationem mollitia. Est ipsa architecto quisquam eum atque sed necessitatibus amet ab adipisci ullam exercitationem, voluptates fugit, molestiae eveniet aliquid reprehenderit voluptas ducimus nostrum similique sapiente dolorum? Illo ab, consectetur error delectus voluptate nemo quisquam doloribus possimus laborum omnis debitis accusamus. Quibusdam placeat a eveniet, cumque numquam, dolor aspernatur velit unde tempore eius sint voluptatum architecto alias vel ipsam nemo! Dicta, ab earum rerum, delectus nobis ea veniam provident est quis, expedita impedit illo tenetur nostrum minima explicabo! Eius inventore commodi rem veritatis repudiandae sed neque. Harum cumque facere in, quam repellendus sequi dignissimos possimus nostrum? Exercitationem ipsum blanditiis accusamus reprehenderit earum deserunt aspernatur, corporis possimus ipsa nobis voluptatem porro incidunt?</p>
+        <div className='mt-20 dashboard '>
+            {
+                user ?
+                    <div className="drawer drawer-mobile ">
+                        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                        <div className="drawer-content flex flex-col items-center justify-center bg-base-100 d-content">
+                            <Outlet></Outlet>
+
+
+                        </div>
+                        <div className="drawer-side d-drawer min-h-screen ">
+                            <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+
+                            <ul className="menu p-4 overflow-y-auto w-72 bg-primary  text-base-content d-menu">
+                                <div className='h-16 flex flex-row items-center border-b-2 mb-3'>
+                                    <div className="avatar online">
+                                        <div className="w-12 rounded-full">
+                                            <img src="https://placeimg.com/192/192/people" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h1 className='ml-4  text-start user_name text-white'>Md Shahriur Ahmed</h1>
+                                        <p className='text-start text-base-300 ml-4'>Admin</p>
+                                    </div>
+                                </div>
+                                <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Profile</Link></li>
+                                <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faUserPlus} /></span> Manage Users</Link></li>
+                                <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Manage Childrens</Link></li>
+                                <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Profile</Link></li>
+
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    :
+                    <></>
+            }
         </div>
     );
 };
