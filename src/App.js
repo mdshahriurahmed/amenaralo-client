@@ -21,6 +21,7 @@ const AboutUs = React.lazy(() => import('./Pages/AboutUs/AboutUs'));
 const WhatWeDoMain = React.lazy(() => import('./Pages/WhatWeDoMain/WhatWeDoMain'));
 const MediaAndStories = React.lazy(() => import('./Pages/MediaAndStories/MediaAndStories'));
 const Contact = React.lazy(() => import('./Pages/Contact/Contact'));
+const Profile = React.lazy(() => import('./Pages/Dashboard/Profile'));
 
 function App() {
   let [loading, setLoading] = useState(true);
@@ -94,9 +95,19 @@ function App() {
                   </Suspense>
                 </RequireAuth>
               }>
-                <Route index element={<Welcome></Welcome>}>
-
+                <Route index element={
+                  <RequireAuth>
+                    <Welcome></Welcome>
+                  </RequireAuth>
+                }>
                 </Route>
+                <Route path='/dashboard/profile' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <Profile></Profile>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
               </Route>
             </Routes>
             {user ? <></> : <Footer></Footer>}

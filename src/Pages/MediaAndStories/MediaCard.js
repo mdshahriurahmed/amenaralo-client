@@ -1,6 +1,5 @@
 import React from 'react';
 import "./MediaCard.css"
-import c1 from "../../Media/c4.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';

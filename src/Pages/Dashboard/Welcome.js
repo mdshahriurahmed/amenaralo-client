@@ -4,8 +4,8 @@ import "./Welcome.css"
 
 const Welcome = () => {
     return (
-        <div>
-            <img src={wimg} alt="" height={500} width={500} className="md:ml-48 floating" />
+        <div className='flex justify-center items-center w-full h-full'>
+            <img src={wimg} alt="" height={500} width={500} className="md:ml-16 floating" />
         </div>
     );
 };

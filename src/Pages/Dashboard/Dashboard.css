@@ -20,6 +20,14 @@
     gap: 0.75rem;
     padding-top: 0.40rem;
     padding-bottom: 0.40rem;
+}
 
+.user-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(90, 90, 90);
+}
 
+.breadcrumbs {
+    overflow-x: none;
 }
