@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500&display=swap');
 
-.d-drawer {
-    position: relative;
-}
+
 
 .user_name {
     line-height: 18px;
@@ -29,5 +27,5 @@
 }
 
 .breadcrumbs {
-    overflow-x: none;
+    overflow-x: visible;
 }
