@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-
+import "./Profile.css"
 
 const Profile = () => {
     return (
@@ -15,10 +15,10 @@ const Profile = () => {
                     </div>
                     <button className="mt-3 bg-primary px-3 rounded-xl font-base  text-base-200 hover:bg-base-100 hover:border hover:border-primary hover:text-primary">Update  <span><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
                 </div>
-                <div className='h-96 w-full shadow-lg border border-accent rounded-md p-8 '>
+                <div className='py-16 w-full shadow-lg border border-accent rounded-md px-8 '>
 
-                    <div className='flex lg:flex-row flex-col lg:pt-4'>
-                        <div className='flex flex-col items-start lg:w-1/2 '>
+                    <div className=' lg:pt-4 flex_profile'>
+                        <div className='flex flex-col items-start profile '>
                             {/* ----code for name -----*/}
                             <div className=' bg-base-100 text-primary z-10 ml-4 px-1'>Name</div>
                             <div className='text-lg border border-base-300  border rounded-lg -mt-3 z-0 py-2 px-5 w-full w-full text-start font-base text-base-300'>Md Shahriur Ahmed</div>
@@ -30,9 +30,11 @@ const Profile = () => {
                             <div className='text-lg border border-base-300  border rounded-lg -mt-3 z-0 py-2 px-5 w-full w-full text-start font-base text-base-300'>01771046952</div>
                             <button className="mt-6 mb-6 bg-primary px-7 rounded-lg font-base text-lg  text-base-200 hover:bg-base-100 hover:border hover:border-primary hover:text-primary py-1 ">Update  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
                         </div>
-                        <div className='lg:w-1/2 lg:ml-4' >
+                        <div className='profile lg:ml-4' >
                             <p className='text-base-300 text-justify mt-2 '> <b> Update your password through the button below </b> You will be redirected to a new page and must follow the instructions.</p>
-                            <button className="mt-6 mb-6 hover:bg-primary px-7 rounded-lg font-base text-lg  hover:text-base-200 bg-base-100 border border-primary text-primary py-1 hover:border-none w-full">Update  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
+                            <button className="mt-6 mb-6 hover:bg-primary px-7 rounded-lg font-base text-lg  hover:text-base-200 bg-base-100 border border-primary text-primary py-1 hover:border-none w-full">Change Password  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
+                            <p className='text-base-300 text-justify mt-2 '> <b> Update your Email through the button below </b> You will be redirected to a new page and must follow the instructions.</p>
+                            <button className="mt-6 mb-6 hover:bg-primary px-7 rounded-lg font-base text-lg  hover:text-base-200 bg-base-100 border border-primary text-primary py-1 hover:border-none w-full">Change Email  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
                         </div>
 
 
