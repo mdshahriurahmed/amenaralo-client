@@ -22,6 +22,7 @@ const WhatWeDoMain = React.lazy(() => import('./Pages/WhatWeDoMain/WhatWeDoMain'
 const MediaAndStories = React.lazy(() => import('./Pages/MediaAndStories/MediaAndStories'));
 const Contact = React.lazy(() => import('./Pages/Contact/Contact'));
 const Profile = React.lazy(() => import('./Pages/Dashboard/Profile'));
+const ChangePass = React.lazy(() => import('./Pages/Dashboard/ChangePass'));
 
 function App() {
   let [loading, setLoading] = useState(true);
@@ -105,6 +106,13 @@ function App() {
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
                       <Profile></Profile>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+                <Route path='/dashboard/change-password' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <ChangePass></ChangePass>
                     </Suspense>
                   </RequireAuth>
                 }></Route>

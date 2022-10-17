@@ -2,8 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import "./Profile.css"
+import { useNavigate } from 'react-router-dom';
+
 
 const Profile = () => {
+    const navigate = useNavigate();
+
     return (
         <div className='py-10 w-full'>
             <div className='flex md:flex-row flex-col justify-center items-center md:items-start'>
@@ -32,7 +36,7 @@ const Profile = () => {
                         </div>
                         <div className='profile lg:ml-4' >
                             <p className='text-base-300 text-justify mt-2 '> <b> Update your password through the button below </b> You will be redirected to a new page and must follow the instructions.</p>
-                            <button className="mt-6 mb-6 hover:bg-primary px-7 rounded-lg font-base text-lg  hover:text-base-200 bg-base-100 border border-primary text-primary py-1 hover:border-none w-full">Change Password  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
+                            <button onClick={() => navigate("/dashboard/change-password")} className="mt-6 mb-6 hover:bg-primary px-7 rounded-lg font-base text-lg  hover:text-base-200 bg-base-100 border border-primary text-primary py-1 hover:border-none w-full">Change Password  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
                             <p className='text-base-300 text-justify mt-2 '> <b> Update your Email through the button below </b> You will be redirected to a new page and must follow the instructions.</p>
                             <button className="mt-6 mb-6 hover:bg-primary px-7 rounded-lg font-base text-lg  hover:text-base-200 bg-base-100 border border-primary text-primary py-1 hover:border-none w-full">Change Email  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
                         </div>
