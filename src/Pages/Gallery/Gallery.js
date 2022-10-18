@@ -1,16 +1,11 @@
 import React from 'react';
 import "./Gallery.css"
 import "../CommonCSS/CommonStyle.css"
-import gall from "../../Media/children-day-16549327424x3.jpg"
-import gall1 from "../../Media/c1.jpg"
-import gall2 from "../../Media/c2.jpg"
-import gall3 from "../../Media/c3.jpg"
-import gall4 from "../../Media/c4.jpg"
 import { ViewfinderCircleIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Gmodal from '../GalleryModal/Gmodal';
-import Loading from '../Loading/Loading';
+import Loader from '../Loader/Loader';
 
 
 const Gallery = () => {
@@ -31,7 +26,7 @@ const Gallery = () => {
 
             {
                 loading ? <div className='flex items-center justify-center h-48'>
-                    <Loading loading={Loading}></Loading>
+                    <Loader></Loader>
                 </div> :
                     <div className='gallery_grid'>
                         {
