@@ -79,6 +79,7 @@ const ChangePass = () => {
                     type={`${view1 ? "text" : "password"}`}
                     value={password1}
                     onChange={(e) => setPassword1(e.target.value)}
+                    placeholder="Enter new password"
                 />
                 <div className='  mr-5 mb-3  cursor-pointer icon-eye' onClick={() =>
                     setView1(!view1)
@@ -91,6 +92,7 @@ const ChangePass = () => {
                     type={`${view ? "text" : "password"}`}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Reenter new password"
                 />
                 <div className='  mr-5 mb-3  cursor-pointer icon-eye' onClick={() =>
                     setView(!view)
