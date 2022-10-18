@@ -11,6 +11,7 @@ import RequireAuth from './Pages/Login/RequireAuth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import Welcome from './Pages/Dashboard/Welcome';
+
 const ForgetPass = React.lazy(() => import('./Pages/Login/ForgetPass'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
 const Login = React.lazy(() => import('./Pages/Login/Login'));
@@ -23,6 +24,7 @@ const MediaAndStories = React.lazy(() => import('./Pages/MediaAndStories/MediaAn
 const Contact = React.lazy(() => import('./Pages/Contact/Contact'));
 const Profile = React.lazy(() => import('./Pages/Dashboard/Profile'));
 const ChangePass = React.lazy(() => import('./Pages/Dashboard/ChangePass'));
+const ChangeEmail = React.lazy(() => import('./Pages/Dashboard/ChangeEmail'));
 
 function App() {
   let [loading, setLoading] = useState(true);
@@ -113,6 +115,13 @@ function App() {
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
                       <ChangePass></ChangePass>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+                <Route path='/dashboard/change-email' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <ChangeEmail></ChangeEmail>
                     </Suspense>
                   </RequireAuth>
                 }></Route>

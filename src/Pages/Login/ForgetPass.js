@@ -21,8 +21,8 @@ const ForgetPass = () => {
         event.preventDefault();
         const email = emailRef.current.value;
         if (error) {
-            setErrorr(error.message)
-            return;
+
+            return (setErrorr(error.message))
         }
         if (sending) {
             return <div className='flex items-center justify-center min-h-screen'>
@@ -30,8 +30,8 @@ const ForgetPass = () => {
             </div>;
         }
         if (email === '') {
-            setErrorr('Please enter email')
-            return;
+            return (setErrorr('Please enter email'))
+
         }
         else {
             await sendPasswordResetEmail(email);

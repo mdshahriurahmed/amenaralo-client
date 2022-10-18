@@ -38,7 +38,7 @@ const Profile = () => {
                             <p className='text-base-300 text-justify mt-2 '> <b> Update your password through the button below </b> You will be redirected to a new page and must follow the instructions.</p>
                             <button onClick={() => navigate("/dashboard/change-password")} className="mt-6 mb-6 hover:bg-primary px-7 rounded-lg font-base text-lg  hover:text-base-200 bg-base-100 border border-primary text-primary py-1 hover:border-none w-full">Change Password  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
                             <p className='text-base-300 text-justify mt-2 '> <b> Update your Email through the button below </b> You will be redirected to a new page and must follow the instructions.</p>
-                            <button className="mt-6 mb-6 hover:bg-primary px-7 rounded-lg font-base text-lg  hover:text-base-200 bg-base-100 border border-primary text-primary py-1 hover:border-none w-full">Change Email  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
+                            <button onClick={() => navigate("/dashboard/change-email")} className="mt-6 mb-6 hover:bg-primary px-7 rounded-lg font-base text-lg  hover:text-base-200 bg-base-100 border border-primary text-primary py-1 hover:border-none w-full">Change Email  <span className='ml-1'><FontAwesomeIcon icon={faPenToSquare} /></span> </button>
                         </div>
 
 
