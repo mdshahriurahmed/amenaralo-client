@@ -9,7 +9,7 @@ const Profile = () => {
     const navigate = useNavigate();
 
     return (
-        <div className='py-10 w-full'>
+        <div className='pb-10 w-full'>
             <div className='flex md:flex-row flex-col justify-center items-center md:items-start'>
                 <div className='h-56 md:w-56 w-full shadow-lg border border-accent md:mr-8 rounded-md mb-6 p-8 flex flex-col justify-center items-center'>
                     <div className="avatar">

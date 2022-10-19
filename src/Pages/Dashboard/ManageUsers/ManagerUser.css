@@ -1,0 +1,22 @@
+.card-user {
+    width: 450px;
+    height: 230px;
+    padding: 15px;
+    background-image: url(C:\projects\amenaralo\src\Media\bguse-01.jpg);
+    background-size: cover;
+
+}
+
+.card-user img {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
+    justify-content: start;
+
+}

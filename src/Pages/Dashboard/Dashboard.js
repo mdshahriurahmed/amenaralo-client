@@ -1,4 +1,4 @@
-import { faCircleUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faUserPlus, faUsersGear } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -11,7 +11,7 @@ import useBreadcrumbs from "use-react-router-breadcrumbs";
 const Dashboard = () => {
     const [user] = useAuthState(auth);
     const breadcrumbs = useBreadcrumbs();
-
+    console.log(user);
     return (
         <div className='mt-20 dashboard '>
             {
@@ -19,7 +19,8 @@ const Dashboard = () => {
                     <div className="drawer drawer-mobile ">
                         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content flex flex-col items-start justify-start bg-base-100 d-content md:px-12 md:py40 px-5 py-9">
-                            <div className="text-sm breadcrumbs">
+                            <h1 className='md:text-3xl  text-primary f-family'>DASHBOARD</h1>
+                            <div className="text-sm breadcrumbs pb-10">
                                 <ul>
                                     <React.Fragment>
                                         {breadcrumbs.map(({ match,
@@ -58,7 +59,7 @@ const Dashboard = () => {
                                 </div>
 
                                 <li><Link to="/dashboard/profile" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Profile</Link></li>
-                                <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faUserPlus} /></span> Manage Users</Link></li>
+                                <li><Link to="/dashboard/manage-users" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faUsersGear} /></span> Manage Users</Link></li>
                                 <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Manage Childrens</Link></li>
                                 <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Profile</Link></li>
 
