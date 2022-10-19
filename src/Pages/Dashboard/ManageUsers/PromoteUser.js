@@ -1,10 +1,10 @@
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightDots } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import "./Viewuse.css"
 
 
-const ViewUser = () => {
+const PromoteUser = () => {
     return (
         <div className='w-full shadow-lg'>
             <div className="overflow-x-auto w-full">
@@ -15,8 +15,8 @@ const ViewUser = () => {
 
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
-                            <th>Details</th>
-                            <th>Short Code</th>
+
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,12 +41,10 @@ const ViewUser = () => {
                                 <br />
                                 <span className="badge badge-ghost badge-sm">01771046952</span>
                             </td>
-                            <th>
-                                <button className="btn btn-accent btn-xs">details</button>
+
+                            <th >
+                                <button className="btn btn-dlt btn-xs "><span > <FontAwesomeIcon icon={faArrowUpRightDots} /></span> <span className='res-make-m'>make moderator</span></button>
                             </th>
-                            <td>
-                                AA-1
-                            </td>
                         </tr>
 
                         <tr>
@@ -69,12 +67,10 @@ const ViewUser = () => {
                                 <br />
                                 <span className="badge badge-ghost badge-sm">01771046952</span>
                             </td>
+
                             <th>
-                                <button className="btn btn-accent btn-xs">details</button>
+                                <button className="btn btn-dlt btn-xs "><span > <FontAwesomeIcon icon={faArrowUpRightDots} /></span> <span className='res-make-m'>make moderator</span></button>
                             </th>
-                            <td>
-                                AA-2
-                            </td>
                         </tr>
 
                         <tr>
@@ -95,14 +91,12 @@ const ViewUser = () => {
                             <td className='responsivetable'>
                                 avixpharmait@gmail.com
                                 <br />
-                                <span className="badge badge-ghost badge-sm">01771046952 I</span>
+                                <span className="badge badge-ghost badge-sm">01771046952 </span>
                             </td>
+
                             <th>
-                                <button className="btn btn-accent btn-xs">details</button>
+                                <button className="btn btn-dlt btn-xs "><span > <FontAwesomeIcon icon={faArrowUpRightDots} /></span> <span className='res-make-m'>make moderator</span></button>
                             </th>
-                            <td>
-                                AA-3
-                            </td>
                         </tr>
 
                         <tr>
@@ -125,12 +119,10 @@ const ViewUser = () => {
                                 <br />
                                 <span className="badge badge-ghost badge-sm">01771046952</span>
                             </td>
+
                             <th>
-                                <button className="btn btn-accent btn-xs ">details</button>
+                                <button className="btn btn-dlt btn-xs "><span > <FontAwesomeIcon icon={faArrowUpRightDots} /></span> <span className='res-make-m'>make moderator</span> </button>
                             </th>
-                            <td>
-                                AA-4
-                            </td>
                         </tr>
                     </tbody>
 
@@ -139,8 +131,8 @@ const ViewUser = () => {
 
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
-                            <th>Details</th>
-                            <th>Short Code</th>
+
+                            <th>Action</th>
                         </tr>
                     </tfoot>
 
@@ -150,4 +142,4 @@ const ViewUser = () => {
     );
 };
 
-export default ViewUser;
+export default PromoteUser;

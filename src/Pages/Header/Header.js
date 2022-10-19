@@ -34,7 +34,7 @@ const Header = () => {
             setOpen(false)
             setActivemenu("progress")
         }} to='/pipeline'
-            className={`${activemenu === "progress" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`}>PROGRES ANALYSIS</Link>
+            className={`${activemenu === "progress" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`}>PROGRESS ANALYSIS</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("media")
@@ -82,7 +82,7 @@ const Header = () => {
             setOpen(false)
             setActivemenu("progress")
         }} to='/pipeline'
-            className={`${activemenu === "progress" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`}>PROGRES ANALYSIS</Link>
+            className={`${activemenu === "progress" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`}>PROGRESS ANALYSIS</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("media")

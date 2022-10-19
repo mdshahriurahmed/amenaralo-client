@@ -3,3 +3,19 @@
     border: none;
     color: white;
 }
+
+.res-make-m {
+    margin-left: 5px;
+}
+
+@media screen and (max-width:600px) {
+    .responsivetable {
+        display: none;
+    }
+}
+
+@media screen and (max-width:435px) {
+    .res-make-m {
+        display: none;
+    }
+}

@@ -11,6 +11,7 @@ import RequireAuth from './Pages/Login/RequireAuth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import Welcome from './Pages/Dashboard/Welcome';
+
 const ForgetPass = React.lazy(() => import('./Pages/Login/ForgetPass'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
 const Login = React.lazy(() => import('./Pages/Login/Login'));
@@ -26,6 +27,8 @@ const ChangePass = React.lazy(() => import('./Pages/Dashboard/ChangePass'));
 const ChangeEmail = React.lazy(() => import('./Pages/Dashboard/ChangeEmail'));
 const ManageUsers = React.lazy(() => import('./Pages/Dashboard/ManageUsers/ManageUsers'));
 const ViewUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/ViewUser'));
+const PromoteUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/PromoteUser'));
+const RemoveUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/RemoveUser'));
 
 
 function App() {
@@ -138,6 +141,20 @@ function App() {
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
                       <ViewUser></ViewUser>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+                <Route path='/dashboard/manage-users/promote-users' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <PromoteUser></PromoteUser>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+                <Route path='/dashboard/manage-users/remove-user' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <RemoveUser></RemoveUser>
                     </Suspense>
                   </RequireAuth>
                 }></Route>

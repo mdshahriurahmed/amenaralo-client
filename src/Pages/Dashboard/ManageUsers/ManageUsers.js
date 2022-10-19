@@ -25,7 +25,7 @@ const ManageUsers = () => {
             </div>
             <div className='card-user shadow-lg border border-accent rounded rounded-lg flex flex-row'>
                 <div className='w-2/4'>
-                    <button className='md:text-2xl text-xl text-base-300 font-bold' text-start><span> <FontAwesomeIcon icon={faUsersViewfinder} /></span> Promote Users</button>
+                    <button onClick={() => navigate('/dashboard/manage-users/promote-users')} className='md:text-2xl text-xl text-base-300 font-bold' text-start><span> <FontAwesomeIcon icon={faArrowUpRightDots} /></span> Promote Users</button>
                 </div>
                 <div className='w-2/4'><LazyLoadImage src={promoteuser} >
 
@@ -41,7 +41,7 @@ const ManageUsers = () => {
             </div>
             <div className='card-user shadow-lg border border-accent rounded rounded-lg flex flex-row'>
                 <div className='w-2/4'>
-                    <button className='md:text-2xl text-xl text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUserXmark} /></span> Remove Users</button>
+                    <button onClick={() => navigate('/dashboard/manage-users/remove-user')} className='md:text-2xl text-xl text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUserXmark} /></span> Remove Users</button>
                 </div>
                 <div className='w-2/4'><LazyLoadImage src={removeuser} >
 

@@ -4,7 +4,7 @@ import React from 'react';
 import "./Viewuse.css"
 
 
-const ViewUser = () => {
+const RemoveUser = () => {
     return (
         <div className='w-full shadow-lg'>
             <div className="overflow-x-auto w-full">
@@ -16,7 +16,7 @@ const ViewUser = () => {
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
                             <th>Details</th>
-                            <th>Short Code</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,9 +44,9 @@ const ViewUser = () => {
                             <th>
                                 <button className="btn btn-accent btn-xs">details</button>
                             </th>
-                            <td>
-                                AA-1
-                            </td>
+                            <th >
+                                <button className="btn btn-dlt btn-xs ml-3"><span> <FontAwesomeIcon icon={faTrashCan} /></span></button>
+                            </th>
                         </tr>
 
                         <tr>
@@ -72,9 +72,9 @@ const ViewUser = () => {
                             <th>
                                 <button className="btn btn-accent btn-xs">details</button>
                             </th>
-                            <td>
-                                AA-2
-                            </td>
+                            <th>
+                                <button className="btn btn-dlt btn-xs ml-3"><span> <FontAwesomeIcon icon={faTrashCan} /></span></button>
+                            </th>
                         </tr>
 
                         <tr>
@@ -100,9 +100,9 @@ const ViewUser = () => {
                             <th>
                                 <button className="btn btn-accent btn-xs">details</button>
                             </th>
-                            <td>
-                                AA-3
-                            </td>
+                            <th>
+                                <button className="btn btn-dlt btn-xs ml-3"><span> <FontAwesomeIcon icon={faTrashCan} /></span></button>
+                            </th>
                         </tr>
 
                         <tr>
@@ -128,9 +128,9 @@ const ViewUser = () => {
                             <th>
                                 <button className="btn btn-accent btn-xs ">details</button>
                             </th>
-                            <td>
-                                AA-4
-                            </td>
+                            <th>
+                                <button className="btn btn-dlt btn-xs ml-3"><span> <FontAwesomeIcon icon={faTrashCan} /></span></button>
+                            </th>
                         </tr>
                     </tbody>
 
@@ -140,7 +140,7 @@ const ViewUser = () => {
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
                             <th>Details</th>
-                            <th>Short Code</th>
+                            <th>Action</th>
                         </tr>
                     </tfoot>
 
@@ -150,4 +150,4 @@ const ViewUser = () => {
     );
 };
 
-export default ViewUser;
+export default RemoveUser;

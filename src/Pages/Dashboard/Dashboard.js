@@ -1,4 +1,4 @@
-import { faCircleUser, faUserPlus, faUsersGear } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faHandsHoldingChild, faUsersGear, faEnvelopeOpenText, faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -19,7 +19,15 @@ const Dashboard = () => {
                     <div className="drawer drawer-mobile ">
                         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content flex flex-col items-start justify-start bg-base-100 d-content md:px-12 md:py40 px-5 py-9">
-                            <h1 className='md:text-3xl  text-primary f-family'>DASHBOARD</h1>
+                            <div className='flex items-center justify-between w-full'>
+                                <div>
+                                    <h1 className='md:text-3xl text-start  text-primary f-family'>DASHBOARD</h1>
+                                </div>
+                                <div className='mr-5'><div className="indicator">
+                                    <span className="indicator-item badge badge-primary allert-text">99+</span>
+                                    <span className='text-3xl text-primary'> <FontAwesomeIcon icon={faBell} /></span>
+                                </div></div>
+                            </div>
                             <div className="text-sm breadcrumbs pb-10">
                                 <ul>
                                     <React.Fragment>
@@ -60,8 +68,8 @@ const Dashboard = () => {
 
                                 <li><Link to="/dashboard/profile" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Profile</Link></li>
                                 <li><Link to="/dashboard/manage-users" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faUsersGear} /></span> Manage Users</Link></li>
-                                <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Manage Childrens</Link></li>
-                                <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Profile</Link></li>
+                                <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faHandsHoldingChild} /></span> Manage Childrens</Link></li>
+                                <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faEnvelopeOpenText} /></span> Leave Request</Link></li>
 
 
 
