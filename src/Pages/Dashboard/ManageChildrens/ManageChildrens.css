@@ -1,0 +1,28 @@
+.card-userch {
+    width: 450px;
+    height: 230px;
+    padding: 15px;
+    background-image: url(C:\projects\amenaralo\src\Media\bgch.png);
+    background-size: cover;
+
+}
+
+.card-userch img {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.card-gridch {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 30px;
+    justify-content: start;
+
+}
+
+.btn-text-cldrn {
+    font-size: 18px;
+    text-transform: uppercase;
+
+}
