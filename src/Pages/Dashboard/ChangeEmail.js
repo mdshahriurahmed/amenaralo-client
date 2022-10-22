@@ -43,10 +43,7 @@ const ChangeEmail = () => {
         }
         else {
             setError1(<p></p>)
-
             await updateEmail(email);
-
-            console.log(email);
             console.log(user.email);
             if (user.email === email) {
                 toast.success('Email changed successfully!!');

@@ -7,6 +7,7 @@ import Loading from '../Loading/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -19,7 +20,29 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        signInWithEmailAndPassword(data.email, data.password)
+        const currentUsers = {
+            email: data.email,
+            password: data.password,
+        }
+        fetch('http://localhost:5000/CurrentUser', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(currentUsers)
+        })
+            .then(res => res.json())
+            .then(inserted => {
+                if (inserted.insertedId) {
+                    signInWithEmailAndPassword(data.email, data.password);
+
+                }
+                else {
+                    toast.error('Failled to add the user');
+                }
+            })
+
+
     };
 
     let sError;

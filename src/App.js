@@ -13,6 +13,7 @@ import auth from './firebase.init';
 import Welcome from './Pages/Dashboard/Welcome';
 import ManageChildrens from './Pages/Dashboard/ManageChildrens/ManageChildrens';
 
+
 const ForgetPass = React.lazy(() => import('./Pages/Login/ForgetPass'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
 const Login = React.lazy(() => import('./Pages/Login/Login'));
@@ -30,6 +31,7 @@ const ManageUsers = React.lazy(() => import('./Pages/Dashboard/ManageUsers/Manag
 const ViewUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/ViewUser'));
 const PromoteUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/PromoteUser'));
 const RemoveUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/RemoveUser'));
+const AddUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/AddUser'));
 
 
 function App() {
@@ -156,6 +158,13 @@ function App() {
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
                       <RemoveUser></RemoveUser>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+                <Route path='/dashboard/manage-users/add-user' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <AddUser></AddUser>
                     </Suspense>
                   </RequireAuth>
                 }></Route>

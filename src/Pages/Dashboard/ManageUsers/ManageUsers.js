@@ -33,7 +33,7 @@ const ManageUsers = () => {
             </div>
             <div className='card-user shadow-lg border border-accent rounded rounded-lg flex flex-row'>
                 <div className='w-2/4 flex justify-start items-start ml-1'>
-                    <button className='md:text-2xl text-xl text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUserPlus} /></span> Add Users</button>
+                    <button onClick={() => navigate('/dashboard/manage-users/add-user')} className='md:text-2xl text-xl text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUserPlus} /></span> Add Users</button>
                 </div>
                 <div className='w-2/4'><LazyLoadImage src={adduser} >
                 </LazyLoadImage>
