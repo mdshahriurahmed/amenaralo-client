@@ -4,15 +4,15 @@ import { toast } from 'react-toastify';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loader from '../../Loader/Loader';
+import { useNavigate } from 'react-router-dom';
 
 const AddUser = () => {
     const [prevuser] = useAuthState(auth);
-    const adminemail = "shahriur@avixpharma.com"
-    const adminpass = "111111"
+    const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [
         createUserWithEmailAndPassword,
-        user1,
+
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
@@ -27,39 +27,54 @@ const AddUser = () => {
     if (error) {
         signInError = <p className='text-red-500'>{error?.message}</p>
     }
-    if (loading) {
+    if (loading || loading1) {
         return <div><Loader></Loader></div>
     }
 
     const onSubmit = async data => {
 
         await createUserWithEmailAndPassword(data.email, data.password);
-        const Users = {
-            name: data.name,
-            email: data.email,
-            role: data.role,
-            password: data.password,
-            mobile: data.mobile
-        }
-        fetch('http://localhost:5000/Users', {
-            method: 'POST',
+        fetch(`http://localhost:5000/user/${prevuser.email}`, {
+            method: 'GET',
             headers: {
                 'content-type': 'application/json',
+
             },
-            body: JSON.stringify(Users)
+
         })
             .then(res => res.json())
-            .then(inserted => {
-                if (inserted.insertedId) {
-                    toast.success('User Added Successfully');
-                    console.log(prevuser);
-                    reset();
-                    signInWithEmailAndPassword(adminemail, adminpass)
+            .then(data1 => {
+
+                console.log(data1.plot);
+                const Users = {
+                    name: data.name,
+                    email: data.email,
+                    role: data.role,
+                    password: data.password,
+                    mobile: data.mobile
                 }
-                else {
-                    toast.error('Failled to add the user');
-                }
+                fetch('http://localhost:5000/Users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(Users)
+                })
+                    .then(res => res.json())
+                    .then(inserted => {
+                        if (inserted.insertedId) {
+                            toast.success('User Added Successfully');
+                            reset();
+                            signInWithEmailAndPassword(data1.plot.email, data1.plot.password);
+                            navigate('/dashboard/manage-users/add-user')
+                        }
+                        else {
+                            toast.error('Failled to add the user');
+                        }
+                    })
             })
+
+
 
 
     }

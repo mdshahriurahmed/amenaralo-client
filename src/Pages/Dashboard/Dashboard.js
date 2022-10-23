@@ -11,7 +11,6 @@ import useBreadcrumbs from "use-react-router-breadcrumbs";
 const Dashboard = () => {
     const [user] = useAuthState(auth);
     const breadcrumbs = useBreadcrumbs();
-    console.log(user);
     return (
         <div className='mt-20 dashboard '>
             {

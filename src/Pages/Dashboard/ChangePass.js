@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./ChangePass.css"
-import { useUpdatePassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useUpdatePassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loader from '../Loader/Loader';
 import { toast } from 'react-toastify';
@@ -12,7 +12,7 @@ const ChangePass = () => {
     const [password, setPassword] = useState('');
     const [password1, setPassword1] = useState('');
     const [updatePassword, updating, error] = useUpdatePassword(auth);
-
+    const [user] = useAuthState(auth);
 
     const [commonerror, setCommonerror] = useState("");
     const [error1, setError1] = useState("");
@@ -56,7 +56,30 @@ const ChangePass = () => {
                 else {
                     setCommonerror(<p ></p>)
                     await updatePassword(password);
-                    toast.success("Password updated successfully!");
+
+                    const currentUsers = {
+                        email: user.email,
+                        password: password,
+                    }
+                    fetch(`http://localhost:5000/CurrentUser/${user.email}`, {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                        },
+                        body: JSON.stringify(currentUsers)
+                    })
+
+                        .then(res => res.json())
+                        .then(data1 => {
+                            console.log(data1);
+                            if (data1.matchedCount === 1) {
+                                toast.success("Password updated successfully!");
+
+                            }
+                            else {
+                                toast.error('Failled to login');
+                            }
+                        })
                     password.value = '';
                     password1.value = '';
 

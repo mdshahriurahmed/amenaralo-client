@@ -20,27 +20,35 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) => {
+
         const currentUsers = {
             email: data.email,
             password: data.password,
         }
-        fetch('http://localhost:5000/CurrentUser', {
+        fetch(`http://localhost:5000/CurrentUser/${data.email}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
             body: JSON.stringify(currentUsers)
         })
+
             .then(res => res.json())
-            .then(inserted => {
-                if (inserted.insertedId) {
+            .then(data1 => {
+                console.log(data1);
+                if (data1.matchedCount === 1) {
                     signInWithEmailAndPassword(data.email, data.password);
 
                 }
                 else {
-                    toast.error('Failled to add the user');
+                    toast.error('Failled to login');
                 }
+
             })
+
+
+
+
 
 
     };
