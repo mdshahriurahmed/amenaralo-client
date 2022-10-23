@@ -3,11 +3,14 @@ import React from 'react';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import "./Profile.css"
 import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 
 const Profile = () => {
     const navigate = useNavigate();
-
+    const [user] = useAuthState(auth)
+    console.log(user);
     return (
         <div className='pb-10 w-full'>
             <div className='flex md:flex-row flex-col justify-center items-center md:items-start'>

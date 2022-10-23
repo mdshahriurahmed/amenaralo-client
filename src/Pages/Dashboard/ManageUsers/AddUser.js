@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
-import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loader from '../../Loader/Loader';
 import { useNavigate } from 'react-router-dom';
@@ -21,15 +21,15 @@ const AddUser = () => {
         signInWithEmailAndPassword,
         loading1,
     ] = useSignInWithEmailAndPassword(auth);
-
+    const [sendEmailVerification, sending, errorv] = useSendEmailVerification(
+        auth
+    );
     const role = ["Moderator", "Volunteer"];
     let signInError;
-    if (error) {
+    if (error || errorv) {
         signInError = <p className='text-red-500'>{error?.message}</p>
     }
-    if (loading || loading1) {
-        return <div><Loader></Loader></div>
-    }
+
 
     const onSubmit = async data => {
 
@@ -63,8 +63,10 @@ const AddUser = () => {
                     .then(res => res.json())
                     .then(inserted => {
                         if (inserted.insertedId) {
-                            toast.success('User Added Successfully');
+
+                            toast.success('User Added Successfully ad verification email sent');
                             reset();
+                            sendEmailVerification();
                             signInWithEmailAndPassword(data1.plot.email, data1.plot.password);
                             navigate('/dashboard/manage-users/add-user')
                         }
