@@ -44,14 +44,15 @@ const AddUser = () => {
         })
             .then(res => res.json())
             .then(data1 => {
+                console.log(data1);
 
-                console.log(data1.plot);
                 const Users = {
                     name: data.name,
                     email: data.email,
                     role: data.role,
                     password: data.password,
-                    mobile: data.mobile
+                    mobile: data.mobile,
+                    img: "https://i.ibb.co/H4jsWQv/default-img-9da6e88fcb1239f3e809.jpg"
                 }
                 fetch('http://localhost:5000/Users', {
                     method: 'POST',
@@ -149,7 +150,7 @@ const AddUser = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="Enter Password" className="input input-bordered w-full max-w-xs"
+                            <input type="text" placeholder="Enter Password" className="input input-bordered w-full max-w-xs"
                                 {...register("password", {
                                     required: {
                                         value: true,

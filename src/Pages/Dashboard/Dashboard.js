@@ -6,11 +6,14 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
 import "./Dashboard.css"
 import useBreadcrumbs from "use-react-router-breadcrumbs";
+import useUser from '../Hooks/useUser';
 
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
     const breadcrumbs = useBreadcrumbs();
+    const [userdetail] = useUser(user)
+    const { name, role, img } = userdetail;
     return (
         <div className='mt-20 dashboard '>
             {
@@ -55,12 +58,12 @@ const Dashboard = () => {
                                 <div className='h-16 flex flex-row items-center border-b-2 mb-3'>
                                     <div className="avatar online">
                                         <div className="w-12 rounded-full">
-                                            <img src="https://i.ibb.co/cDv93s1/Md-Shahriur.png" />
+                                            <img src={img} />
                                         </div>
                                     </div>
                                     <div>
-                                        <h1 className='ml-4  text-start user_name text-white'>Md Shahriur Ahmed</h1>
-                                        <p className='text-start  ml-4 user-title'>Admin</p>
+                                        <h1 className='ml-4  text-start user_name text-white'>{name}</h1>
+                                        <p className='text-start  ml-4 user-title'>{role}</p>
 
                                     </div>
                                 </div>
