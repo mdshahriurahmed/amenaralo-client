@@ -13,7 +13,6 @@ const ChangePass = () => {
     const [password1, setPassword1] = useState('');
     const [updatePassword, updating, error] = useUpdatePassword(auth);
     const [user] = useAuthState(auth);
-
     const [commonerror, setCommonerror] = useState("");
     const [error1, setError1] = useState("");
     const [error2, setError2] = useState("");
@@ -71,7 +70,7 @@ const ChangePass = () => {
 
                         .then(res => res.json())
                         .then(data1 => {
-                            console.log(data1);
+
                             if (data1.matchedCount === 1) {
                                 toast.success("Password updated successfully!");
 
@@ -80,8 +79,8 @@ const ChangePass = () => {
                                 toast.error('Failled to login');
                             }
                         })
-                    password.value = '';
-                    password1.value = '';
+                    password.current.value = '';
+                    password1.current.value = '';
 
 
                 }

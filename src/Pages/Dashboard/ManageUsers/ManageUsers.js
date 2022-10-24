@@ -15,7 +15,7 @@ const ManageUsers = () => {
         <div className='w-full card-grid  '>
             <div onClick={() => navigate('/dashboard/manage-users/view-users')} className='card-user shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4 flex justify-start items-start ml-1'>
-                    <button className='md:text-2xl text-xl text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUsersViewfinder} /></span> View Users</button>
+                    <button className='btn-font text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUsersViewfinder} /></span> View Users</button>
                 </div>
                 <div className='w-2/4'>
                     <LazyLoadImage src={viewuser} >
@@ -25,7 +25,7 @@ const ManageUsers = () => {
             </div>
             <div onClick={() => navigate('/dashboard/manage-users/promote-users')} className='card-user shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4 flex justify-start items-start ml-1'>
-                    <button className='md:text-2xl text-xl text-base-300 font-bold' text-start><span> <FontAwesomeIcon icon={faArrowUpRightDots} /></span> Promote Users</button>
+                    <button className='btn-font text-base-300 font-bold' text-start><span> <FontAwesomeIcon icon={faArrowUpRightDots} /></span> Promote Users</button>
                 </div>
                 <div className='w-2/4'><LazyLoadImage src={promoteuser} >
 
@@ -33,7 +33,7 @@ const ManageUsers = () => {
             </div>
             <div onClick={() => navigate('/dashboard/manage-users/add-user')} className='card-user shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4 flex justify-start items-start ml-1'>
-                    <button className='md:text-2xl text-xl text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUserPlus} /></span> Add Users</button>
+                    <button className='btn-font text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUserPlus} /></span> Add Users</button>
                 </div>
                 <div className='w-2/4'><LazyLoadImage src={adduser} >
                 </LazyLoadImage>
@@ -41,7 +41,7 @@ const ManageUsers = () => {
             </div>
             <div onClick={() => navigate('/dashboard/manage-users/remove-user')} className='card-user shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4 flex justify-start items-start ml-1'>
-                    <button className='md:text-2xl text-xl text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUserXmark} /></span> Remove Users</button>
+                    <button className='btn-font text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUserXmark} />  </span> Remove Users</button>
                 </div>
                 <div className='w-2/4'><LazyLoadImage src={removeuser} >
 

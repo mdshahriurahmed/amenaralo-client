@@ -25,24 +25,42 @@ const Login = () => {
             email: data.email,
             password: data.password,
         }
-        fetch(`http://localhost:5000/CurrentUser/${data.email}`, {
-            method: 'POST',
+
+
+        fetch(`http://localhost:5000/isuser/${data.email}`, {
+            method: 'GET',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(currentUsers)
-        })
 
+        })
             .then(res => res.json())
-            .then(data1 => {
-                console.log(data1);
-                if (data1.matchedCount === 1) {
-                    signInWithEmailAndPassword(data.email, data.password);
+            .then(data2 => {
+
+                if (data2 === true) {
+
+                    fetch(`http://localhost:5000/CurrentUser/${data.email}`, {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                        },
+                        body: JSON.stringify(currentUsers)
+                    })
+
+                        .then(res => res.json())
+                        .then(data1 => {
+                            signInWithEmailAndPassword(data.email, data.password);
+                        })
 
                 }
                 else {
-                    toast.error('Failled to login');
+                    toast.error('Opps! You are not a registered user');
                 }
+
+
+
+
+
 
             })
 

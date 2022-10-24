@@ -7,6 +7,8 @@ import auth from '../../firebase.init';
 import "./Dashboard.css"
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 import useUser from '../Hooks/useUser';
+import { useQuery } from 'react-query';
+import Loader from '../Loader/Loader';
 
 
 const Dashboard = () => {
@@ -14,6 +16,8 @@ const Dashboard = () => {
     const breadcrumbs = useBreadcrumbs();
     const [userdetail] = useUser(user)
     const { name, role, img } = userdetail;
+
+
     return (
         <div className='mt-20 dashboard '>
             {
@@ -21,16 +25,16 @@ const Dashboard = () => {
                     <div className="drawer drawer-mobile ">
                         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content flex flex-col items-start justify-start bg-base-100 d-content md:px-12 md:py40 px-5 py-9">
-                            <div className='flex items-center justify-between w-full'>
+                            <div className='flex items-center justify-between w-full dashboardhead'>
                                 <div>
                                     <h1 className='md:text-3xl text-start  text-primary f-family'>DASHBOARD</h1>
                                 </div>
                                 <div className='mr-5'><div className="indicator">
                                     <span className="indicator-item badge badge-primary allert-text">99+</span>
-                                    <span className='text-3xl text-primary'> <FontAwesomeIcon icon={faBell} /></span>
+                                    <span className='md:text-3xl text-xl text-primary'> <FontAwesomeIcon icon={faBell} /></span>
                                 </div></div>
                             </div>
-                            <div className="text-sm breadcrumbs pb-10">
+                            <div className="text-sm breadcrumbs pb-10 ">
                                 <ul>
                                     <React.Fragment>
                                         {breadcrumbs.map(({ match,

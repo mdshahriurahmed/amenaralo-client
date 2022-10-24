@@ -15,7 +15,7 @@ const RemoveUser = () => {
 
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
-                            <th>Details</th>
+                            <th className='r-details'>Details</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -41,7 +41,7 @@ const RemoveUser = () => {
                                 <br />
                                 <span className="badge badge-ghost badge-sm">01771046952</span>
                             </td>
-                            <th>
+                            <th className='r-details'>
                                 <button className="btn btn-accent btn-xs">details</button>
                             </th>
                             <th >
@@ -69,7 +69,7 @@ const RemoveUser = () => {
                                 <br />
                                 <span className="badge badge-ghost badge-sm">01771046952</span>
                             </td>
-                            <th>
+                            <th className='r-details'>
                                 <button className="btn btn-accent btn-xs">details</button>
                             </th>
                             <th>
@@ -97,7 +97,7 @@ const RemoveUser = () => {
                                 <br />
                                 <span className="badge badge-ghost badge-sm">01771046952 I</span>
                             </td>
-                            <th>
+                            <th className='r-details'>
                                 <button className="btn btn-accent btn-xs">details</button>
                             </th>
                             <th>
@@ -125,7 +125,7 @@ const RemoveUser = () => {
                                 <br />
                                 <span className="badge badge-ghost badge-sm">01771046952</span>
                             </td>
-                            <th>
+                            <th className='r-details'>
                                 <button className="btn btn-accent btn-xs ">details</button>
                             </th>
                             <th>
@@ -139,7 +139,7 @@ const RemoveUser = () => {
 
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
-                            <th>Details</th>
+                            <th className='r-details'>Details</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>

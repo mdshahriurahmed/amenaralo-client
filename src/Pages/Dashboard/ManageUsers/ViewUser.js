@@ -1,8 +1,9 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loader from '../../Loader/Loader';
 import "./Viewuse.css"
-
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 const ViewUser = () => {
     const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/alluser', {
@@ -26,7 +27,7 @@ const ViewUser = () => {
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
                             <th>Details</th>
-                            <th>Short Code</th>
+                            <th className='s-code'>Short Code</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,9 +55,10 @@ const ViewUser = () => {
                                             <span className="badge badge-ghost badge-sm">{user.mobile}</span>
                                         </td>
                                         <th>
-                                            <button className="btn btn-accent btn-xs">details</button>
+                                            <button className="btn btn-accent btn-xs detail-btn-u">details</button>
+                                            <FontAwesomeIcon className="text-accent eye-icon" icon={faEye} />
                                         </th>
-                                        <td>
+                                        <td className='s-code'>
                                             AA-2
                                         </td>
                                     </tr>
@@ -75,7 +77,7 @@ const ViewUser = () => {
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
                             <th>Details</th>
-                            <th>Short Code</th>
+                            <th className='s-code'>Short Code</th>
                         </tr>
                     </tfoot>
 
