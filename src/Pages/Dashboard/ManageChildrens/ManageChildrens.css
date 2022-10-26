@@ -26,3 +26,37 @@
     text-transform: uppercase;
 
 }
+
+.breaks {
+    display: none;
+}
+
+@media screen and (max-width:1320px) {
+    .card-userch {
+        width: 300px;
+    }
+
+    .btn-text-cldrn {
+        font-size: 15px;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .breaks {
+        display: block;
+    }
+
+    .spicon {
+        font-size: 40px;
+        padding-bottom: 5px;
+    }
+}
+
+@media screen and (max-width:665px) {
+    .card-gridch {
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+
+    }
+}

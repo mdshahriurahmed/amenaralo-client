@@ -5,7 +5,7 @@ import removeuser from "../../../Media/removeuser.png"
 import viewchild from "../../../Media/viewchild.png"
 import promoteuser from "../../../Media/promoteuser.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsersViewfinder, faPuzzlePiece, faTrashCan, faBookOpenReader } from '@fortawesome/free-solid-svg-icons';
+import { faUsersViewfinder, faPuzzlePiece, faTrashCan, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const ManageChildrens = () => {
         <div className='w-full card-gridch  '>
             <div onClick={() => navigate('/dashboard/manage-users/view-users')} className='card-userch shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4 flex justify-start items-start ml-1'>
-                    <button className='btn-text-cldrn text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faUsersViewfinder} /></span> View Childrens</button>
+                    <button className='btn-text-cldrn text-base-300 font-bold text-start'><span> <FontAwesomeIcon className='spicon' icon={faUsersViewfinder} /> <br className='breaks' /> </span> View Childrens</button>
                 </div>
                 <div className='w-2/4'>
                     <LazyLoadImage src={viewchild} >
@@ -25,15 +25,15 @@ const ManageChildrens = () => {
             </div>
             <div onClick={() => navigate('/dashboard/manage-users/promote-users')} className='card-userch shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4 flex justify-start items-start ml-1'>
-                    <button className='btn-text-cldrn text-base-300 font-bold' text-start><span> <FontAwesomeIcon icon={faBookOpenReader} /></span> Add Results</button>
+                    <button className='btn-text-cldrn text-base-300 font-bold' text-start><span> <FontAwesomeIcon className='spicon' icon={faPenToSquare} /><br className='breaks' /></span> Update Info</button>
                 </div>
                 <div className='w-2/4'><LazyLoadImage src={promoteuser} >
 
                 </LazyLoadImage></div>
             </div>
-            <div onClick={() => navigate('/dashboard/manage-users/promote-users')} className='card-userch shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
+            <div onClick={() => navigate('/dashboard/manage-childrens/add-children')} className='card-userch shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4 flex justify-start items-start ml-1'>
-                    <button className='btn-text-cldrn text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faPuzzlePiece} /></span> Add Childrens</button>
+                    <button className='btn-text-cldrn text-base-300 font-bold text-start'><span> <FontAwesomeIcon className='spicon' icon={faPuzzlePiece} /><br className='breaks' /></span> Add Childrens</button>
                 </div>
                 <div className='w-2/4'><LazyLoadImage src={adduser} >
                 </LazyLoadImage>
@@ -41,7 +41,7 @@ const ManageChildrens = () => {
             </div>
             <div onClick={() => navigate('/dashboard/manage-users/remove-user')} className='card-userch shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4  flex justify-start items-start ml-1 '>
-                    <button className='btn-text-cldrn text-base-300 font-bold text-start'><span> <FontAwesomeIcon icon={faTrashCan} /></span> Remove Childrens</button>
+                    <button className='btn-text-cldrn text-base-300 font-bold text-start'><span> <FontAwesomeIcon className='spicon' icon={faTrashCan} /><br className='breaks' /></span> Remove Childrens</button>
                 </div>
                 <div className='w-2/4'><LazyLoadImage src={removeuser} >
 

@@ -12,6 +12,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import Welcome from './Pages/Dashboard/Welcome';
 import ManageChildrens from './Pages/Dashboard/ManageChildrens/ManageChildrens';
+import AddChildren from './Pages/Dashboard/ManageChildrens/AddChildren';
 
 
 const ForgetPass = React.lazy(() => import('./Pages/Login/ForgetPass'));
@@ -173,6 +174,14 @@ function App() {
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
                       <ManageChildrens></ManageChildrens>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+
+                <Route path='/dashboard/manage-childrens/add-children' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <AddChildren></AddChildren>
                     </Suspense>
                   </RequireAuth>
                 }></Route>
