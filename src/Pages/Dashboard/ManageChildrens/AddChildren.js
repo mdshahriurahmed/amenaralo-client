@@ -39,6 +39,7 @@ const AddChildren = () => {
                             name: data.name,
                             email: data.email,
                             clstitle: data.clstitle,
+                            sclname: data.sclname,
                             img: `${url}`
                         }
                         fetch('http://localhost:5000/Childrens', {
@@ -79,10 +80,12 @@ const AddChildren = () => {
                     <h2 className="text-center text-2xl font-bold">Add a New Children</h2>
                     <div>
                         <img src={url} alt="" className='w-20 h-20' />
-                        <input type="file" onChange={handleChange} />
+                        <input type="file" onChange={handleChange} className="bg-primary btn-primary" />
+
 
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
+                        {/* ----name------- */}
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -98,6 +101,23 @@ const AddChildren = () => {
                                 {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                             </label>
                         </div>
+                        {/* ------ School Name ----*/}
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">School Name Name</span>
+                            </label>
+                            <input type="text" placeholder="Enter School Name" className="input input-bordered w-full max-w-xs"
+                                {...register("sclname", {
+                                    required: {
+                                        value: true,
+                                        message: 'School Name Name is required'
+                                    }
+                                })} />
+                            <label className="label">
+                                {errors.sclname?.type === 'required' && <span className="label-text-alt text-red-500">{errors.sclname.message}</span>}
+                            </label>
+                        </div>
+
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
