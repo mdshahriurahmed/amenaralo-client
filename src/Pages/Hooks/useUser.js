@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 const useUser = user => {
     const [userdetail, setUserDetails] = useState('');
+
     useEffect(() => {
         const email = user?.email;
         if (email) {

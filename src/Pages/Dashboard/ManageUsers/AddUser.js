@@ -52,7 +52,7 @@ const AddUser = () => {
                     role: data.role,
                     password: data.password,
                     mobile: data.mobile,
-                    img: "https://firebasestorage.googleapis.com/v0/b/amenar-alo.appspot.com/o/default%20img.9da6e88fcb1239f3e809.png?alt=media&token=02ba87cb-d77c-492f-b1ab-204ce239ee6f"
+                    img: "https://firebasestorage.googleapis.com/v0/b/amenar-alo.appspot.com/o/image?alt=media&token=34521aaf-949c-4c9c-9466-3b24aea283a4"
                 }
                 fetch('http://localhost:5000/Users', {
                     method: 'POST',

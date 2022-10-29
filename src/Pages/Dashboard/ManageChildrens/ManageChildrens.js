@@ -13,7 +13,7 @@ const ManageChildrens = () => {
     const navigate = useNavigate();
     return (
         <div className='w-full card-gridch  '>
-            <div onClick={() => navigate('/dashboard/manage-users/view-users')} className='card-userch shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
+            <div onClick={() => navigate('/dashboard/manage-childrens/view-childrens')} className='card-userch shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4 flex justify-start items-start ml-1'>
                     <button className='btn-text-cldrn text-base-300 font-bold text-start'><span> <FontAwesomeIcon className='spicon' icon={faUsersViewfinder} /> <br className='breaks' /> </span> View Childrens</button>
                 </div>
@@ -39,7 +39,7 @@ const ManageChildrens = () => {
                 </LazyLoadImage>
                 </div>
             </div>
-            <div onClick={() => navigate('/dashboard/manage-users/remove-user')} className='card-userch shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
+            <div onClick={() => navigate('/dashboard/manage-childrens/remove-children')} className='card-userch shadow-lg border border-accent rounded rounded-lg flex flex-row cursor-pointer'>
                 <div className='w-2/4  flex justify-start items-start ml-1 '>
                     <button className='btn-text-cldrn text-base-300 font-bold text-start'><span> <FontAwesomeIcon className='spicon' icon={faTrashCan} /><br className='breaks' /></span> Remove Childrens</button>
                 </div>

@@ -33,6 +33,8 @@ const ViewUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/ViewUser
 const PromoteUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/PromoteUser'));
 const RemoveUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/RemoveUser'));
 const AddUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/AddUser'));
+const ViewChildrens = React.lazy(() => import('./Pages/Dashboard/ManageChildrens/ViewChildrens'));
+const RemoveChildren = React.lazy(() => import('./Pages/Dashboard/ManageChildrens/DeleteChildren'));
 
 
 function App() {
@@ -182,6 +184,21 @@ function App() {
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
                       <AddChildren></AddChildren>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+
+                <Route path='/dashboard/manage-childrens/view-childrens' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <ViewChildrens></ViewChildrens>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+                <Route path='/dashboard/manage-childrens/remove-children' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <RemoveChildren></RemoveChildren>
                     </Suspense>
                   </RequireAuth>
                 }></Route>

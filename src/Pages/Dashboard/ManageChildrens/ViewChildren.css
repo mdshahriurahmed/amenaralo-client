@@ -1,0 +1,51 @@
+.btn-dlt {
+    background-color: red;
+    border: none;
+    color: white;
+}
+
+.res-make-m {
+    margin-left: 5px;
+}
+
+.eye-icon {
+    display: none;
+}
+
+@media screen and (max-width:750px) {
+    .responsivetable {
+        display: none;
+    }
+
+
+}
+
+@media screen and (max-width:600px) {
+
+
+    .s-code {
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .r-details {
+        display: none;
+    }
+}
+
+@media screen and (max-width:435px) {
+    .res-make-m {
+        display: none;
+    }
+
+    .detail-btn-u {
+        display: none;
+    }
+
+    .eye-icon {
+        display: block;
+        text-align: center;
+        margin-left: 15px;
+    }
+}

@@ -7,8 +7,7 @@ import auth from '../../firebase.init';
 import "./Dashboard.css"
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 import useUser from '../Hooks/useUser';
-import { useQuery } from 'react-query';
-import Loader from '../Loader/Loader';
+
 
 
 const Dashboard = () => {
