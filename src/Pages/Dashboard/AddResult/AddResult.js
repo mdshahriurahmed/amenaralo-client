@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loader from '../../Loader/Loader';
-import "../ManageChildrens/AddChildren.css"
+import "../ManageChildrens/ViewChildren.css"
 import { faNoteSticky } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 

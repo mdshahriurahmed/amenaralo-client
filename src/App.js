@@ -12,6 +12,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 
 
+
 const Home = React.lazy(() => import('./Pages/Home/Home'));
 const ForgetPass = React.lazy(() => import('./Pages/Login/ForgetPass'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
@@ -37,6 +38,7 @@ const ManageChildrens = React.lazy(() => import('./Pages/Dashboard/ManageChildre
 const AddChildren = React.lazy(() => import('./Pages/Dashboard/ManageChildrens/AddChildren'));
 const Welcome = React.lazy(() => import('./Pages/Dashboard/Welcome'));
 const ResultForm = React.lazy(() => import('./Pages/Dashboard/AddResult/ResultForm'));
+const NotFound = React.lazy(() => import('./Pages/NotFound/NotFound'));
 
 
 function App() {
@@ -105,6 +107,10 @@ function App() {
 
               <Route path="/forget-password" element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <ForgetPass></ForgetPass>
+              </Suspense>}>
+              </Route>
+              <Route path="/*" element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <NotFound></NotFound>
               </Suspense>}>
               </Route>
 
