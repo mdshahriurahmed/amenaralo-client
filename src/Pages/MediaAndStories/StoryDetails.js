@@ -10,7 +10,7 @@ const StoryDetails = () => {
     const { _id } = useParams();
 
     useEffect(() => {
-        const url = `https://fast-dawn-11728.herokuapp.com/story/${_id}`;
+        const url = `http://localhost:5000/story/${_id}`;
         fetch(url, {
             method: 'GET'
         })
