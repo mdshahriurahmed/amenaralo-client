@@ -31,7 +31,7 @@ const DeleteModal = ({ cuser, refetch, setCuser }) => {
                 <input type="checkbox" id="delete-modal" className="modal-toggle" />
                 <div className="modal modal-bottom sm:modal-middle px-5">
                     <div className="modal-box ">
-                        <h3 className="font-bold text-lg text-primary">Want to Delete the user {cuser._id}?</h3>
+                        <h3 className="font-bold text-lg text-primary">Want to Delete the user?</h3>
                         <div className="avatar mt-5">
                             <div className="w-24 rounded">
                                 <img src={img} alt="User iamge" />

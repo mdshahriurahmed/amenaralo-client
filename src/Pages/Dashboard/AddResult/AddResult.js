@@ -2,11 +2,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loader from '../../Loader/Loader';
-import "./ViewChildren.css"
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import "../ManageChildrens/AddChildren.css"
+import { faNoteSticky } from '@fortawesome/free-solid-svg-icons';
 
 
-const ViewChildrens = () => {
+const AddResult = () => {
 
     const { data: childrens, isLoading, refetch } = useQuery('childrens', () => fetch(`http://localhost:5000/allchildren`, {
         method: 'GET',
@@ -29,7 +29,7 @@ const ViewChildrens = () => {
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
                             <th className='s-code'>Class</th>
-                            <th>Details</th>
+                            <th>Action</th>
 
                         </tr>
                     </thead>
@@ -60,8 +60,8 @@ const ViewChildrens = () => {
                                             {children?.cclass}
                                         </td>
                                         <th>
-                                            <button className="btn btn-accent btn-xs detail-btn-u">details</button>
-                                            <FontAwesomeIcon className="text-accent eye-icon" icon={faEye} />
+                                            <button className="btn btn-primary btn-xs detail-btn-u">Add Result</button>
+                                            <FontAwesomeIcon className="text-primary eye-icon" icon={faNoteSticky} />
                                         </th>
 
                                     </tr>
@@ -80,7 +80,7 @@ const ViewChildrens = () => {
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
                             <th className='s-code'>Class</th>
-                            <th>Details</th>
+                            <th>Action</th>
 
                         </tr>
                     </tfoot>
@@ -91,4 +91,4 @@ const ViewChildrens = () => {
     );
 };
 
-export default ViewChildrens;
+export default AddResult;

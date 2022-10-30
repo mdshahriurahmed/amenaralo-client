@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loader from '../../Loader/Loader';
-import DeleteModal from '../ManageUsers/DeleteModal';
 import DeleteChild from './DeleteChild';
 import "./ViewChildrens"
 
@@ -36,7 +35,7 @@ const RemoveChildren = () => {
                     </thead>
                     <tbody>
                         {
-                            childrens.map((children, index) => {
+                            childrens?.map((children, index) => {
 
                                 return (
                                     <tr>
@@ -45,17 +44,17 @@ const RemoveChildren = () => {
                                             <div className="flex items-center space-x-3">
                                                 <div className="avatar">
                                                     <div className="mask mask-squircle w-12 h-12">
-                                                        <img src={children.img} alt="Avatar Tailwind CSS Component" />
+                                                        <img src={children?.img} alt="Avatar Tailwind CSS Component" />
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <div className="font-bold">{children.name}</div>
+                                                    <div className="font-bold">{children?.name}</div>
                                                     <div className="text-sm opacity-50">ID: {children.s_id}</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className='responsivetable'>
-                                            {children.cclass}
+                                            {children?.cclass}
 
                                         </td>
                                         <th className='r-details'>

@@ -1,14 +1,14 @@
 
 import React from 'react';
 import { toast } from 'react-toastify';
-import useApi from '../../Hooks/useApi';
+
 
 const DeleteChild = ({ cchild, refetch, setCchild }) => {
-    const [api] = useApi()
+
     const { cclass, s_id, name, img, _id } = cchild;
     const handleDelete = _id => {
 
-        fetch(`${api}/delete-child/${_id}`, {
+        fetch(`http://localhost:5000/delete-child/${_id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

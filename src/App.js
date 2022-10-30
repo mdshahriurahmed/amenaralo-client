@@ -10,17 +10,14 @@ import Loading from './Pages/Loading/Loading';
 import RequireAuth from './Pages/Login/RequireAuth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
-import Welcome from './Pages/Dashboard/Welcome';
-import ManageChildrens from './Pages/Dashboard/ManageChildrens/ManageChildrens';
-import AddChildren from './Pages/Dashboard/ManageChildrens/AddChildren';
 
 
+const Home = React.lazy(() => import('./Pages/Home/Home'));
 const ForgetPass = React.lazy(() => import('./Pages/Login/ForgetPass'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
 const Login = React.lazy(() => import('./Pages/Login/Login'));
 const StoryDetails = React.lazy(() => import('./Pages/MediaAndStories/StoryDetails'));
 const MediaDetails = React.lazy(() => import('./Pages/MediaAndStories/MediaDetails'));
-const Home = React.lazy(() => import('./Pages/Home/Home'));
 const AboutUs = React.lazy(() => import('./Pages/AboutUs/AboutUs'));
 const WhatWeDoMain = React.lazy(() => import('./Pages/WhatWeDoMain/WhatWeDoMain'));
 const MediaAndStories = React.lazy(() => import('./Pages/MediaAndStories/MediaAndStories'));
@@ -35,6 +32,10 @@ const RemoveUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/Remove
 const AddUser = React.lazy(() => import('./Pages/Dashboard/ManageUsers/AddUser'));
 const ViewChildrens = React.lazy(() => import('./Pages/Dashboard/ManageChildrens/ViewChildrens'));
 const RemoveChildren = React.lazy(() => import('./Pages/Dashboard/ManageChildrens/DeleteChildren'));
+const AddResult = React.lazy(() => import('./Pages/Dashboard/AddResult/AddResult'));
+const ManageChildrens = React.lazy(() => import('./Pages/Dashboard/ManageChildrens/ManageChildrens'));
+const AddChildren = React.lazy(() => import('./Pages/Dashboard/ManageChildrens/AddChildren'));
+const Welcome = React.lazy(() => import('./Pages/Dashboard/Welcome'));
 
 
 function App() {
@@ -55,8 +56,12 @@ function App() {
           <Loading loading={Loading}></Loading>
         </div> :
           <>
+            {/* calling header here */}
             <Header></Header>
+
+
             <Routes>
+              {/* calling public routes */}
               <Route path='/' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <Home />
               </Suspense>}>
@@ -102,6 +107,8 @@ function App() {
               </Suspense>}>
               </Route>
 
+              {/* calling protected routes of dashboard */}
+
               <Route path='/dashboard' element={
                 <RequireAuth>
                   <Suspense fallback={<div><Loader></Loader></div>}>
@@ -115,6 +122,9 @@ function App() {
                   </RequireAuth>
                 }>
                 </Route>
+
+                {/* calling routes of profile */}
+
                 <Route path='/dashboard/profile' element={
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
@@ -136,6 +146,8 @@ function App() {
                     </Suspense>
                   </RequireAuth>
                 }></Route>
+
+                {/* calling routes of manage user section */}
                 <Route path='/dashboard/manage-users' element={
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
@@ -172,6 +184,7 @@ function App() {
                   </RequireAuth>
                 }></Route>
 
+                {/* calling routes manage children */}
                 <Route path='/dashboard/manage-childrens' element={
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
@@ -199,6 +212,15 @@ function App() {
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
                       <RemoveChildren></RemoveChildren>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+
+                {/* calling routes of add result */}
+                <Route path='/dashboard/add-result' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <AddResult></AddResult>
                     </Suspense>
                   </RequireAuth>
                 }></Route>
