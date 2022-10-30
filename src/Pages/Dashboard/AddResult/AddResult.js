@@ -4,10 +4,11 @@ import { useQuery } from 'react-query';
 import Loader from '../../Loader/Loader';
 import "../ManageChildrens/AddChildren.css"
 import { faNoteSticky } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddResult = () => {
-
+    const navigate = useNavigate();
     const { data: childrens, isLoading, refetch } = useQuery('childrens', () => fetch(`http://localhost:5000/allchildren`, {
         method: 'GET',
         headers: {
@@ -36,6 +37,7 @@ const AddResult = () => {
                     <tbody>
                         {
                             childrens?.map((children, index) => {
+                                const _id = children?._id;
                                 return (
                                     <tr>
 
@@ -60,7 +62,7 @@ const AddResult = () => {
                                             {children?.cclass}
                                         </td>
                                         <th>
-                                            <button className="btn btn-primary btn-xs detail-btn-u">Add Result</button>
+                                            <button onClick={() => { navigate(`/dashboard/add-result/result-form/${_id}`) }} className="btn btn-primary btn-xs detail-btn-u">Add Result</button>
                                             <FontAwesomeIcon className="text-primary eye-icon" icon={faNoteSticky} />
                                         </th>
 

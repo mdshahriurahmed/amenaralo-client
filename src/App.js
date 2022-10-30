@@ -36,6 +36,7 @@ const AddResult = React.lazy(() => import('./Pages/Dashboard/AddResult/AddResult
 const ManageChildrens = React.lazy(() => import('./Pages/Dashboard/ManageChildrens/ManageChildrens'));
 const AddChildren = React.lazy(() => import('./Pages/Dashboard/ManageChildrens/AddChildren'));
 const Welcome = React.lazy(() => import('./Pages/Dashboard/Welcome'));
+const ResultForm = React.lazy(() => import('./Pages/Dashboard/AddResult/ResultForm'));
 
 
 function App() {
@@ -221,6 +222,13 @@ function App() {
                   <RequireAuth>
                     <Suspense fallback={<div><Loader></Loader></div>}>
                       <AddResult></AddResult>
+                    </Suspense>
+                  </RequireAuth>
+                }></Route>
+                <Route path='/dashboard/add-result/result-form/:_id' element={
+                  <RequireAuth>
+                    <Suspense fallback={<div><Loader></Loader></div>}>
+                      <ResultForm></ResultForm>
                     </Suspense>
                   </RequireAuth>
                 }></Route>
