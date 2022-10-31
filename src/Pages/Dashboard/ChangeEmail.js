@@ -4,19 +4,22 @@ import { useAuthState, useUpdateEmail } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loader from '../Loader/Loader';
 import { toast } from 'react-toastify';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import useUser from '../Hooks/useUser';
+import { useEffect } from 'react';
+import { useQuery } from 'react-query';
+
 
 
 const ChangeEmail = () => {
     const [email, setEmail] = useState('');
     const [updateEmail, updating, error] = useUpdateEmail(auth);
-
     const [error1, setError1] = useState("");
     const [user] = useAuthState(auth);
-    const [view, setView] = useState(false);
     let load;
     let error2;
+
+    const [userdetail] = useUser(user)
+    const { mobile } = userdetail;
 
 
 
@@ -37,22 +40,38 @@ const ChangeEmail = () => {
     const changeEmail1 = async (e) => {
         e.preventDefault();
 
+
+
         if (email === "") {
-            return (setError1(<p className='text-start text-red-500 mt-1'>Please enter email</p>))
+            return (setError1(<p className='text-start text-red-500 mt-1'>Please enter email </p>))
 
         }
         else {
             setError1(<p></p>)
             await updateEmail(email);
-            console.log(user.email);
             if (user.email === email) {
-                toast.success('Email changed successfully!!');
+                const newmail = {
+                    email: email
+                }
+
+                fetch(`http://localhost:5000/usernew1/${mobile}`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(newmail)
+                })
+
+                    .then(res => res.json())
+                    .then(data1 => {
+                        toast.success('Email changed successfully!!');
+                    })
             }
             else {
                 toast.error('Failed to change email..');
             }
         }
-        console.log(user.email);
+
 
     }
 

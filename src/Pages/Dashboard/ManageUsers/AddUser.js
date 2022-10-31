@@ -44,7 +44,7 @@ const AddUser = () => {
         })
             .then(res => res.json())
             .then(data1 => {
-                console.log(data1);
+
 
                 const Users = {
                     name: data.name,
