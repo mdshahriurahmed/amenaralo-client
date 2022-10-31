@@ -2,15 +2,20 @@ import React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Loader from '../../Loader/Loader';
 import "./ResultForm.css"
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import { storage } from '../../../firebasestorage';
 
 const ResultForm = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const { _id } = useParams();
     const id = _id;
-    const skills = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const navigate = useNavigate();
+    const [image, setImg] = useState(null);
+    const [p_url, setUrl] = useState(null);
     const years = ["2021", "2022", "2023", "2024", "2025",];
     const [sclass, setSclass] = useState("")
     const { data: children, isLoading } = useQuery('children', () => fetch(`http://localhost:5000/children/${id}`, {
@@ -24,19 +29,103 @@ const ResultForm = () => {
         return <Loader></Loader>
     }
 
+
+    let new_id = parseInt(children?.s_id)
+
     const handleChange = e => {
         if (e.target.value) {
             setSclass(e.target.value)
 
         }
-
     }
-    console.log(sclass);
+    let imerror;
+    const handleChangeimg = e => {
+        if (e.target.files[0]) {
+            setImg(e.target.files[0])
+        }
+        else {
+            return (imerror = <p className='text-start text-red-500'>Please choose image</p>)
+        }
+    }
+    const imgname = new_id + image?.name
+    const onSubmit = async data => {
+
+        const imageRef = ref(storage, `${imgname}`)
+
+        uploadBytes(imageRef, image)
+            .then(() => {
+                getDownloadURL(imageRef)
+                    .then((url) => {
+
+                        // code to send data on database
+                        setUrl(url)
+                        console.log(url);
+                        // const newID = {
+                        //     cid: new_id
+                        // }
+                        // const Childrens = {
+                        //     s_id: new_id,
+                        //     name: data.name,
+                        //     fname: data.fname,
+                        //     mname: data.mname,
+                        //     mobile: data.mobile,
+                        //     address: data.address,
+                        //     fnid: data.fnid,
+                        //     mnid: data.mnid,
+                        //     dob: data.dob,
+                        //     dobn: data.dobn,
+                        //     sclname: data.sclname,
+                        //     clstitle: data.clstitle,
+                        //     cclass: data.clstitle,
+                        //     bskill: data.bskill,
+                        //     eskill: data.eskill,
+                        //     img: `${url}`
+                        // }
+                        // fetch('http://localhost:5000/Childrens', {
+                        //     method: 'POST',
+                        //     headers: {
+                        //         'content-type': 'application/json',
+                        //     },
+                        //     body: JSON.stringify(Childrens)
+                        // })
+                        //     .then(res => res.json())
+                        //     .then(inserted => {
+                        //         if (inserted.insertedId) {
+                        //             fetch(`http://localhost:5000/currentid/635ceb379dfb9c79856d6103`, {
+                        //                 method: 'POST',
+                        //                 headers: {
+                        //                     'content-type': 'application/json',
+                        //                 },
+                        //                 body: JSON.stringify(newID)
+                        //             })
+
+                        //                 .then(res => res.json())
+                        //                 .then(data1 => {
+                        //                     toast.success('Children Added Successfully');
+                        //                     reset();
+                        //                     setImg(null)
+                        //                     navigate('/dashboard/manage-childrens')
+                        //                 })
+
+                        //         }
+                        //         else {
+                        //             toast.error('Failled to add the children');
+                        //         }
+                        //     })
+
+                    }).catch(error => {
+                        console.log(error.message);
+                    })
+
+            }).catch(error => {
+                console.log(error.message);
+            })
+    }
     return (
         <div className='py-16 w-full shadow-lg border border-accent rounded-md px-8 flex flex-row'>
 
             <div className='width-c-form1'>
-                <form onSubmit={() => console.log("sad")}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <p className='md:text-start md:pl-8 md:mb-5'><i>Note: please select class to get all options</i></p>
                     <div className='flex md:flex-row flex-col w-full'>
                         <div className='md:w-3/6 md:px-8'>
@@ -86,7 +175,7 @@ const ResultForm = () => {
                                 <label className="label">
                                     <span className="label-text">Bangla</span>
                                 </label>
-                                <input type="text" placeholder="Enter Mark" className="input input-bordered w-full "
+                                <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
                                     {...register("bangla", {
                                         required: {
                                             value: true,
@@ -99,29 +188,14 @@ const ResultForm = () => {
                             </div>
 
 
-                            {/* ---- English------- */}
-                            <div className="form-control w-full ">
-                                <label className="label">
-                                    <span className="label-text">English</span>
-                                </label>
-                                <input type="text" placeholder="Enter Mark" className="input input-bordered w-full "
-                                    {...register("english", {
-                                        required: {
-                                            value: true,
-                                            message: "Mark is required"
-                                        }
-                                    })} />
-                                <label className="label">
-                                    {errors.english?.type === 'required' && <span className="label-text-alt text-red-500">{errors.english.message}</span>}
-                                </label>
-                            </div>
+
 
                             {/* ---- Mathematics------- */}
                             <div className="form-control w-full ">
                                 <label className="label">
                                     <span className="label-text">Mathematics</span>
                                 </label>
-                                <input type="text" placeholder="Enter Mark" className="input input-bordered w-full "
+                                <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
                                     {...register("mathematics", {
                                         required: {
                                             value: true,
@@ -133,166 +207,117 @@ const ResultForm = () => {
                                 </label>
                             </div>
 
-                            {/* ---- Mobile Number------- */}
-                            <div className="form-control w-full ">
-                                <label className="label">
-                                    <span className="label-text">Mobile</span>
-                                </label>
-                                <input type="text" placeholder="Enter Mobile Number" className="input input-bordered w-full "
-                                    {...register("mobile", {
-                                        required: {
-                                            value: true,
-                                            message: "Mobile Number is required"
-                                        }
-                                    })} />
-                                <label className="label">
-                                    {errors.mobile?.type === 'required' && <span className="label-text-alt text-red-500">{errors.mobile.message}</span>}
-                                </label>
-                            </div>
-                            {/* ---- Address ------- */}
-                            <div className="form-control w-full ">
-                                <label className="label">
-                                    <span className="label-text">Address</span>
-                                </label>
-                                <input type="text" placeholder="Enter Address" className="input input-bordered w-full "
-                                    {...register("address", {
-                                        required: {
-                                            value: true,
-                                            message: "Address is required"
-                                        }
-                                    })} />
-                                <label className="label">
-                                    {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
-                                </label>
-                            </div>
-                            {/* ---- Father's NID------- */}
-                            <div className="form-control w-full ">
-                                <label className="label">
-                                    <span className="label-text">Father's NID</span>
-                                </label>
-                                <input type="text" placeholder="Enter Father's NID" className="input input-bordered w-full "
-                                    {...register("fnid", {
-                                        required: {
-                                            value: true,
-                                            message: "Father's NID is required"
-                                        }
-                                    })} />
-                                <label className="label">
-                                    {errors.fnid?.type === 'required' && <span className="label-text-alt text-red-500">{errors.fnid.message}</span>}
-                                </label>
-                            </div>
+                            {/* ---- subject comes class wise------- */}
+                            {
+                                sclass === "Class 3" || sclass === "Class 4" || sclass === "Class 5" ? <div>
+                                    {/* ---- Bangladesh and Global Studies------- */}
+                                    <div className="form-control w-full ">
+                                        <label className="label">
+                                            <span className="label-text">Bangladesh and Global Studies</span>
+                                        </label>
+                                        <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                            {...register("bgstudies", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Mark is required"
+                                                }
+                                            })} />
+                                        <label className="label">
+                                            {errors.bgstudies?.type === 'required' && <span className="label-text-alt text-red-500">{errors.bgstudies.message}</span>}
+                                        </label>
+                                    </div>
+                                    {/* ---- Islamic Studies------- */}
+                                    <div className="form-control w-full ">
+                                        <label className="label">
+                                            <span className="label-text">Religious Studies</span>
+                                        </label>
+                                        <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                            {...register("religion", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Mark is required"
+                                                }
+                                            })} />
+                                        <label className="label">
+                                            {errors.religion?.type === 'required' && <span className="label-text-alt text-red-500">{errors.religion.message}</span>}
+                                        </label>
+                                    </div>
 
-                            {/* ---- Mother's NID------- */}
-                            <div className="form-control w-full ">
-                                <label className="label">
-                                    <span className="label-text">Mother's NID</span>
-                                </label>
-                                <input type="text" placeholder="Enter Mother's NID" className="input input-bordered w-full "
-                                    {...register("mnid", {
-                                        required: {
-                                            value: true,
-                                            message: "Mother's NID is required"
-                                        }
-                                    })} />
-                                <label className="label">
-                                    {errors.mnid?.type === 'required' && <span className="label-text-alt text-red-500">{errors.mnid.message}</span>}
-                                </label>
-                            </div>
+                                </div> : <></>
+                            }
+
+
                         </div>
                         <div className='md:w-3/6 w-full lg:px-8 md:px-2'>
-                            {/* ------ Date of Birth ----*/}
-
+                            {/* ---- English------- */}
                             <div className="form-control w-full ">
                                 <label className="label">
-                                    <span className="label-text">Date of Birth(DOB)   </span>
+                                    <span className="label-text">English</span>
                                 </label>
-                                <input type="date" placeholder="Enter Date of Birth" className="input input-bordered w-full "
-                                    {...register("dob", {
+                                <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                    {...register("english", {
                                         required: {
                                             value: true,
-                                            message: 'Date of Birth is required'
+                                            message: "Mark is required"
                                         }
                                     })} />
                                 <label className="label">
-                                    {errors.dob?.type === 'required' && <span className="label-text-alt text-red-500">{errors.dob.message}</span>}
-                                </label>
-                            </div>
-                            {/* ------ Date of birth number ----*/}
-
-                            <div className="form-control w-full ">
-                                <label className="label">
-                                    <span className="label-text">DOB Number   </span>
-                                </label>
-                                <input type="text" placeholder="Enter DOB Number" className="input input-bordered w-full "
-                                    {...register("dobn", {
-                                        required: {
-                                            value: true,
-                                            message: 'DOB Number is required'
-                                        }
-                                    })} />
-                                <label className="label">
-                                    {errors.dobn?.type === 'required' && <span className="label-text-alt text-red-500">{errors.dobn.message}</span>}
+                                    {errors.english?.type === 'required' && <span className="label-text-alt text-red-500">{errors.english.message}</span>}
                                 </label>
                             </div>
 
-                            {/* ------ School Name ----*/}
+                            {/* ---- subject comes class wise------- */}
+                            {
+                                sclass === "Class 3" || sclass === "Class 4" || sclass === "Class 5" ? <div>
+                                    {/* ---- General Science------- */}
+                                    <div className="form-control w-full ">
+                                        <label className="label">
+                                            <span className="label-text">General Science</span>
+                                        </label>
+                                        <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                            {...register("gscience", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Mark is required"
+                                                }
+                                            })} />
 
-                            <div className="form-control w-full ">
+                                        <label className="label">
+                                            {errors.gscience?.type === 'required' && <span className="label-text-alt text-red-500">{errors.gscience.message}</span>}
+                                        </label>
+                                    </div>
+
+                                </div> : <></>
+                            }
+
+
+                            {/* upload image */}
+                            <div className=''>
                                 <label className="label">
-                                    <span className="label-text">School Name   </span>
+                                    <span className="label-text">Upload marksheet</span>
                                 </label>
-                                <input type="text" placeholder="Enter School Name" className="input input-bordered w-full "
-                                    {...register("sclname", {
-                                        required: {
-                                            value: true,
-                                            message: 'School Name is required'
-                                        }
-                                    })} />
-                                <label className="label">
-                                    {errors.sclname?.type === 'required' && <span className="label-text-alt text-red-500">{errors.sclname.message}</span>}
+                                <label for="inputTagfile">
+                                    <input id="inputTagfile" onChange={handleChangeimg} type="file" className='input input-bordered w-full' required />
+                                    <br />
+                                    <span id="imageName"></span>
                                 </label>
+
                             </div>
 
+                            {
+                                sclass === "Class 3" || sclass === "Class 4" || sclass === "Class 5" ? <input className='btn btn-block btn-primary md:mt-9 ' value="Add Result" type="submit" /> : <></>
+                            }
 
-
-                            {/* ------ Bengali skill range ----*/}
-                            <div className="form-control w-full ">
-                                <label className="label">
-                                    <span className="label-text">Bengali Skill</span>
-                                </label>
-                                <select {...register("bskill")} className="select input-bordered w-full  ">
-                                    {
-                                        skills?.map(bskill =>
-                                            <option key={bskill.index} value={bskill}><span className='clsopt'>{bskill}</span></option>)
-                                    }
-
-                                </select>
-                                <label className="label">
-                                    {errors.bskill?.type === 'required' && <span className="label-text-alt text-red-500">{errors.bskill.message}</span>}
-                                </label>
-                            </div>
-                            {/* ------ English skill range ----*/}
-                            <div className="form-control w-full ">
-                                <label className="label">
-                                    <span className="label-text">English Skill</span>
-                                </label>
-                                <select {...register("eskill")} className="select input-bordered w-full  ">
-                                    {
-                                        skills?.map(eskill =>
-                                            <option key={eskill.index} value={eskill}><span className='clsopt'>{eskill}</span></option>)
-                                    }
-
-                                </select>
-                                <label className="label">
-                                    {errors.eskill?.type === 'required' && <span className="label-text-alt text-red-500">{errors.eskill.message}</span>}
-                                </label>
-                            </div>
-
-
-                            <input className='btn btn-block btn-primary md:mt-9' value="Add" type="submit" />
                         </div>
+
                     </div>
 
+                    <div className=' w-full lg:px-8 md:px-2'>
+                        {
+                            sclass === "" || sclass === "Class 1" || sclass === "Class 2" ? <input className='btn btn-block btn-primary md:mt-2' value="Add Result" type="submit" /> : <></>
+                        }
+
+                    </div>
 
                 </form>
             </div>

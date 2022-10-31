@@ -137,7 +137,7 @@ const AddChildren = () => {
                             <label for="inputTagfile">
 
                                 <FontAwesomeIcon className='spicon imgicon' icon={faCamera} />
-                                <input id="inputTagfile" onChange={handleChange} type="file" />
+                                <input id="inputTagfile" onChange={handleChange} type="file" required />
                                 <br />
                                 <span id="imageName"></span>
                             </label>

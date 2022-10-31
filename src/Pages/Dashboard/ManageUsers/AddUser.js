@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import Loader from '../../Loader/Loader';
 import { useNavigate } from 'react-router-dom';
 
 const AddUser = () => {
@@ -12,14 +11,11 @@ const AddUser = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [
         createUserWithEmailAndPassword,
-
-        loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
     const [
         signInWithEmailAndPassword,
-        loading1,
     ] = useSignInWithEmailAndPassword(auth);
     const [sendEmailVerification, sending, errorv] = useSendEmailVerification(
         auth
@@ -29,7 +25,6 @@ const AddUser = () => {
     if (error || errorv) {
         signInError = <p className='text-red-500'>{error?.message}</p>
     }
-
 
     const onSubmit = async data => {
 
@@ -76,16 +71,7 @@ const AddUser = () => {
                         }
                     })
             })
-
-
-
-
     }
-
-
-
-
-
 
 
     return (
