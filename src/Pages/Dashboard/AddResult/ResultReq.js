@@ -7,9 +7,9 @@ import { faNoteSticky } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 
-const AddResult = () => {
+const ResultReq = () => {
     const navigate = useNavigate();
-    const { data: childrens, isLoading } = useQuery('childrens', () => fetch(`http://localhost:5000/allchildren`, {
+    const { data: requests, isLoading } = useQuery('requests', () => fetch(`http://localhost:5000/resultrequests`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -93,4 +93,4 @@ const AddResult = () => {
     );
 };
 
-export default AddResult;
+export default ResultReq;

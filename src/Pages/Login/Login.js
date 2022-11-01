@@ -4,7 +4,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Loading/Loading';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
@@ -65,8 +65,7 @@ const Login = () => {
 
     let sError;
     const navigate = useNavigate();
-    const location = useLocation();
-    let from = location.state?.from?.pathname || "/dashboard";
+
     if (error) {
 
         sError = <p className='text-red-500'> {error.message}</p>
@@ -80,7 +79,7 @@ const Login = () => {
     }
 
     if (user) {
-        navigate(from, { replace: true })
+        navigate("/dashboard")
     }
     return (
         <div className='h-screen flex justify-center items-center px-5'>

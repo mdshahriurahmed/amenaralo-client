@@ -1,4 +1,4 @@
-import { faCircleUser, faHandsHoldingChild, faUsersGear, faEnvelopeOpenText, faBell, faNoteSticky } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faHandsHoldingChild, faUsersGear, faEnvelopeOpenText, faBell, faNoteSticky, faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -80,6 +80,11 @@ const Dashboard = () => {
                                 <li><Link to="/dashboard/manage-childrens" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faHandsHoldingChild} /></span> Manage Childrens</Link></li>
                                 <li><Link to="/dashboard/add-result" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faNoteSticky} /></span> Add Result</Link></li>
                                 <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faEnvelopeOpenText} /></span> Leave Request</Link></li>
+                                {
+                                    role === "Admin" || role === "Moderator" ?
+                                        <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faClipboardCheck} /></span> Result Request</Link></li> : <></>
+                                }
+
 
                             </ul>
 
