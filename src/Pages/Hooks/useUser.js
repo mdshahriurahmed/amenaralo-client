@@ -5,6 +5,7 @@ const useUser = user => {
 
     useEffect(() => {
         const email = user?.email;
+
         if (email) {
             fetch(`http://localhost:5000/loginuser/${user.email}`, {
                 method: 'GET',

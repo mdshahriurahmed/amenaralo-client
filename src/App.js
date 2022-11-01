@@ -10,6 +10,7 @@ import Loading from './Pages/Loading/Loading';
 import RequireAuth from './Pages/Login/RequireAuth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
+import useUser from './Pages/Hooks/useUser';
 
 
 
@@ -52,6 +53,7 @@ function App() {
   }, [])
 
   const [user] = useAuthState(auth);
+  const [userdetail] = useUser(user)
   return (
     <div className="App min-h-screen">
       {
@@ -155,41 +157,47 @@ function App() {
                 }></Route>
 
                 {/* calling routes of manage user section */}
-                <Route path='/dashboard/manage-users' element={
-                  <RequireAuth>
-                    <Suspense fallback={<div><Loader></Loader></div>}>
-                      <ManageUsers></ManageUsers>
-                    </Suspense>
-                  </RequireAuth>
-                }></Route>
-                <Route path='/dashboard/manage-users/view-users' element={
-                  <RequireAuth>
-                    <Suspense fallback={<div><Loader></Loader></div>}>
-                      <ViewUser></ViewUser>
-                    </Suspense>
-                  </RequireAuth>
-                }></Route>
-                <Route path='/dashboard/manage-users/promote-users' element={
-                  <RequireAuth>
-                    <Suspense fallback={<div><Loader></Loader></div>}>
-                      <PromoteUser></PromoteUser>
-                    </Suspense>
-                  </RequireAuth>
-                }></Route>
-                <Route path='/dashboard/manage-users/remove-user' element={
-                  <RequireAuth>
-                    <Suspense fallback={<div><Loader></Loader></div>}>
-                      <RemoveUser></RemoveUser>
-                    </Suspense>
-                  </RequireAuth>
-                }></Route>
-                <Route path='/dashboard/manage-users/add-user' element={
-                  <RequireAuth>
-                    <Suspense fallback={<div><Loader></Loader></div>}>
-                      <AddUser></AddUser>
-                    </Suspense>
-                  </RequireAuth>
-                }></Route>
+                {
+                  userdetail.role === "Admin" ?
+                    <>
+                      <Route path='/dashboard/manage-users' element={
+                        <RequireAuth>
+                          <Suspense fallback={<div><Loader></Loader></div>}>
+                            <ManageUsers></ManageUsers>
+                          </Suspense>
+                        </RequireAuth>
+                      }></Route>
+                      <Route path='/dashboard/manage-users/view-users' element={
+                        <RequireAuth>
+                          <Suspense fallback={<div><Loader></Loader></div>}>
+                            <ViewUser></ViewUser>
+                          </Suspense>
+                        </RequireAuth>
+                      }></Route>
+                      <Route path='/dashboard/manage-users/promote-users' element={
+                        <RequireAuth>
+                          <Suspense fallback={<div><Loader></Loader></div>}>
+                            <PromoteUser></PromoteUser>
+                          </Suspense>
+                        </RequireAuth>
+                      }></Route>
+                      <Route path='/dashboard/manage-users/remove-user' element={
+                        <RequireAuth>
+                          <Suspense fallback={<div><Loader></Loader></div>}>
+                            <RemoveUser></RemoveUser>
+                          </Suspense>
+                        </RequireAuth>
+                      }></Route>
+                      <Route path='/dashboard/manage-users/add-user' element={
+                        <RequireAuth>
+                          <Suspense fallback={<div><Loader></Loader></div>}>
+                            <AddUser></AddUser>
+                          </Suspense>
+                        </RequireAuth>
+                      }></Route>
+                    </> : <></>
+                }
+
 
                 {/* calling routes manage children */}
                 <Route path='/dashboard/manage-childrens' element={

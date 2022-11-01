@@ -67,9 +67,9 @@ const ResultForm = () => {
                         let result;
                         if (data.clstitle === "Class 1" || data.clstitle === "Class 2") {
                             result = {
-                                s_id: children.s_id,
-                                register_id: children._id,
-                                name: children.name,
+                                s_id: children?.s_id,
+                                register_id: children?._id,
+                                name: children?.name,
                                 exam: data.exam,
                                 clstitle: data.clstitle,
                                 yr: data.year_v,
@@ -78,15 +78,15 @@ const ResultForm = () => {
                                 English: data.english,
                                 Mathematics: data.mathematics,
                                 status: "pending",
-                                addedby: userdetail.name,
+                                addedby: userdetail?.name,
                                 viewed: "no"
                             }
                         }
                         else if (data.clstitle === "Class 3" || data.clstitle === "Class 4" || data.clstitle === "Class 5") {
                             result = {
-                                s_id: children.s_id,
-                                register_id: children._id,
-                                name: children.name,
+                                s_id: children?.s_id,
+                                register_id: children?._id,
+                                name: children?.name,
                                 exam: data.exam,
                                 clstitle: data.clstitle,
                                 yr: data.year_v,
@@ -325,8 +325,8 @@ const ResultForm = () => {
                                 <label className="label">
                                     <span className="label-text">Upload marksheet</span>
                                 </label>
-                                <label for="inputTagfile">
-                                    <input id="inputTagfile" onChange={handleChangeimg} type="file" className='file-input file-input-bordered file-input-md w-full' required />
+                                <label for="inputTagfile1">
+                                    <input id="inputTagfile1" onChange={handleChangeimg} type="file" className='file-input file-input-bordered file-input-md w-full' required />
                                     <br />
 
                                 </label>
@@ -359,8 +359,12 @@ const ResultForm = () => {
                         <img src={children?.img} alt="" />
 
                     </div>
-                </div>
 
+                </div>
+                <h1 className='mt-1 font-bold text-primary text-xl'>{children?.name}</h1>
+
+                <p className='mt-1 text-sm font-semibold text-secondary '>{children?.clstitle}  |   ID: {children?.s_id}</p>
+                <button className="btn btn-xs btn-primary mt-2">View Details</button>
             </div>
         </div>
     );

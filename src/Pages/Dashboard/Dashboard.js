@@ -72,7 +72,11 @@ const Dashboard = () => {
                                 </div>
 
                                 <li><Link to="/dashboard/profile" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faCircleUser} /></span> Profile</Link></li>
-                                <li><Link to="/dashboard/manage-users" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faUsersGear} /></span> Manage Users</Link></li>
+                                {
+                                    role === "Admin" ? <li><Link to="/dashboard/manage-users" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faUsersGear} /></span> Manage Users</Link></li> : <></>
+                                }
+
+
                                 <li><Link to="/dashboard/manage-childrens" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faHandsHoldingChild} /></span> Manage Childrens</Link></li>
                                 <li><Link to="/dashboard/add-result" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faNoteSticky} /></span> Add Result</Link></li>
                                 <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faEnvelopeOpenText} /></span> Leave Request</Link></li>
