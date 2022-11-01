@@ -8,15 +8,22 @@ import Loader from '../../Loader/Loader';
 import "./ResultForm.css"
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 import { storage } from '../../../firebasestorage';
+import useUser from '../../Hooks/useUser';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const ResultForm = () => {
+    const [user] = useAuthState(auth);
+    const [userdetail] = useUser(user)
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const { _id } = useParams();
     const id = _id;
     const navigate = useNavigate();
+    const [loadspin, setLoad] = useState(false)
     const [image, setImg] = useState(null);
     const [p_url, setUrl] = useState(null);
     const years = ["2021", "2022", "2023", "2024", "2025",];
+    const exams = ["1st Term", "2nd Term", "Final"];
     const [sclass, setSclass] = useState("")
     const { data: children, isLoading } = useQuery('children', () => fetch(`http://localhost:5000/children/${id}`, {
         method: 'GET',
@@ -38,18 +45,16 @@ const ResultForm = () => {
 
         }
     }
-    let imerror;
+
     const handleChangeimg = e => {
         if (e.target.files[0]) {
             setImg(e.target.files[0])
         }
-        else {
-            return (imerror = <p className='text-start text-red-500'>Please choose image</p>)
-        }
+
     }
     const imgname = new_id + image?.name
     const onSubmit = async data => {
-
+        setLoad(true)
         const imageRef = ref(storage, `${imgname}`)
 
         uploadBytes(imageRef, image)
@@ -59,59 +64,65 @@ const ResultForm = () => {
 
                         // code to send data on database
                         setUrl(url)
-                        console.log(url);
-                        // const newID = {
-                        //     cid: new_id
-                        // }
-                        // const Childrens = {
-                        //     s_id: new_id,
-                        //     name: data.name,
-                        //     fname: data.fname,
-                        //     mname: data.mname,
-                        //     mobile: data.mobile,
-                        //     address: data.address,
-                        //     fnid: data.fnid,
-                        //     mnid: data.mnid,
-                        //     dob: data.dob,
-                        //     dobn: data.dobn,
-                        //     sclname: data.sclname,
-                        //     clstitle: data.clstitle,
-                        //     cclass: data.clstitle,
-                        //     bskill: data.bskill,
-                        //     eskill: data.eskill,
-                        //     img: `${url}`
-                        // }
-                        // fetch('http://localhost:5000/Childrens', {
-                        //     method: 'POST',
-                        //     headers: {
-                        //         'content-type': 'application/json',
-                        //     },
-                        //     body: JSON.stringify(Childrens)
-                        // })
-                        //     .then(res => res.json())
-                        //     .then(inserted => {
-                        //         if (inserted.insertedId) {
-                        //             fetch(`http://localhost:5000/currentid/635ceb379dfb9c79856d6103`, {
-                        //                 method: 'POST',
-                        //                 headers: {
-                        //                     'content-type': 'application/json',
-                        //                 },
-                        //                 body: JSON.stringify(newID)
-                        //             })
+                        let result;
+                        if (data.clstitle === "Class 1" || data.clstitle === "Class 2") {
+                            result = {
+                                s_id: children.s_id,
+                                register_id: children._id,
+                                name: children.name,
+                                exam: data.exam,
+                                clstitle: data.clstitle,
+                                yr: data.year_v,
+                                img: url,
+                                Bangla: data.bangla,
+                                English: data.english,
+                                Mathematics: data.mathematics,
+                                status: "pending",
+                                addedby: userdetail.name,
+                                viewed: "no"
+                            }
+                        }
+                        else if (data.clstitle === "Class 3" || data.clstitle === "Class 4" || data.clstitle === "Class 5") {
+                            result = {
+                                s_id: children.s_id,
+                                register_id: children._id,
+                                name: children.name,
+                                exam: data.exam,
+                                clstitle: data.clstitle,
+                                yr: data.year_v,
+                                img: url,
+                                Bangla: data.bangla,
+                                English: data.english,
+                                Mathematics: data.mathematics,
+                                bgs: data.bgstudies,
+                                rgs: data.religion,
+                                gs: data.gscience,
+                                status: "pending",
+                                viewed: "no"
 
-                        //                 .then(res => res.json())
-                        //                 .then(data1 => {
-                        //                     toast.success('Children Added Successfully');
-                        //                     reset();
-                        //                     setImg(null)
-                        //                     navigate('/dashboard/manage-childrens')
-                        //                 })
+                            }
+                        }
 
-                        //         }
-                        //         else {
-                        //             toast.error('Failled to add the children');
-                        //         }
-                        //     })
+                        fetch('http://localhost:5000/result', {
+                            method: "POST",
+                            headers: {
+                                'content-type': 'application/json',
+                            },
+                            body: JSON.stringify(result)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                setLoad(false)
+                                if (data.success) {
+                                    toast.success("Result added successfully");
+                                    reset();
+                                }
+                                else {
+                                    reset();
+                                    toast.error("This result already exist")
+                                }
+                            })
+
 
                     }).catch(error => {
                         console.log(error.message);
@@ -125,16 +136,16 @@ const ResultForm = () => {
         <div className='py-16 w-full shadow-lg border border-accent rounded-md px-8 flex flex-row'>
 
             <div className='width-c-form1'>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className="px-5 text-start">
                     <p className='md:text-start md:pl-8 md:mb-5'><i>Note: please select class to get all options</i></p>
                     <div className='flex md:flex-row flex-col w-full'>
-                        <div className='md:w-3/6 md:px-8'>
+                        <div className='md:w-3/6 md:px-3'>
                             {/* class */}
                             <div className="form-control w-full ">
                                 <label className="label">
                                     <span className="label-text">Class</span>
                                 </label>
-                                <select {...register("clstitle")} className="select input-bordered w-full  " onChange={handleChange}>
+                                <select {...register("clstitle")} className="select input-bordered w-full select-sm " onChange={handleChange}>
                                     {
                                         classes?.map(cls =>
                                             <option key={cls._id} value={cls?.clstitle}><span className='clsopt'>{cls?.clstitle}</span></option>)
@@ -146,16 +157,16 @@ const ResultForm = () => {
                                 </label>
                             </div>
                         </div>
-                        <div className='md:w-3/6 md:px-8'>
+                        <div className='md:w-3/6 md:px-3'>
                             {/* years*/}
                             <div className="form-control w-full ">
                                 <label className="label">
                                     <span className="label-text">Year</span>
                                 </label>
-                                <select {...register("year_v")} className="select input-bordered w-full  " onChange={handleChange}>
+                                <select {...register("year_v")} className="select input-bordered w-full select-sm " >
                                     {
                                         years?.map(yr =>
-                                            <option value={yr}><span className='clsopt'>{yr}</span></option>)
+                                            <option key={yr.indexOf} value={yr}><span className='clsopt'>{yr}</span></option>)
                                     }
 
                                 </select>
@@ -164,10 +175,28 @@ const ResultForm = () => {
                                 </label>
                             </div>
                         </div>
+                        <div className='md:w-3/6 md:px-3'>
+                            {/* Exam*/}
+                            <div className="form-control w-full ">
+                                <label className="label">
+                                    <span className="label-text">Exam</span>
+                                </label>
+                                <select {...register("exam")} className="select input-bordered w-full select-sm " >
+                                    {
+                                        exams?.map(xm =>
+                                            <option key={xm.indexOf} value={xm}><span className='clsopt'>{xm}</span></option>)
+                                    }
+
+                                </select>
+                                <label className="label">
+                                    {errors.exam?.type === 'required' && <span className="label-text-alt text-red-500">{errors.exam.message}</span>}
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                     <div className='flex md:flex-row flex-col w-full'>
-                        <div className='md:w-3/6 w-full lg:px-8 md:px-2'>
+                        <div className='md:w-3/6 w-full lg:px-3 md:px-2'>
 
                             {/* ----Bangla------- */}
 
@@ -175,7 +204,7 @@ const ResultForm = () => {
                                 <label className="label">
                                     <span className="label-text">Bangla</span>
                                 </label>
-                                <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                <input type="number" placeholder="Enter Mark" className="input input-bordered w-full input-sm"
                                     {...register("bangla", {
                                         required: {
                                             value: true,
@@ -195,7 +224,7 @@ const ResultForm = () => {
                                 <label className="label">
                                     <span className="label-text">Mathematics</span>
                                 </label>
-                                <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                <input type="number" placeholder="Enter Mark" className="input input-bordered w-full input-sm"
                                     {...register("mathematics", {
                                         required: {
                                             value: true,
@@ -215,7 +244,7 @@ const ResultForm = () => {
                                         <label className="label">
                                             <span className="label-text">Bangladesh and Global Studies</span>
                                         </label>
-                                        <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                        <input type="number" placeholder="Enter Mark" className="input input-bordered w-full input-sm"
                                             {...register("bgstudies", {
                                                 required: {
                                                     value: true,
@@ -231,7 +260,7 @@ const ResultForm = () => {
                                         <label className="label">
                                             <span className="label-text">Religious Studies</span>
                                         </label>
-                                        <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                        <input type="number" placeholder="Enter Mark" className="input input-bordered w-full input-sm"
                                             {...register("religion", {
                                                 required: {
                                                     value: true,
@@ -248,13 +277,13 @@ const ResultForm = () => {
 
 
                         </div>
-                        <div className='md:w-3/6 w-full lg:px-8 md:px-2'>
+                        <div className='md:w-3/6 w-full lg:px-3 md:px-2'>
                             {/* ---- English------- */}
                             <div className="form-control w-full ">
                                 <label className="label">
                                     <span className="label-text">English</span>
                                 </label>
-                                <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                <input type="number" placeholder="Enter Mark" className="input input-bordered w-full input-sm"
                                     {...register("english", {
                                         required: {
                                             value: true,
@@ -274,7 +303,7 @@ const ResultForm = () => {
                                         <label className="label">
                                             <span className="label-text">General Science</span>
                                         </label>
-                                        <input type="number" placeholder="Enter Mark" className="input input-bordered w-full "
+                                        <input type="number" placeholder="Enter Mark" className="input input-bordered w-full input-sm"
                                             {...register("gscience", {
                                                 required: {
                                                     value: true,
@@ -297,36 +326,41 @@ const ResultForm = () => {
                                     <span className="label-text">Upload marksheet</span>
                                 </label>
                                 <label for="inputTagfile">
-                                    <input id="inputTagfile" onChange={handleChangeimg} type="file" className='input input-bordered w-full' required />
+                                    <input id="inputTagfile" onChange={handleChangeimg} type="file" className='file-input file-input-bordered file-input-md w-full' required />
                                     <br />
-                                    <span id="imageName"></span>
+
                                 </label>
 
                             </div>
 
-                            {
-                                sclass === "Class 3" || sclass === "Class 4" || sclass === "Class 5" ? <input className='btn btn-block btn-primary md:mt-9 ' value="Add Result" type="submit" /> : <></>
-                            }
+                            <div className='md:mt-1'>
+                                {
+                                    sclass === "Class 3" || sclass === "Class 4" || sclass === "Class 5" ? <input className='btn btn-block btn-sm btn-primary md:mt-12 ' value="Add Result" type="submit" /> : <></>
+                                }
+                            </div>
 
                         </div>
 
                     </div>
 
-                    <div className=' w-full lg:px-8 md:px-2'>
+                    <div className=' w-full lg:px-3 md:px-2'>
                         {
-                            sclass === "" || sclass === "Class 1" || sclass === "Class 2" ? <input className='btn btn-block btn-primary md:mt-2' value="Add Result" type="submit" /> : <></>
+                            sclass === "" || sclass === "Class 1" || sclass === "Class 2" ? <input className='btn btn-block btn-primary md:mt-2 btn-sm' value="Add Result" type="submit" /> : <></>
                         }
 
                     </div>
 
                 </form>
+                {loadspin ? <Loader></Loader> : <></>}
             </div>
             <div className='width-c-form2'>
                 <div className="avatar">
                     <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src={children?.img} alt="" />
+
                     </div>
                 </div>
+
             </div>
         </div>
     );
