@@ -82,7 +82,7 @@ const Dashboard = () => {
                                 <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faEnvelopeOpenText} /></span> Leave Request</Link></li>
                                 {
                                     role === "Admin" || role === "Moderator" ?
-                                        <li><Link to="/dashboard" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faClipboardCheck} /></span> Result Request</Link></li> : <></>
+                                        <li><Link to="/dashboard/resul-request" className='text-start text-xl text-base-100 '><span> <FontAwesomeIcon icon={faClipboardCheck} /></span> Result Request</Link></li> : <></>
                                 }
 
 

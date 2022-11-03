@@ -28,45 +28,51 @@ const ResultReq = () => {
                         <tr>
 
                             <th>Name</th>
-                            <th className='responsivetable'>Contact</th>
                             <th className='s-code'>Class</th>
+                            <th className='responsivetable'>Status</th>
                             <th>Action</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            childrens?.map((children, index) => {
+                            requests?.map((children, index) => {
                                 const _id = children?._id;
-                                return (
-                                    <tr>
 
-                                        <td>
-                                            <div className="flex items-center space-x-3">
-                                                <div className="avatar">
-                                                    <div className="mask mask-squircle w-12 h-12">
-                                                        <img src={children?.img} alt="Upload Please" />
+                                return (
+
+
+                                    children.status === "pending" ?
+                                        <tr>
+                                            <td>
+                                                <div className="flex items-center space-x-3">
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle w-12 h-12">
+                                                            <img src={children?.img} alt="Upload Please" />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div className="font-bold">{children?.name}</div>
+                                                        <div className="text-sm opacity-50">ID: {children.s_id}</div>
                                                     </div>
                                                 </div>
-                                                <div>
-                                                    <div className="font-bold">{children?.name}</div>
-                                                    <div className="text-sm opacity-50">ID: {children.s_id}</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className='responsivetable'>
-                                            {children?.mobile}
+                                            </td>
 
-                                        </td>
-                                        <td className='s-code'>
-                                            {children?.cclass}
-                                        </td>
-                                        <th>
-                                            <button onClick={() => { navigate(`/dashboard/add-result/result-form/${_id}`) }} className="btn btn-primary btn-xs detail-btn-u">Add Result</button>
-                                            <FontAwesomeIcon className="text-primary eye-icon" icon={faNoteSticky} />
-                                        </th>
+                                            <td className='s-code'>
+                                                {children?.clstitle}
+                                            </td>
+                                            <td className='responsivetable'>
+                                                {children?.viewed}
+                                            </td>
+                                            <th>
+                                                <button onClick={() => { navigate(`/dashboard/approve-result/${_id}`) }} className="btn btn-primary btn-xs detail-btn-u">View</button>
+                                                <FontAwesomeIcon className="text-primary eye-icon" icon={faNoteSticky} />
+                                            </th>
 
-                                    </tr>
+                                        </tr> :
+                                        <></>
+
+
                                 )
                             })
 
@@ -80,8 +86,8 @@ const ResultReq = () => {
                         <tr>
 
                             <th>Name</th>
-                            <th className='responsivetable'>Contact</th>
                             <th className='s-code'>Class</th>
+                            <th className='responsivetable'>Status</th>
                             <th>Action</th>
 
                         </tr>

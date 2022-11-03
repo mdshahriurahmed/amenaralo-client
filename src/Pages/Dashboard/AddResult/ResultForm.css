@@ -6,3 +6,15 @@
 .width-c-form2 {
     width: 30%;
 }
+
+@media screen and (max-width:767px) {
+    .width-c-form1 {
+        width: 100%;
+        border-right: none;
+    }
+
+    .width-c-form2 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

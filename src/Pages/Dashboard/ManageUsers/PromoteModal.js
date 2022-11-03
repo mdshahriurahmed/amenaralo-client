@@ -12,7 +12,7 @@ const PromoteModal = ({ cuser, refetch }) => {
             }
         })
             .then(res => {
-                if (res.status === 403) {
+                if (res.status === 404) {
                     toast.error('Failed to create admin');
                 }
                 return res.json()

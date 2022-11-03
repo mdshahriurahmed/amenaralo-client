@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loader from '../../Loader/Loader';
 import "./ResultForm.css"
@@ -18,7 +18,7 @@ const ResultForm = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const { _id } = useParams();
     const id = _id;
-    const navigate = useNavigate();
+
     const [loadspin, setLoad] = useState(false)
     const [image, setImg] = useState(null);
     const [p_url, setUrl] = useState(null);
@@ -80,7 +80,7 @@ const ResultForm = () => {
                                 Mathematics: data.mathematics,
                                 status: "pending",
                                 addedby: userdetail?.name,
-                                viewed: "no"
+                                viewed: "Not Viewed"
                             }
                         }
                         else if (data.clstitle === "Class 3" || data.clstitle === "Class 4" || data.clstitle === "Class 5") {
@@ -100,7 +100,8 @@ const ResultForm = () => {
                                 rgs: data.religion,
                                 gs: data.gscience,
                                 status: "pending",
-                                viewed: "no"
+                                viewed: "Not Viewed",
+                                addedby: userdetail?.name,
 
                             }
                         }
@@ -135,13 +136,13 @@ const ResultForm = () => {
             })
     }
     return (
-        <div className='py-16 w-full shadow-lg border border-accent rounded-md px-8 flex flex-row'>
+        <div className='py-16 w-full shadow-lg border border-accent rounded-md md:px-8 px-1 flex flex-col-reverse md:flex-row'>
 
             <div className='width-c-form1'>
                 <form onSubmit={handleSubmit(onSubmit)} className="px-5 text-start">
                     <p className='md:text-start md:pl-8 md:mb-5'><i>Note: please select class to get all options</i></p>
                     <div className='flex md:flex-row flex-col w-full'>
-                        <div className='md:w-3/6 md:px-3'>
+                        <div className='md:w-3/6 md:px-3 px-1'>
                             {/* class */}
                             <div className="form-control w-full ">
                                 <label className="label">
@@ -337,7 +338,7 @@ const ResultForm = () => {
 
                             <div className='md:mt-1'>
                                 {
-                                    sclass === "Class 3" || sclass === "Class 4" || sclass === "Class 5" ? <input className='btn btn-block btn-sm btn-primary md:mt-12 ' value="Add Result" type="submit" /> : <></>
+                                    sclass === "Class 3" || sclass === "Class 4" || sclass === "Class 5" ? <input className='btn btn-block btn-sm btn-primary md:mt-12 mt-5' value="Add Result" type="submit" /> : <></>
                                 }
                             </div>
 
@@ -347,7 +348,7 @@ const ResultForm = () => {
 
                     <div className=' w-full lg:px-3 md:px-2'>
                         {
-                            sclass === "" || sclass === "Class 1" || sclass === "Class 2" ? <input className='btn btn-block btn-primary md:mt-2 btn-sm' value="Add Result" type="submit" /> : <></>
+                            sclass === "" || sclass === "Class 1" || sclass === "Class 2" ? <input className='btn btn-block btn-primary md:mt-2 btn-sm mt-5' value="Add Result" type="submit" /> : <></>
                         }
 
                     </div>

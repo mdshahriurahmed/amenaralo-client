@@ -13,7 +13,8 @@ import auth from './firebase.init';
 import useUser from './Pages/Hooks/useUser';
 
 
-
+const ApproveResult = React.lazy(() => import('./Pages/Dashboard/AddResult/ApproveResult'));
+const ResultReq = React.lazy(() => import('./Pages/Dashboard/AddResult/ResultReq'));
 const Home = React.lazy(() => import('./Pages/Home/Home'));
 const ForgetPass = React.lazy(() => import('./Pages/Login/ForgetPass'));
 const Dashboard = React.lazy(() => import('./Pages/Dashboard/Dashboard'));
@@ -246,6 +247,30 @@ function App() {
                     </Suspense>
                   </RequireAuth>
                 }></Route>
+
+                {/* calling routes to handle result request */}
+                {
+                  userdetail.role === "Admin" || userdetail.role === "Moderator" ?
+                    <>
+                      <Route path='/dashboard/resul-request' element={
+                        <RequireAuth>
+                          <Suspense fallback={<div><Loader></Loader></div>}>
+                            <ResultReq></ResultReq>
+                          </Suspense>
+                        </RequireAuth>
+                      }></Route>
+
+                      <Route path='/dashboard/approve-result/:_id' element={
+                        <RequireAuth>
+                          <Suspense fallback={<div><Loader></Loader></div>}>
+                            <ApproveResult></ApproveResult>
+                          </Suspense>
+                        </RequireAuth>
+                      }></Route>
+                    </>
+                    : <></>
+                }
+
               </Route>
             </Routes>
             {user ? <></> : <Footer></Footer>}
