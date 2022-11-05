@@ -66,7 +66,7 @@ const ResultReq = () => {
                                             </td>
                                             <th>
                                                 <button onClick={() => { navigate(`/dashboard/approve-result/${_id}`) }} className="btn btn-primary btn-xs detail-btn-u">View</button>
-                                                <FontAwesomeIcon className="text-primary eye-icon" icon={faNoteSticky} />
+                                                <FontAwesomeIcon onClick={() => { navigate(`/dashboard/approve-result/${_id}`) }} className="text-primary eye-icon" icon={faNoteSticky} />
                                             </th>
 
                                         </tr> :

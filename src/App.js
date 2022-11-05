@@ -12,6 +12,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import useUser from './Pages/Hooks/useUser';
 
+const AnalyticsView = React.lazy(() => import('./Pages/Analytics/AnalyticsView'));
 const Analytics = React.lazy(() => import('./Pages/Analytics/Analytics'));
 const ApproveResult = React.lazy(() => import('./Pages/Dashboard/AddResult/ApproveResult'));
 const ResultReq = React.lazy(() => import('./Pages/Dashboard/AddResult/ResultReq'));
@@ -109,6 +110,10 @@ function App() {
               </Route>
               <Route path='/analytics' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <Analytics></Analytics>
+              </Suspense>}>
+              </Route>
+              <Route path='/analytics-view/:id' element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <AnalyticsView></AnalyticsView>
               </Suspense>}>
               </Route>
 

@@ -9,7 +9,7 @@ const MarkModal = (result) => {
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box relative">
                     <label htmlFor="see-marks" className="btn btn-xs btn-circle bg-primary border border-primary text-white hover:bg-base-100 hover:border-primary hover:text-primary absolute right-2 top-2">✕</label>
-                    <img src={result?.result?.markshet} alt="" />
+                    <img src={result?.result?.markshet} alt="" className='w-full max-h-96' />
 
                 </div>
             </div>

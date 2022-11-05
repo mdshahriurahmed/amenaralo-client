@@ -8,9 +8,12 @@ import { useQuery } from 'react-query';
 import Loader from '../Loader/Loader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import "../Dashboard/ManageUsers/Viewuse.css"
+import { useNavigate } from 'react-router-dom';
 
 
 const Analytics = () => {
+    const navigate = useNavigate();
     const { data: childrens, isLoading } = useQuery('childrens', () => fetch(`http://localhost:5000/allchildren`, {
         method: 'GET',
         headers: {
@@ -29,9 +32,6 @@ const Analytics = () => {
 
                     </p>
                 </div>
-
-
-
             </div>
             <div className='mt-8 md:mt-28  md:px-16 px-6'>
                 <div className='flexible-prob'>
@@ -56,7 +56,7 @@ const Analytics = () => {
                         <div className='p_width2'>
                             <h1 className='common_head  mb-4 md:mb-8'>View Our Student Progress</h1>
                             <div className='p-5  rounded rounded-lg '>
-                                <table className="table w-full border border-base-100 border-2">
+                                <table className="table w-full border border-base-100 border-2 z-0">
 
                                     <thead>
                                         <tr>
@@ -71,11 +71,12 @@ const Analytics = () => {
                                     <tbody>
                                         {
                                             childrens?.map((children, index) => {
+                                                const id = children._id;
                                                 return (
                                                     <tr>
 
                                                         <td>
-                                                            <div className="flex items-center space-x-3">
+                                                            <div className="flex items-center space-x-3 ">
                                                                 <div className="avatar">
                                                                     <div className="mask mask-squircle w-12 h-12">
                                                                         <img src={children?.img} alt="Upload Please" />
@@ -92,7 +93,7 @@ const Analytics = () => {
                                                             {children?.cclass}
                                                         </td>
                                                         <th>
-                                                            <button className="btn btn-accent btn-xs detail-btn-u">view</button>
+                                                            <button onClick={() => { navigate(`/analytics-view/${id}`) }} className="btn btn-accent btn-xs detail-btn-u">view</button>
                                                             <FontAwesomeIcon className="text-accent eye-icon" icon={faEye} />
                                                         </th>
 
