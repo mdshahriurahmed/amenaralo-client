@@ -80,7 +80,8 @@ const ResultForm = () => {
                                 Mathematics: data.mathematics,
                                 status: "pending",
                                 addedby: userdetail?.name,
-                                viewed: "Not Viewed"
+                                viewed: "Not Viewed",
+                                comment: "n/a"
                             }
                         }
                         else if (data.clstitle === "Class 3" || data.clstitle === "Class 4" || data.clstitle === "Class 5") {
@@ -102,6 +103,7 @@ const ResultForm = () => {
                                 status: "pending",
                                 viewed: "Not Viewed",
                                 addedby: userdetail?.name,
+                                comment: "n/a"
 
                             }
                         }

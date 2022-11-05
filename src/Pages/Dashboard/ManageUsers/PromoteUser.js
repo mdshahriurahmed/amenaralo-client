@@ -80,7 +80,6 @@ const PromoteUser = () => {
 
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
-
                             <th>Action</th>
                         </tr>
                     </tfoot>

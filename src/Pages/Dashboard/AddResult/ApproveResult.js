@@ -1,13 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loader from '../../Loader/Loader';
+import DeclineModal from './DeclineModal';
+import MarkModal from './MarkModeal';
+
 import "./ResultForm.css"
 const ApproveResult = () => {
     const navigate = useNavigate();
     const { _id } = useParams();
     const id = _id;
+    const [resultinfo, setResult] = useState([]);
     const { data: result, isLoading } = useQuery('result', () => fetch(`http://localhost:5000/resultdetails/${id}`, {
         method: 'GET',
         headers: {
@@ -34,7 +39,7 @@ const ApproveResult = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     navigate("/dashboard/resul-request")
-                    toast.success('Promoted Successfully');
+                    toast.success('Result Approved');
                 }
             })
 
@@ -109,7 +114,8 @@ const ApproveResult = () => {
                             </div>
                         </div>
                         <div className='mt-3 flex flex-row justify-start'>
-                            <button className=' hover:bg-primary bg-base-100 border border-primary px-3 rounded rounded-lg hover:text-base-100 text-xs text-primary mr-3 py-1 font-semibold'>DECLINE</button>
+
+                            <label htmlFor="declinemodal" onClick={() => { setResult(result) }} className=' hover:bg-primary bg-base-100 border border-primary px-3 rounded rounded-lg hover:text-base-100 text-xs text-primary mr-3 py-1 font-semibold cursor-pointer'>DECLINE</label>
                             <button onClick={approve} className=' bg-primary hover:bg-base-100 hover:border hover:border-primary px-3 rounded rounded-lg text-base-100 text-xs hover:text-primary py-1 font-semibold'> APPROVE</button>
                         </div>
 
@@ -125,12 +131,23 @@ const ApproveResult = () => {
                         <h1 className='mt-1 font-bold text-primary text-xl'>{result?.name}</h1>
 
                         <p className='mt-1 text-sm font-semibold text-secondary '>{result?.clstitle}  |   ID: {result?.s_id}</p>
-                        <button className="btn btn-xs btn-primary mt-2 px-3">View Marksheet</button>
+                        <label htmlFor="see-marks" className="btn btn-xs btn-primary mt-2 px-3">View Marksheet</label>
+
                         <p className='mt-3 text-xs font-semibold text-base-300 '>Added By: {result?.addedby}</p>
                     </div>
                 </div>
                     :
                     <></>
+
+            }
+            <MarkModal
+                key={id}
+                result={result}></MarkModal>
+            {
+                resultinfo && <DeclineModal
+                    key={id}
+                    resultinfo={resultinfo}
+                    setResult={setResult}></DeclineModal>
             }
         </div>
     );

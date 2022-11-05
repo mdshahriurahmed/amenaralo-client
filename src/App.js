@@ -12,7 +12,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import useUser from './Pages/Hooks/useUser';
 
-
+const Analytics = React.lazy(() => import('./Pages/Analytics/Analytics'));
 const ApproveResult = React.lazy(() => import('./Pages/Dashboard/AddResult/ApproveResult'));
 const ResultReq = React.lazy(() => import('./Pages/Dashboard/AddResult/ResultReq'));
 const Home = React.lazy(() => import('./Pages/Home/Home'));
@@ -105,6 +105,10 @@ function App() {
 
               <Route path='/login' element={<Suspense fallback={<div><Loader></Loader></div>}>
                 <Login></Login>
+              </Suspense>}>
+              </Route>
+              <Route path='/analytics' element={<Suspense fallback={<div><Loader></Loader></div>}>
+                <Analytics></Analytics>
               </Suspense>}>
               </Route>
 

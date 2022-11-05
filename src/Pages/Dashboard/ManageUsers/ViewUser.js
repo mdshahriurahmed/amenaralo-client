@@ -27,7 +27,7 @@ const ViewUser = () => {
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
                             <th>Details</th>
-                            <th className='s-code'>Short Code</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -58,9 +58,7 @@ const ViewUser = () => {
                                             <button className="btn btn-accent btn-xs detail-btn-u">details</button>
                                             <FontAwesomeIcon className="text-accent eye-icon" icon={faEye} />
                                         </th>
-                                        <td className='s-code'>
-                                            AA-2
-                                        </td>
+
                                     </tr>
                                 )
                             })
@@ -77,7 +75,7 @@ const ViewUser = () => {
                             <th>Name</th>
                             <th className='responsivetable'>Contact</th>
                             <th>Details</th>
-                            <th className='s-code'>Short Code</th>
+
                         </tr>
                     </tfoot>
 

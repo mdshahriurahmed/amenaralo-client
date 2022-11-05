@@ -32,9 +32,9 @@ const Header = () => {
             className={`${activemenu === "what_we_do" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`} >WHAT WE DO</Link>
         <Link onClick={() => {
             setOpen(false)
-            setActivemenu("progress")
-        }} to='/pipeline'
-            className={`${activemenu === "progress" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`}>PROGRESS ANALYSIS</Link>
+            setActivemenu("ANALYTICS")
+        }} to='/analytics'
+            className={`${activemenu === "ANALYTICS" ? "bg-primary text-white px-3 rounded" : "bg-base-100"} ml-5`}>ANALYTICS</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("media")
@@ -80,9 +80,9 @@ const Header = () => {
             className={`${activemenu === "what_we_do" ? "bg-primary text-white  " : "bg-base-100"} md:px-16 px-6 py-1`} >WHAT WE DO</Link>
         <Link onClick={() => {
             setOpen(false)
-            setActivemenu("progress")
-        }} to='/pipeline'
-            className={`${activemenu === "progress" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`}>PROGRESS ANALYSIS</Link>
+            setActivemenu("ANALYTICS")
+        }} to='/analytics'
+            className={`${activemenu === "ANALYTICS" ? "bg-primary text-white " : "bg-base-100"} md:px-16 px-6 py-1`}>ANALYTICS</Link>
         <Link onClick={() => {
             setOpen(false)
             setActivemenu("media")
