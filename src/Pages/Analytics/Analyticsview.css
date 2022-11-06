@@ -1,0 +1,41 @@
+.class1grph {
+    width: 305px;
+
+}
+
+.gridgraph {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 40px;
+}
+
+.width-c-form3 {
+    width: 80%;
+    border-right: thin solid rgb(180, 179, 179);
+}
+
+.width-c-form4 {
+    width: 20%;
+}
+
+@media screen and (max-width:930px) {
+    .gridgraph {
+
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width:767px) {
+    .width-c-form3 {
+        width: 100%;
+        border-right: none;
+    }
+
+    .width-c-form4 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

@@ -81,7 +81,8 @@ const ResultForm = () => {
                                 status: "pending",
                                 addedby: userdetail?.name,
                                 viewed: "Not Viewed",
-                                comment: "n/a"
+                                comment: "n/a",
+                                cclass: children?.cclass
                             }
                         }
                         else if (data.clstitle === "Class 3" || data.clstitle === "Class 4" || data.clstitle === "Class 5") {
@@ -103,7 +104,8 @@ const ResultForm = () => {
                                 status: "pending",
                                 viewed: "Not Viewed",
                                 addedby: userdetail?.name,
-                                comment: "n/a"
+                                comment: "n/a",
+                                cclass: children?.cclass
 
                             }
                         }
