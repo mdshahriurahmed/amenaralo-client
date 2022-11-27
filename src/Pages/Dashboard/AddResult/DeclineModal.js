@@ -12,7 +12,7 @@ const DeclineModal = ({ resultinfo, setResult }) => {
         const cmnt = {
             comment: data.cmn1
         }
-        fetch(`http://localhost:5000/declined/${id}`, {
+        fetch(`https://amenaralo.up.railway.app/declined/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

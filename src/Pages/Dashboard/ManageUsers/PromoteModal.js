@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const PromoteModal = ({ cuser, refetch }) => {
     const { email, role, name, img } = cuser;
     const makeModerator = () => {
-        fetch(`http://localhost:5000/user/make-moderator/${email}`, {
+        fetch(`https://amenaralo.up.railway.app/user/make-moderator/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -8,7 +8,7 @@ const Story = () => {
 
     const r_address = 'story_details'
 
-    const { data: story, isLoading } = useQuery('story', () => fetch(`http://localhost:5000/story`, {
+    const { data: story, isLoading } = useQuery('story', () => fetch(`https://amenaralo.up.railway.app/story`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

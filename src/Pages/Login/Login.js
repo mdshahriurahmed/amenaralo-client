@@ -27,7 +27,7 @@ const Login = () => {
         }
 
 
-        fetch(`http://localhost:5000/isuser/${data.email}`, {
+        fetch(`https://amenaralo.up.railway.app/isuser/${data.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -39,7 +39,7 @@ const Login = () => {
 
                 if (data2 === true) {
 
-                    fetch(`http://localhost:5000/CurrentUser/${data.email}`, {
+                    fetch(`https://amenaralo.up.railway.app/CurrentUser/${data.email}`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

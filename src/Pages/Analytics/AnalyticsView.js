@@ -16,7 +16,7 @@ const AnalyticsView = () => {
 
     useEffect(() => {
         setLoad(true)
-        fetch(`http://localhost:5000/view-a-result?id=${id}`, {
+        fetch(`https://amenaralo.up.railway.app/view-a-result?id=${id}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

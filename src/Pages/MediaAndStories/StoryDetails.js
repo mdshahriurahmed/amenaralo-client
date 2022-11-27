@@ -10,7 +10,7 @@ const StoryDetails = () => {
     const { _id } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:5000/story/${_id}`;
+        const url = `https://amenaralo.up.railway.app/story/${_id}`;
         fetch(url, {
             method: 'GET'
         })

@@ -32,7 +32,7 @@ const AddUser = () => {
     const onSubmit = async data => {
         setLoading(true);
         await createUserWithEmailAndPassword(data.email, data.password);
-        fetch(`http://localhost:5000/user/${prevuser.email}`, {
+        fetch(`https://amenaralo.up.railway.app/user/${prevuser.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -52,7 +52,7 @@ const AddUser = () => {
                     mobile: data.mobile,
                     img: "https://firebasestorage.googleapis.com/v0/b/amenar-alo.appspot.com/o/image?alt=media&token=34521aaf-949c-4c9c-9466-3b24aea283a4"
                 }
-                fetch('http://localhost:5000/Users', {
+                fetch('https://amenaralo.up.railway.app/Users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

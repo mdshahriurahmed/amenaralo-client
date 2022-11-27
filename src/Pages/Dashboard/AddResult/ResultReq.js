@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ResultReq = () => {
     const navigate = useNavigate();
-    const { data: requests, isLoading } = useQuery('requests', () => fetch(`http://localhost:5000/resultrequests`, {
+    const { data: requests, isLoading } = useQuery('requests', () => fetch(`https://amenaralo.up.railway.app/resultrequests`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

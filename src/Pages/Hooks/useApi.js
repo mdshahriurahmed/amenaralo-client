@@ -4,7 +4,7 @@ const useApi = () => {
     const [api, setApi] = useState('');
     useEffect(() => {
 
-        setApi("http://localhost:5000")
+        setApi("https://amenaralo.up.railway.app")
 
     }, [])
     return [api];

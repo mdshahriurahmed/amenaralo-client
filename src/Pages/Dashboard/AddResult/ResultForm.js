@@ -25,13 +25,13 @@ const ResultForm = () => {
     const years = ["2021", "2022", "2023", "2024", "2025",];
     const exams = ["1st Term", "2nd Term", "Final"];
     const [sclass, setSclass] = useState("")
-    const { data: children, isLoading } = useQuery('children', () => fetch(`http://localhost:5000/children/${id}`, {
+    const { data: children, isLoading } = useQuery('children', () => fetch(`https://amenaralo.up.railway.app/children/${id}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
         }
     }).then(res => res.json()));
-    const { data: classes, isLoading1 } = useQuery('classes', () => fetch(`http://localhost:5000/classes`).then(res => res.json()));
+    const { data: classes, isLoading1 } = useQuery('classes', () => fetch(`https://amenaralo.up.railway.app/classes`).then(res => res.json()));
     if (isLoading || isLoading1) {
         return <Loader></Loader>
     }
@@ -110,7 +110,7 @@ const ResultForm = () => {
                             }
                         }
 
-                        fetch('http://localhost:5000/result', {
+                        fetch('https://amenaralo.up.railway.app/result', {
                             method: "POST",
                             headers: {
                                 'content-type': 'application/json',

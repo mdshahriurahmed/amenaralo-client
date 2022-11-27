@@ -6,7 +6,7 @@ import "./Viewuse.css"
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 const ViewUser = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/alluser', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://amenaralo.up.railway.app/alluser', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

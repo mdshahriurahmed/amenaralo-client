@@ -12,7 +12,7 @@ const Gallery = () => {
 
 
     const [gimage, setGimage] = useState(null);
-    const { data: gallery, isLoading, refetch } = useQuery('gallery', () => fetch(`http://localhost:5000/gallery`, {
+    const { data: gallery, isLoading, refetch } = useQuery('gallery', () => fetch(`https://amenaralo.up.railway.app/gallery`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

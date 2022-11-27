@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AddResult = () => {
     const navigate = useNavigate();
-    const { data: childrens, isLoading } = useQuery('childrens', () => fetch(`http://localhost:5000/allchildren`, {
+    const { data: childrens, isLoading } = useQuery('childrens', () => fetch(`https://amenaralo.up.railway.app/allchildren`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

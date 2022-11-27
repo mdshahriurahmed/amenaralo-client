@@ -9,7 +9,7 @@ import "./ViewChildrens"
 
 const RemoveChildren = () => {
     const [cchild, setCchild] = useState([])
-    const { data: childrens, isLoading, refetch } = useQuery('childrens', () => fetch('http://localhost:5000/allchildren', {
+    const { data: childrens, isLoading, refetch } = useQuery('childrens', () => fetch('https://amenaralo.up.railway.app/allchildren', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

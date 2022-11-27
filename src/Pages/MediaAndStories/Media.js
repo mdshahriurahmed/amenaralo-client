@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 const Media = () => {
 
     const r_address = 'media_details'
-    const { data: media, isLoading } = useQuery('media', () => fetch(`http://localhost:5000/media`, {
+    const { data: media, isLoading } = useQuery('media', () => fetch(`https://amenaralo.up.railway.app/media`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

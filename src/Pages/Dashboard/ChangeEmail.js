@@ -54,7 +54,7 @@ const ChangeEmail = () => {
                     email: email
                 }
 
-                fetch(`http://localhost:5000/usernew1/${mobile}`, {
+                fetch(`https://amenaralo.up.railway.app/usernew1/${mobile}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json',

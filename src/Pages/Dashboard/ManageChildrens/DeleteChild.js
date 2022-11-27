@@ -8,7 +8,7 @@ const DeleteChild = ({ cchild, refetch, setCchild }) => {
     const { cclass, s_id, name, img, _id } = cchild;
     const handleDelete = _id => {
 
-        fetch(`http://localhost:5000/delete-child/${_id}`, {
+        fetch(`https://amenaralo.up.railway.app/delete-child/${_id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
