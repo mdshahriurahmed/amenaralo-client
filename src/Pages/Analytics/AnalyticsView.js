@@ -16,7 +16,7 @@ const AnalyticsView = () => {
 
     useEffect(() => {
         setLoad(true)
-        fetch(`https://amenaralo.up.railway.app/view-a-result?id=${id}`, {
+        fetch(`https://amenaralo-server.vercel.app/view-a-result?id=${id}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

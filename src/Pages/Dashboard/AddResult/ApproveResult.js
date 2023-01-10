@@ -13,7 +13,7 @@ const ApproveResult = () => {
     const { _id } = useParams();
     const id = _id;
     const [resultinfo, setResult] = useState([]);
-    const { data: result, isLoading } = useQuery('result', () => fetch(`https://amenaralo.up.railway.app/resultdetails/${id}`, {
+    const { data: result, isLoading } = useQuery('result', () => fetch(`https://amenaralo-server.vercel.app/resultdetails/${id}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -24,7 +24,7 @@ const ApproveResult = () => {
     }
 
     const approve = () => {
-        fetch(`https://amenaralo.up.railway.app/approved/${id}`, {
+        fetch(`https://amenaralo-server.vercel.app/approved/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

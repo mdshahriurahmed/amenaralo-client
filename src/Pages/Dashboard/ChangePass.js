@@ -60,7 +60,7 @@ const ChangePass = () => {
                         email: user.email,
                         password: password,
                     }
-                    fetch(`https://amenaralo.up.railway.app/CurrentUser/${user.email}`, {
+                    fetch(`https://amenaralo-server.vercel.app/CurrentUser/${user.email}`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

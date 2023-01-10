@@ -10,7 +10,7 @@ import "./Viewuse.css"
 
 const PromoteUser = () => {
     const [cuser, setCuser] = useState([])
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://amenaralo.up.railway.app/alluser', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://amenaralo-server.vercel.app/alluser', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

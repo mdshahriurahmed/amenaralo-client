@@ -10,7 +10,7 @@ const MediaDetails = () => {
     const { _id } = useParams();
 
     useEffect(() => {
-        const url = `https://amenaralo.up.railway.app/media/${_id}`;
+        const url = `https://amenaralo-server.vercel.app/media/${_id}`;
         fetch(url, {
             method: 'GET'
         })

@@ -31,9 +31,9 @@ const AddChildren = () => {
     }, [])
 
 
-    const { data: classes, isLoading1 } = useQuery('classes', () => fetch(`https://amenaralo.up.railway.app/classes`).then(res => res.json()));
+    const { data: classes, isLoading1 } = useQuery('classes', () => fetch(`https://amenaralo-server.vercel.app/classes`).then(res => res.json()));
 
-    const { data: currentid, isLoading, refetch } = useQuery('currentid', () => fetch(`https://amenaralo.up.railway.app/currentid`).then(res => res.json()));
+    const { data: currentid, isLoading, refetch } = useQuery('currentid', () => fetch(`https://amenaralo-server.vercel.app/currentid`).then(res => res.json()));
 
     if (isLoading || isLoading1) {
         return <Loader></Loader>
@@ -82,7 +82,7 @@ const AddChildren = () => {
                             eskill: data.eskill,
                             img: `${url}`
                         }
-                        fetch('https://amenaralo.up.railway.app/Childrens', {
+                        fetch('https://amenaralo-server.vercel.app/Childrens', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json',
@@ -92,7 +92,7 @@ const AddChildren = () => {
                             .then(res => res.json())
                             .then(inserted => {
                                 if (inserted.insertedId) {
-                                    fetch(`https://amenaralo.up.railway.app/currentid/635ceb379dfb9c79856d6103`, {
+                                    fetch(`https://amenaralo-server.vercel.app/currentid/635ceb379dfb9c79856d6103`, {
                                         method: 'POST',
                                         headers: {
                                             'content-type': 'application/json',

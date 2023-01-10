@@ -6,7 +6,7 @@ import "./Viewuse.css"
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 const ViewUser = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://amenaralo.up.railway.app/alluser', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://amenaralo-server.vercel.app/alluser', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

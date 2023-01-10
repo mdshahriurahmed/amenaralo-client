@@ -54,7 +54,7 @@ const ChangeEmail = () => {
                     email: email
                 }
 
-                fetch(`https://amenaralo.up.railway.app/usernew1/${mobile}`, {
+                fetch(`https://amenaralo-server.vercel.app/usernew1/${mobile}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json',

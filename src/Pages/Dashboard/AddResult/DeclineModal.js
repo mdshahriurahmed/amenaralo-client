@@ -12,7 +12,7 @@ const DeclineModal = ({ resultinfo, setResult }) => {
         const cmnt = {
             comment: data.cmn1
         }
-        fetch(`https://amenaralo.up.railway.app/declined/${id}`, {
+        fetch(`https://amenaralo-server.vercel.app/declined/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

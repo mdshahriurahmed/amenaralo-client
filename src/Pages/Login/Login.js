@@ -27,7 +27,7 @@ const Login = () => {
         }
 
 
-        fetch(`https://amenaralo.up.railway.app/isuser/${data.email}`, {
+        fetch(`https://amenaralo-server.vercel.app/isuser/${data.email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -39,7 +39,7 @@ const Login = () => {
 
                 if (data2 === true) {
 
-                    fetch(`https://amenaralo.up.railway.app/CurrentUser/${data.email}`, {
+                    fetch(`https://amenaralo-server.vercel.app/CurrentUser/${data.email}`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

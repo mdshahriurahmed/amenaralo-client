@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const DeleteModal = ({ cuser, refetch, setCuser }) => {
     const { email, role, name, img } = cuser;
     const handleDelete = email => {
-        fetch(`https://amenaralo.up.railway.app/delete-user/${email}`, {
+        fetch(`https://amenaralo-server.vercel.app/delete-user/${email}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
